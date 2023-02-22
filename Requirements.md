@@ -13,3 +13,7 @@
 | *Postconditions* | - The customer . <br> - The customer . |
 | *Normal flow* | 1. The customer accesses .<br> 2. The system shows .<br> 3. The customer selects  |
 | *Alternative flows and exceptions* | 1. . |
+
+## User stories
+
+## Domain model
