@@ -10,9 +10,12 @@ Helping FEUP’s students and faculty manage their time and achieve their goals 
 * Feature 2 - Accumulates offers at FEUP’s bar as a reward for focusing during a pre-determined time. 
 * Feature 3 - Graph showing the time spent focused during a month period. 
 * Feature 4 - Blocks other apps during focused time.
+* Feature 5 - List of places to study in/around FEUP.
+* Feature 6 - Indicates how many free seats are there at the library.
 
 ## Assumptions and Dependencies
 
 * Students and faculty's SIGARRA login. 
 * FEUP wants to contribute with rewards at the bar. 
 * FEUP wants to contribute to a scholarship for a students in need.
+* Libraries occupancy system.
