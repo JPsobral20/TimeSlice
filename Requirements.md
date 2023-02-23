@@ -6,7 +6,7 @@
 
 |||
 | --- | --- |
-| *Name* | Study Planner |
+| *Name* | TimeSlice |
 | *Actor* |  Customer | 
 | *Description* | The customer times is studies or other jobs and by making that efford get a reward (coins in the app). |
 | *Preconditions* | - The customer is a student or a faculty member at FEUP. |
