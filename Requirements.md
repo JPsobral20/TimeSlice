@@ -23,4 +23,4 @@
 
 ## Domain model
 
-<img width="350" alt="UML" src="https://user-images.githubusercontent.com/114337746/221232950-55eec809-5eac-4d0e-8d28-7dd49da885d8.png">
+![UML_new](https://user-images.githubusercontent.com/114337746/222102861-95b9a8ba-ac06-4c45-af8d-ed2a4bc5160b.png)
