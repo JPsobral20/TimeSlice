@@ -21,6 +21,7 @@
 * As a teacher, I want to be able to pause the timer during a pomodoro session so that I can help my students if they come into my office hours without losing my progress.
 * As someone with multiple devices, I want to be able to log in so that I can track my progress.
 * As a student, I want to have be informed of the best places to study and if their occupancy.
+* As a student, I want to view the rates and comments of the places to study as to choose the best one.
 
 ## Domain model
 
