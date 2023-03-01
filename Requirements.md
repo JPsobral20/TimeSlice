@@ -22,6 +22,9 @@
 * As someone with multiple devices, I want to be able to log in so that I can track my progress.
 * As a student, I want to have be informed of the best places to study and if their occupancy.
 * As a student, I want to view the rates and comments of the places to study as to choose the best one.
+* As a user, I want to view how long I have been focused during a month period.
+* As a user, I want to view what rewards I have earned so far. 
+* As a user, I want to view how much I have contributted to FEUP's student-in-need scholarship.
 
 ## Domain model
 
