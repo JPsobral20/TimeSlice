@@ -26,15 +26,24 @@ Scenario: Customize the Pomodoro
   And I tap "OK",
   Then The time changes in the pomodoro
 ```
-* As a distracted user, I want the timer to have a vibrating alert option, as well as a sound alert, so that I can be alerted when a pomodoro session is over.
-* As someone with a phone addiction, I want the timer to have a distraction-free mode so that I can focus without being interrupted by notifications or tempted to check social media.
-* As a teacher, I want to be able to pause the timer during a pomodoro session so that I can help my students if they come into my office hours without losing my progress.
-* As someone with multiple devices, I want to be able to log in so that I can track my progress.
-* As a student, I want to have be informed of the best places to study and if their occupancy.
-* As a student, I want to view the rates and comments of the places to study as to choose the best one.
-* As a user, I want to view how long I have been focused during a month period.
-* As a user, I want to view what rewards I have earned so far. 
-* As a user, I want to view how much I have contributted to FEUP's student-in-need scholarship.
+### Story 2
+As a distracted user, I want the timer to have a vibrating alert option, as well as a sound alert, so that I can be alerted when a pomodoro session is over.
+### Story 3
+As someone with a phone addiction, I want the timer to have a distraction-free mode so that I can focus without being interrupted by notifications or tempted to check social media.
+### Story 4
+As a teacher, I want to be able to pause the timer during a pomodoro session so that I can help my students if they come into my office hours without losing my progress.
+### Story 5
+As someone with multiple devices, I want to be able to log in so that I can track my progress.
+### Story 6
+As a student, I want to have be informed of the best places to study and if their occupancy.
+### Story 7
+As a student, I want to view the rates and comments of the places to study as to choose the best one.
+### Story 8
+As a user, I want to view how long I have been focused during a month period.
+### Story 9
+As a user, I want to view what rewards I have earned so far. 
+### Story 10
+As a user, I want to view how much I have contributted to FEUP's student-in-need scholarship.
 
 ## Domain model
 
