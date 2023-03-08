@@ -49,4 +49,5 @@ As a user, I want to be able to do a task list and check what I've done so far.
 
 ## Domain model
 
-![UML](https://user-images.githubusercontent.com/114337746/222103513-c77368b5-4768-476b-9a8b-ce931c36d4bd.png)
+![UML](https://user-images.githubusercontent.com/114337746/223685499-434aafd8-49a8-43a9-a70d-8ea5354d6bea.png)
+
