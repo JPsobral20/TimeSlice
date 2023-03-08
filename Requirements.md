@@ -44,7 +44,7 @@ As a user, I want to view how long I have been focused during a month period.
 As a user, I want to view what rewards I have earned so far. 
 ### Story 10
 As a user, I want to view how much I have contributted to FEUP's student-in-need scholarship.
-### Story 10
+### Story 11
 As a user, I want to be able to do a task list and check what I've done so far.
 
 ## Domain model
