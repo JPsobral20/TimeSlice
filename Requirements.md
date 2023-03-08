@@ -15,7 +15,17 @@
 
 ## User stories
 
-* As a student, I want to be able to customize the duration of my pomodoro sessions so that I can work according to my own productivity cycles.
+### Story 1
+As a student, I want to be able to customize the duration of my pomodoro sessions so that I can work according to my own productivity cycles.
+### Acceptance tests
+```Gherkin
+Scenario: Customize the Pomodoro
+  Given A Timer
+  When I tap the number on the screen
+  And I insert a time
+  And I tap "OK",
+  Then The time changes in the pomodoro
+```
 * As a distracted user, I want the timer to have a vibrating alert option, as well as a sound alert, so that I can be alerted when a pomodoro session is over.
 * As someone with a phone addiction, I want the timer to have a distraction-free mode so that I can focus without being interrupted by notifications or tempted to check social media.
 * As a teacher, I want to be able to pause the timer during a pomodoro session so that I can help my students if they come into my office hours without losing my progress.
