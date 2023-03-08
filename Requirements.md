@@ -6,7 +6,7 @@
 |||
 | --- | --- |
 | *Name* | TimeSlice |
-| *Actor* | Costumer | 
+| *Actor* | Customer | 
 | *Description* | The costumer is able to choose a pre-planned focus timer or personalise a new one. During the focus time set the user cannot leave the app and therefore can’t be distracted by their phone. If they are focus during a pre-determined amount of time this will be rewarded with coins that can be exchanged for goods at FEUP’s bar and it will also contribute to a scholarship funded by FEUP that goes to students in need. The costumer will also be able to check how long they have been focused during a month period and check the best and empty stops at FEUP to study. |
 | *Preconditions* | - The customer is a student or a faculty member at FEUP. |
 | *Postconditions* | - The customer is rewared with goods at FEUP's bar. <br> - The customer contributes for a scholarship. |
