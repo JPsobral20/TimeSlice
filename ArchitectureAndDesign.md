@@ -11,6 +11,7 @@ For the sake of our code maintenance and to be able to understand,we diveded our
 ![Package diagram](https://user-images.githubusercontent.com/113974128/224028178-458f1259-2617-4048-94ce-c4e87d788e6b.png)
 
 ## Physical architecture
+In our appication we got 3 entities: the Firebase server, the student and the university (FEUP)
 ![Physical architecture](https://user-images.githubusercontent.com/113974128/224034510-f934d8d3-3815-4250-bf4e-e3e2606625bf.png)
 
 ## Prototype
