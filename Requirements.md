@@ -55,6 +55,9 @@ Scenario: Pause pomodoro session
   When I tap "Pause Session"
   Then The timer pauses
 ```
+
+<img width="281" alt="pause" src="https://user-images.githubusercontent.com/92645980/224037029-8ed26eab-3765-4194-bb34-953fe4334435.png">
+
 ### Story 5
 As someone with multiple devices, I want to be able to login so that I can track my progress.
 
