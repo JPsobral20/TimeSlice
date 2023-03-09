@@ -56,7 +56,10 @@ Scenario: Pause pomodoro session
   Then The timer pauses
 ```
 ### Story 5
-As someone with multiple devices, I want to be able to log in so that I can track my progress.
+As someone with multiple devices, I want to be able to login so that I can track my progress.
+
+<img width="253" alt="login" src="https://user-images.githubusercontent.com/92645980/224016061-3b92c05e-ed12-4403-93d3-c10ce93eb8b2.png">
+
 ### Acceptance tests
 ```Gherkin 
 Scenario: See my track progress
