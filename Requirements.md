@@ -58,7 +58,7 @@ Scenario: Pause pomodoro session
 ### Story 5
 As someone with multiple devices, I want to be able to login so that I can track my progress.
 
-<img width="253" alt="login" src="https://user-images.githubusercontent.com/92645980/224016061-3b92c05e-ed12-4403-93d3-c10ce93eb8b2.png">
+<img width="179" alt="login2" src="https://user-images.githubusercontent.com/92645980/224017384-45abdd24-a6ab-438a-9a3c-dbc25af15be4.png">
 
 ### Acceptance tests
 ```Gherkin 
