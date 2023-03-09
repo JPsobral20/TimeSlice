@@ -56,12 +56,11 @@ Scenario: Pause pomodoro session
   Then The timer pauses
 ```
 
-<img width="430" alt="timer" src="https://user-images.githubusercontent.com/92645980/224065274-10efea89-8e6d-4c0a-93c5-11bccaa47bce.png">
 
 ### Story 5
 As someone with multiple devices, I want to be able to login so that I can track my progress.
 
-<img width="179" alt="login2" src="https://user-images.githubusercontent.com/92645980/224017384-45abdd24-a6ab-438a-9a3c-dbc25af15be4.png">
+
 
 ### Acceptance tests
 ```Gherkin 
