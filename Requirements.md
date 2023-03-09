@@ -65,10 +65,11 @@ As someone with multiple devices, I want to be able to login so that I can track
 
 ### Acceptance tests
 ```Gherkin 
-Scenario: See my track progress
-  Given My main screen
-  When I tap "Progress"
-  Then I see my track record
+Scenario: Login the app
+  Given My login Screen
+  When I write my email
+  And I write my password
+  Then the main page appears
 ```
 ### Story 6
 As a student, I want to have be informed of the best places to study and if their occupancy.
