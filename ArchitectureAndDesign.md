@@ -1,21 +1,21 @@
-## Architecture and Design
+# Architecture and Design
 In this section we'll describe the logical and physical architectures of our project.
-### Logical architecture
-For the sake of our code maintenance and to be able to understand,we diveded our project in six parts: 
-- `auth`: Resposible for the user login in the app. The login and signup backend are done by this module.  
-- `database`: Communication between our database and some models of the app, so that the information from the cloud can be retrieved and also uploaded.  
-- `model`: Models for each structure of database.
-- `screens`: Responsible for drawing the app and allows the iteration user/application.  
-- `widgets`: Module with useful widgets created by us.
-## Package diagram
-![Package diagram](https://user-images.githubusercontent.com/113974128/224028178-458f1259-2617-4048-94ce-c4e87d788e6b.png)
+
+## Logical architecture
+For the sake of our code maintenance and to be able to understand, we diveded our project in four parts: 
+- `User Interfase`: Resposible for creating the screens and widgets that the user can see and use work on the app.
+- `Database`: Communication between our database and app business logic, so that we can withdraw the information from the cloud and also upload some other information.  
+- `TimeSlice Business Logic`: Resposible for the communication between our database and app UI. It's also responsible for the app's workflow.
+- `External Services`: In control of the communications between the app and Google services or Sigarra (FEUP).
+
+### Package diagram
+![Package diagram](https://user-images.githubusercontent.com/113974128/224291809-30074430-c6c8-4c0f-8008-a6bcca282f57.png)
 
 ## Physical architecture
-In our appication we got 3 entities: the Firebase server, the student and the university (FEUP)
-<br>
+In our appication we got 3 entities: the Firebase server, the student and the university (FEUP).
 ![Physical architecture](https://user-images.githubusercontent.com/113974128/224034510-f934d8d3-3815-4250-bf4e-e3e2606625bf.png)
 <br>
-Regarding technologies, we used Flutter (with the Dart programming language) for the frontend and Firebase for the backend
+Regarding technologies, we used Flutter (with the Dart programming language) for the frontend and Firebase for the backend.
 
 ## Prototype
 - Our prototypes implements the counter in minutes with a limit, for now, of 25 minutes.
