@@ -12,7 +12,9 @@ For the sake of our code maintenance and to be able to understand,we diveded our
 
 ## Physical architecture
 In our appication we got 3 entities: the Firebase server, the student and the university (FEUP)
+<br>
 ![Physical architecture](https://user-images.githubusercontent.com/113974128/224034510-f934d8d3-3815-4250-bf4e-e3e2606625bf.png)
+<br>
 Regarding technologies, we used Flutter (with the Dart programming language) for the frontend and Firebase for the backend
 
 ## Prototype
