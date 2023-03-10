@@ -9,7 +9,8 @@ For the sake of our code maintenance and to be able to understand, we diveded ou
 - `External Services`: In control of the communications between the app and Google services or Sigarra (FEUP).
 
 ### Package diagram
-![Package diagram](https://user-images.githubusercontent.com/113974128/224291809-30074430-c6c8-4c0f-8008-a6bcca282f57.png)
+![Package diagram](https://user-images.githubusercontent.com/113974128/224380189-cb76e21f-1f41-4f77-ba7e-ef98ebd14986.png)
+
 
 ## Physical architecture
 In our appication we got 4 entities: the Student Smartphone, the TimeSlice server, the Google server and the FEUP server.
