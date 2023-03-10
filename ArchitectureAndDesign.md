@@ -15,7 +15,7 @@ For the sake of our code maintenance and to be able to understand, we diveded ou
 In our appication we got 4 entities: the Student Smartphone, the TimeSlice server, the Google server and the FEUP server.
 ![Physical architecture](https://user-images.githubusercontent.com/113974128/224361019-cc5cf5ac-6f42-4f71-a4e1-cdfbe88ca234.png)
 <br>
-Regarding technologies, we used Flutter (with the Dart programming language) for the frontend and Firebase for the backend.
+
 
 ## Prototype
 - Our prototypes implements the counter in minutes with a limit, for now, of 25 minutes.
