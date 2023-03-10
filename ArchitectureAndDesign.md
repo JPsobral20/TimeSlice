@@ -12,8 +12,8 @@ For the sake of our code maintenance and to be able to understand, we diveded ou
 ![Package diagram](https://user-images.githubusercontent.com/113974128/224291809-30074430-c6c8-4c0f-8008-a6bcca282f57.png)
 
 ## Physical architecture
-In our appication we got 3 entities: the Firebase server, the student and the university (FEUP).
-![Physical architecture](https://user-images.githubusercontent.com/113974128/224034510-f934d8d3-3815-4250-bf4e-e3e2606625bf.png)
+In our appication we got 4 entities: the Student Smartphone, the TimeSlice server, the Google server and the FEUP server.
+![Physical architecture](https://user-images.githubusercontent.com/113974128/224361019-cc5cf5ac-6f42-4f71-a4e1-cdfbe88ca234.png)
 <br>
 Regarding technologies, we used Flutter (with the Dart programming language) for the frontend and Firebase for the backend.
 
