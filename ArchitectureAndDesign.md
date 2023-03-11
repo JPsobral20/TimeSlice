@@ -9,7 +9,7 @@ For the sake of our code maintenance and to be able to understand, we diveded ou
 - `External Services`: In control of the communications between the app and Google services or Sigarra (FEUP).
 
 ### Package diagram
-![Package diagram](https://user-images.githubusercontent.com/113974128/224380189-cb76e21f-1f41-4f77-ba7e-ef98ebd14986.png)
+![Package diagram](https://user-images.githubusercontent.com/113974128/224454024-12d2ea25-a7d4-4915-8a5e-e873e16ad835.png)
 
 
 ## Physical architecture
