@@ -21,3 +21,4 @@ In respect of the technologies used be us, we have flutter/dart for the framewor
 ## Prototype
 - Our prototypes implements the counter in minutes with a limit, for now, of 25 minutes.
 - The prototype is in a vertical image with a pre-established time in code. It has a start button for inicializing the counter and an option of pausing the counter and then the resume option.
+- The prototype got a login page, that goes directly to the timer page.
