@@ -128,6 +128,8 @@ Scenario: Look at my task list and check the task
   Then I see that task checked and the task I've checked so far
 ```
 
+<img width="248" alt="story11" src="https://user-images.githubusercontent.com/92645980/224538905-e814f108-40f6-4726-afc7-5e88dca58f52.png">
+
 ## Domain model
 
 ![UML](https://user-images.githubusercontent.com/114337746/223685499-434aafd8-49a8-43a9-a70d-8ea5354d6bea.png)
