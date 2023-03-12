@@ -87,6 +87,9 @@ Scenario: Find a nice place
   When I click on a place to study
   Then I see the place's rating, comments about it and occupancy
 ```
+
+<img width="200" alt="story6" src="https://user-images.githubusercontent.com/92645980/224554183-8097f47f-d682-4f7c-bdfb-f062f82549cd.png">
+
 ### Story 7
 As a student, I want to view the rates and comments of the places to study as to choose the best one.
 ### Acceptance tests
