@@ -115,6 +115,9 @@ Scenario: See the points i got so far
   When I click on "Rewards"
   Then I see my points 
 ```
+
+<img width="218" alt="story9" src="https://user-images.githubusercontent.com/92645980/224543783-fb2bb8ff-4ae4-4c56-81ab-6f4fb5e75d9a.png">
+
 ### Story 10
 As a user, I want to view how much I have contributed to FEUP's student-in-need scholarship.
 ### Acceptance tests
