@@ -26,6 +26,9 @@ Scenario: Customize the Pomodoro
   And I tap "OK"
   Then The time changes in the pomodoro
 ```
+
+<img width="203" alt="story1+story2" src="https://user-images.githubusercontent.com/92645980/224539902-81bc2b19-0a2e-41d0-bbc4-59b1eeef8cc6.png">
+
 ### Story 2
 As a distracted user, I want the timer to have a vibrating alert option, as well as a sound alert, so that I can be alerted when a pomodoro session is over.
 ### Acceptance tests
@@ -36,6 +39,9 @@ Scenario: Pomodoro session is over
   And I finish study
   Then The app gives a sound alert
 ```
+
+<img width="203" alt="story1+story2" src="https://user-images.githubusercontent.com/92645980/224539922-8cf7dd4f-c5aa-4723-8804-36cd87ff69be.png">
+
 ### Story 3
 As someone with a phone addiction, I want the timer to have a distraction-free mode so that I can focus without being interrupted by notifications or tempted to check social media.
 ### Acceptance tests
