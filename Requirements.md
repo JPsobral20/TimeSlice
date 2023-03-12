@@ -102,6 +102,9 @@ Scenario: See rating and comments of a talk
   When I am in the place to study's page
   Then the current rating and comments appears
 ```
+
+<img width="311" alt="story7" src="https://user-images.githubusercontent.com/92645980/224556838-22ceedd4-2c2b-4c52-ab2b-dbeee762720a.png">
+
 ### Story 8
 As a user, I want to view how long I have been focused during a month period.
 ### Acceptance tests
