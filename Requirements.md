@@ -52,6 +52,9 @@ Scenario: Distraction-free mode
   And I start the timer
   Then I can't leave the app
 ```
+
+<img width="318" alt="story3" src="https://user-images.githubusercontent.com/92645980/224555457-cc8b76a1-b089-4b71-b276-b79e1ed98ae5.png">
+
 ### Story 4
 As a teacher, I want to be able to pause the timer during a pomodoro session so that I can help my students if they come into my office hours without losing my progress.
 ### Acceptance tests
