@@ -106,6 +106,9 @@ Scenario: Look at my focus time during a month
   And I click "Change"
   Then I see my progress per month
 ```
+
+<img width="185" alt="story8" src="https://user-images.githubusercontent.com/92645980/224545618-73b82fb9-0fa9-48a7-a642-6d8ef07f2095.png">
+
 ### Story 9
 As a user, I want to view what rewards I have earned so far.
 ### Acceptance tests
@@ -127,6 +130,9 @@ Scenario: See how much I have contributed to FEUP's student-in-need scholarship
   When I click on "Contribution"
   Then I see my contribution so far
 ```
+
+<img width="184" alt="story10" src="https://user-images.githubusercontent.com/92645980/224545582-dace2c7e-66a6-4e6c-b662-f593a175a3bf.png">
+
 ### Story 11
 As a user, I want to be able to do a task list and check what I've done so far.
 ### Acceptance tests
