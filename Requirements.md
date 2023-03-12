@@ -151,5 +151,4 @@ Scenario: Look at my task list and check the task
 
 ## Domain model
 
-![UML](https://user-images.githubusercontent.com/114337746/223685499-434aafd8-49a8-43a9-a70d-8ea5354d6bea.png)
-
+![UML](https://user-images.githubusercontent.com/114337746/224555235-6792c6df-eddb-4e2e-8259-8dcb932a5787.png)
