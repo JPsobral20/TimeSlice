@@ -56,6 +56,7 @@ Scenario: Pause pomodoro session
   Then The timer pauses
 ```
 
+<img width="214" alt="story4" src="https://user-images.githubusercontent.com/92645980/224538853-7df07514-0ad8-422f-a5b5-84aa69ee4838.png">
 
 ### Story 5
 As someone with multiple devices, I want to be able to login so that I can track my progress.
