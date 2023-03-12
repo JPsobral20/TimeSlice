@@ -61,8 +61,6 @@ Scenario: Pause pomodoro session
 ### Story 5
 As someone with multiple devices, I want to be able to login so that I can track my progress.
 
-
-
 ### Acceptance tests
 ```Gherkin 
 Scenario: Login the app
@@ -71,6 +69,9 @@ Scenario: Login the app
   And I write my password
   Then the main page appears
 ```
+
+<img width="189" alt="story5" src="https://user-images.githubusercontent.com/92645980/224539028-a205629d-db14-496a-93b6-207c3edcbacd.png">
+
 ### Story 6
 As a student, I want to have be informed of the best places to study and if their occupancy.
 ### Acceptance tests
