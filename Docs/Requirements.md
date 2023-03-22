@@ -20,10 +20,10 @@ As a student, I want to be able to customize the duration of my pomodoro session
 ### Acceptance tests
 ```Gherkin
 Scenario: Customize the Pomodoro
-  Given A Timer
+  Given The Timer menu
   When I tap the number on the screen
-  And I insert a time
-  And I tap "OK"
+  And I insert a time in "Set Time"
+  And I tap "Save"
   Then The time changes in the pomodoro
 ```
 
@@ -34,9 +34,10 @@ As a distracted user, I want the timer to have a vibrating alert option, as well
 ### Acceptance tests
 ```Gherkin
 Scenario: Pomodoro session is over
-  Given A Timer
+  Given The Timer menu
   When The timer ends
   And I finish study
+  And select the option "Sound Alert"
   Then The app gives a sound alert
 ```
 
@@ -47,8 +48,9 @@ As someone with a phone addiction, I want the timer to have a distraction-free m
 ### Acceptance tests
 ```Gherkin 
 Scenario: Distraction-free mode
-  Given A student
-  When I tap "Distraction-free"
+  Given A student, the timer settings menu, the timer menu
+  When I select "Focus mode"
+  And I select "Focus mode"
   And I start the timer
   Then I can't leave the app
 ```
