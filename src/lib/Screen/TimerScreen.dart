@@ -1,14 +1,15 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:projeto/Widgets/Buttons/Timer/TimerButtonsBuilder.dart';
 
 class TimerScreen extends StatefulWidget{
   @override
-  TimerSreenState createState() => TimerSreenState.withDefaultTime();
+  TimerScreenState createState() => TimerScreenState.withDefaultTime();
 
 }
 
-class TimerSreenState extends State<TimerScreen>{
+class TimerScreenState extends State<TimerScreen>{
   double percent = 0.0;
   int Secs = 0;
   int TimeInMins;
@@ -16,12 +17,12 @@ class TimerSreenState extends State<TimerScreen>{
   Timer? timer;
   int TotalSecs;
 
-  TimerSreenState(this.TimeInMins) : this.TimeInSecs = TimeInMins * 60, this.TotalSecs = TimeInMins * 60;
-  factory TimerSreenState.withDefaultTime() {
-    return TimerSreenState(25);
+  TimerScreenState(this.TimeInMins) : this.TimeInSecs = TimeInMins * 60, this.TotalSecs = TimeInMins * 60;
+  factory TimerScreenState.withDefaultTime() {
+    return TimerScreenState(25);
   }
 
-  StartTimer(){
+  startTimer(){
 
     timer = Timer.periodic(Duration(milliseconds: 20), (_){
       setState((){
@@ -49,80 +50,28 @@ class TimerSreenState extends State<TimerScreen>{
     });
   }
 
-  stopTimer(){
-    setState(() {
-      timer?.cancel();
-    });
-  }
+  stopTimer(){ setState(() { timer?.cancel(); }); }
 
-  button_start() => ElevatedButton(
-
-    onPressed: StartTimer,
-    style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.blue,
-    ),
-    child: Padding(
-      padding: EdgeInsets.all(20.0),
-    child: Text("Start Studing",
-      style: TextStyle(
-          color: Colors.white,
-          fontSize: 22.0
-      ),
-    ),
-  ),
-  );
-
-  button_pause() => ElevatedButton(
-
-    onPressed: stopTimer,
-    style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.red,
-    ),
-    child: Padding(
-      padding: EdgeInsets.all(20.0),
-    child: Text("Pause",
-      style: TextStyle(
-          color: Colors.white,
-          fontSize: 22.0
-      ),
-    ),
-  ),
-  );
+  startButton() => TimerButtonsBuilder(onPressed: startTimer, backgroundColor: Colors.blue, text: "Start Studding",);
 
 
-  button_resume() => ElevatedButton(
+  pauseButton() => TimerButtonsBuilder(onPressed: stopTimer, backgroundColor: Colors.red, text: "Pause",);
 
-    onPressed: StartTimer,
-    style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.green,
-    ),
-    child: Padding(
-      padding: EdgeInsets.all(20.0),
-    child: Text("Resume",
-      style: TextStyle(
-          color: Colors.white,
-          fontSize: 22.0
-      ),
-    ),
-  ),
-  );
+
+  resumeButton() => TimerButtonsBuilder(onPressed: startTimer, backgroundColor: Colors.green, text: "Resume",);
 
 
   bool iscompleted(){
-    if (TimeInSecs == 0 || TotalSecs == TimeInMins*60){return true;}
+    if (TimeInSecs == 0 || TotalSecs == TimeInMins*60) return true;
     return false;
   }
 
   Widget build_buttons() {
     final isrunning = timer == null ? false : timer!.isActive;
 
-    if (iscompleted()){
-      return button_start();
-    }
+    if (iscompleted()) return startButton();
 
-    else {
-      return isrunning ? button_pause() : button_resume();
-    }
+    return isrunning ? pauseButton() : resumeButton();
   }
 
   @override

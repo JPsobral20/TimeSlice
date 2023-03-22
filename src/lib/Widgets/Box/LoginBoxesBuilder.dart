@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 
+class LoginBoxesBuilder extends StatelessWidget{
+  final String textBox;
+  final bool obscureText;
+  final TextInputType textType;
+  final String hintText;
+  final IconData icon;
 
-class EmailBox extends StatelessWidget{
-  const EmailBox({super.key});
+  const LoginBoxesBuilder({
+    super.key,
+    required this.textBox,
+    required this.obscureText,
+    required this.textType,
+    required this.hintText,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context){
@@ -10,7 +22,7 @@ class EmailBox extends StatelessWidget{
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          "Enter email",
+          textBox,
           style: TextStyle(
             color: Colors.white,
             fontSize: 16,
@@ -33,7 +45,8 @@ class EmailBox extends StatelessWidget{
           ),
           height: 60,
           child: TextField(
-            keyboardType: TextInputType.emailAddress,
+            obscureText: obscureText,
+            keyboardType: textType,
             style: TextStyle(
               color: Colors.black87
             ),
@@ -41,10 +54,10 @@ class EmailBox extends StatelessWidget{
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14),
               prefixIcon: Icon(
-                Icons.email,
+                icon,
                 color: Color(0xffffecd8)
               ),
-              hintText: "Email",
+              hintText: hintText,
               hintStyle: TextStyle(
                 color: Colors.black38
               )

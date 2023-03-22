@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto/Screen/MenuScreen.dart';
+import '../../../Screen/NavigationBar.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({super.key});
@@ -11,7 +11,7 @@ class LoginButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => MenuScreen()),);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => NavigatorBar()),);
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Color(0xffffc58d),

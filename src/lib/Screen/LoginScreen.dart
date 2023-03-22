@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:projeto/Widgets/Box/EmailBox.dart';
-import 'package:projeto/Widgets/Box/PasswordBox.dart';
-import 'package:projeto/Widgets/Buttons/ForgotPasswordButton.dart';
+import 'package:projeto/Widgets/Box/LoginBoxesBuilder.dart';
+import 'package:projeto/Widgets/Buttons/Login/ForgotPasswordButton.dart';
 import 'package:projeto/Widgets/AppTitle.dart';
-import 'package:projeto/Widgets/Buttons/LoginButton.dart';
+import 'package:projeto/Widgets/Buttons/Login/LoginButton.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -89,9 +88,21 @@ class LoginScreenState extends State<LoginScreen>{
                         ),
                       ),
                       SizedBox(height: 40.0),
-                      EmailBox(),
+                      LoginBoxesBuilder(
+                          textBox: "Enter email",
+                          obscureText: false,
+                          textType: TextInputType.emailAddress,
+                          hintText: "Email",
+                          icon: Icons.email,
+                      ),
                       SizedBox(height: 20.0),
-                      PasswordBox(),
+                      LoginBoxesBuilder(
+                          textBox: "Enter Password",
+                          obscureText: true,
+                          textType: TextInputType.visiblePassword,
+                          hintText: "Password",
+                          icon: Icons.lock,
+                      ),
                       ForgotPasswordButton(),
                       RememberLoginBox(),
                       LoginButton(),

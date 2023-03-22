@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:projeto/Widgets/Buttons/PlacesToStudyButton.dart';
-import 'package:projeto/Widgets/Buttons/Schoolarship.dart';
-import 'package:projeto/Widgets/Buttons/ShopButton.dart';
-import 'package:projeto/Widgets/Buttons/TimerButton.dart';
-import 'package:projeto/Widgets/Buttons/TrackerButton.dart';
+import 'package:projeto/Widgets/Buttons/Menu/PlacesToStudyButton.dart';
+import 'package:projeto/Widgets/Buttons/Menu/Schoolarship.dart';
+import 'package:projeto/Widgets/Buttons/Menu/ShopButton.dart';
+import 'package:projeto/Widgets/Buttons/Menu/TimerButton.dart';
+import 'package:projeto/Widgets/Buttons/Menu/TrackerButton.dart';
 
 class MenuScreen extends StatefulWidget {
   @override
