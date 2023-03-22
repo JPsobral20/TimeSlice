@@ -52,7 +52,7 @@ class TimerScreenState extends State<TimerScreen>{
 
   stopTimer(){ setState(() { timer?.cancel(); }); }
 
-  startButton() => TimerButtonsBuilder(onPressed: startTimer, backgroundColor: Colors.blue, text: "Start Studding",);
+  startButton() => TimerButtonsBuilder(onPressed: startTimer, backgroundColor: Colors.blue, text: "Start Studing",);
 
 
   pauseButton() => TimerButtonsBuilder(onPressed: stopTimer, backgroundColor: Colors.red, text: "Pause",);
