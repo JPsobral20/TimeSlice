@@ -6,12 +6,26 @@ class AppTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      "TimeSlice",
-      style: TextStyle(
-        color: Colors.blueGrey,
-        fontSize: 50,
-        fontWeight: FontWeight.bold,
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: 'Time',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 50,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextSpan(
+            text: 'Slice',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 50,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
       ),
     );
   }

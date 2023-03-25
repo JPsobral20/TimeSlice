@@ -87,7 +87,7 @@ class TimerScreenState extends State<TimerScreen>{
           ),
           width: double.infinity,
           child: Column(
-            mainAxisAlignment:  MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Padding(
