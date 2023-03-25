@@ -97,7 +97,7 @@ class LoginScreenState extends State<LoginScreen>{
                       ),
                       SizedBox(height: 20.0),
                       LoginBoxesBuilder(
-                          textBox: "Enter Password ",
+                          textBox: "Enter Password",
                           obscureText: true,
                           textType: TextInputType.visiblePassword,
                           hintText: "Password",
