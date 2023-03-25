@@ -60,7 +60,7 @@ List<Product> products = [
 
   Product(
     id:7,
-    name: "Chupa",
+    name: "Chupa ",
     price: 30,
     image: "assets/icons/lolipop.png",
   ),
