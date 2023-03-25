@@ -52,7 +52,7 @@ class ShopScreenState extends State<ShopScreen>{
                         Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            "Shop ",
+                            "Shop",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 40,
