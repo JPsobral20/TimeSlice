@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:projeto/Widgets/Box/LoginBoxesBuilder.dart';
+import 'package:projeto/Widgets/Box/Login/LoginBoxesBuilder.dart';
 import 'package:projeto/Widgets/Buttons/Login/ForgotPasswordButton.dart';
 import 'package:projeto/Widgets/AppTitle.dart';
 import 'package:projeto/Widgets/Buttons/Login/LoginButton.dart';

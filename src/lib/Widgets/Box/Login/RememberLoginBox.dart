@@ -1,8 +1,26 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 /*
 class RememberLoginBox extends StatelessWidget {
-  const RememberLoginBox({super.key});
+
+  bool rememberMe;
+
+  const RememberLoginBox({
+    super.key,
+    required this.rememberMe,
+  });
+
+  @override
+  RememberLoginBoxState createState() => RememberLoginBoxState();
+
+}
+
+class RememberLoginBoxState extends State<RememberLoginBox>{
+
+  get rememberMe => rememberMe;
+
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +31,12 @@ class RememberLoginBox extends StatelessWidget {
           Theme(
             data: ThemeData(unselectedWidgetColor: Colors.white),
             child: Checkbox(
-              value: isRememberMe,
+              value: rememberMe,
               checkColor: Colors.green,
               activeColor: Colors.white,
               onChanged: (value) {
                 setState(() {
-                  isRememberMe = value;
+                  rememberMe = value!;
                 });
               },
             ),
@@ -35,4 +53,5 @@ class RememberLoginBox extends StatelessWidget {
     );
   }
 }
-*/
+
+ */
