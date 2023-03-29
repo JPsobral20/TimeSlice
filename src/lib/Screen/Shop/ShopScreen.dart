@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projeto/Screen/Shop/Products.dart';
 import 'package:projeto/Widgets/Box/Shop/CategoriesBox.dart';
 
 import '../../Widgets/AppTitle.dart';
@@ -42,26 +43,63 @@ class ShopScreenState extends State<ShopScreen>{
                       vertical: 70.0,
                     ),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Align(
                           alignment: Alignment.topRight,
                           child: AppTitle(),
                         ),
                         SizedBox(height: 20.0),
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(
+                        Text(
                             "Shop",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 40,
                               fontWeight: FontWeight.bold,
                             ),
+                        ),
+                        SizedBox(height: 10.0),
+                        CategoriesBox(),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.all(20.0),
+                              height: 180,
+                              width: 160,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
+                                  width: 2,
+                                ),
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              child: Image.asset(products[0].image),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(0.3),
+                            )
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 5.0),
+                          child: Text(
+                            products[0].name,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
-                        CategoriesBox(),
-                      ]
+                        Text(
+                          products[0].price.toString() + "h",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        )
+                      ],
                     )
                   )
                 )
