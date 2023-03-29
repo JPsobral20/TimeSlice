@@ -58,12 +58,12 @@ Scenario: Distraction-free mode
 <img width="318" alt="story3" src="https://user-images.githubusercontent.com/92645980/224555457-cc8b76a1-b089-4b71-b276-b79e1ed98ae5.png">
 
 ### Story 4
-As a teacher, I want to be able to pause the timer during a pomodoro session so that I can help my students if they come into my office hours without losing my progress.
+As a user, I want to be able to pause the timer during a pomodoro session so that I don't lose my progress.
 ### Acceptance tests
 ```Gherkin 
 Scenario: Pause pomodoro session
-  Given A teacher that needs to help a student
-  When I tap "Pause Session"
+  Given A user that needs to stop the timer
+  When I tap the "Pause" button
   Then The timer pauses
 ```
 
@@ -79,6 +79,14 @@ Scenario: Login the app
   When I write my email
   And I write my password
   Then the main page appears
+```
+
+```Gherkin 
+Scenario: Login the app error 
+  Given My login Screen
+  When I write my email wrong
+  And I write my password wrong
+  Then An error mesagge appears
 ```
 
 <img width="189" alt="story5" src="https://user-images.githubusercontent.com/92645980/224539028-a205629d-db14-496a-93b6-207c3edcbacd.png">
