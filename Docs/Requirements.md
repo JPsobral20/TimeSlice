@@ -113,9 +113,8 @@ As a user, I want to view how long I have been focused during a month period.
 ```Gherkin 
 Scenario: Look at my focus time during a month
   Given The Progress page
-  When I change the mode to monthly
-  And I click "Change"
-  Then I see my progress per month
+  When I change the month to the one i want
+  Then I see my progress in that month
 ```
 
 <img width="185" alt="story8" src="https://user-images.githubusercontent.com/92645980/224545618-73b82fb9-0fa9-48a7-a642-6d8ef07f2095.png">
@@ -124,10 +123,10 @@ Scenario: Look at my focus time during a month
 As a user, I want to view what rewards I have earned so far.
 ### Acceptance tests
 ```Gherkin 
-Scenario: See the points i got so far
+Scenario: See the hours i got so far
   Given My main page
-  When I click on "Rewards"
-  Then I see my points 
+  When I click on "Shop Icon"
+  Then I see the hours i have worked so far
 ```
 
 <img width="218" alt="story9" src="https://user-images.githubusercontent.com/92645980/224543783-fb2bb8ff-4ae4-4c56-81ab-6f4fb5e75d9a.png">
