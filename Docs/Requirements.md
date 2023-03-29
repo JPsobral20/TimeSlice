@@ -35,9 +35,9 @@ As a distracted user, I want the timer to have a vibrating alert option, as well
 ```Gherkin
 Scenario: Pomodoro session is over
   Given The Timer menu
-  When The timer ends
+  When I select the option "Sound Alert
+  And The timer ends
   And I finish study
-  And select the option "Sound Alert"
   Then The app gives a sound alert
 ```
 
