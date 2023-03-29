@@ -35,7 +35,7 @@ As a distracted user, I want the timer to have a vibrating alert option, as well
 ```Gherkin
 Scenario: Pomodoro session is over
   Given The Timer menu
-  When I select the option "Sound Alert
+  When I select the option "Sound Alert"
   And The timer ends
   And I finish study
   Then The app gives a sound alert
@@ -48,9 +48,9 @@ As someone with a phone addiction, I want the timer to have a distraction-free m
 ### Acceptance tests
 ```Gherkin 
 Scenario: Distraction-free mode
-  Given A student, the timer settings menu, the timer menu
-  When I select "Focus mode"
-  And I select "Focus mode"
+  Given A student, the timer settings menu and the timer menu
+  When I select "Not receiving notifications during focus mode"
+  And I select "Not being able to leave app during focus mode"
   And I start the timer
   Then I can't leave the app
 ```
