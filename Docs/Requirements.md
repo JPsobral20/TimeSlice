@@ -107,7 +107,7 @@ Scenario: Find a nice place
 As a student, I want to view the rates and comments of the places to study as to choose the best one.
 ### Acceptance tests
 ```Gherkin 
-Scenario: See rating and comments of a talk
+Scenario: See rating and comments about a place
   Given A place to study
   When I am in the place to study's page
   Then the current rating and comments appears
