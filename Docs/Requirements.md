@@ -35,9 +35,9 @@ As a distracted user, I want the timer to have a vibrating alert option, as well
 ```Gherkin
 Scenario: Pomodoro session is over
   Given The Timer menu
-  When The timer ends
+  When I select the option "Sound Alert"
+  And The timer ends
   And I finish study
-  And select the option "Sound Alert"
   Then The app gives a sound alert
 ```
 
@@ -48,9 +48,9 @@ As someone with a phone addiction, I want the timer to have a distraction-free m
 ### Acceptance tests
 ```Gherkin 
 Scenario: Distraction-free mode
-  Given A student, the timer settings menu, the timer menu
-  When I select "Focus mode"
-  And I select "Focus mode"
+  Given A student, the timer settings menu and the timer menu
+  When I select "Not receiving notifications during focus mode"
+  And I select "Not being able to leave app during focus mode"
   And I start the timer
   Then I can't leave the app
 ```
@@ -58,12 +58,12 @@ Scenario: Distraction-free mode
 <img width="318" alt="story3" src="https://user-images.githubusercontent.com/92645980/224555457-cc8b76a1-b089-4b71-b276-b79e1ed98ae5.png">
 
 ### Story 4
-As a teacher, I want to be able to pause the timer during a pomodoro session so that I can help my students if they come into my office hours without losing my progress.
+As a user, I want to be able to pause the timer during a pomodoro session so that I don't lose my progress.
 ### Acceptance tests
 ```Gherkin 
 Scenario: Pause pomodoro session
-  Given A teacher that needs to help a student
-  When I tap "Pause Session"
+  Given A user that needs to stop the timer
+  When I tap the "Pause" button
   Then The timer pauses
 ```
 
@@ -79,6 +79,14 @@ Scenario: Login the app
   When I write my email
   And I write my password
   Then the main page appears
+```
+
+```Gherkin 
+Scenario: Login the app error 
+  Given My login Screen
+  When I write my email wrong
+  And I write my password wrong
+  Then An error mesagge appears
 ```
 
 <img width="189" alt="story5" src="https://user-images.githubusercontent.com/92645980/224539028-a205629d-db14-496a-93b6-207c3edcbacd.png">
@@ -99,7 +107,7 @@ Scenario: Find a nice place
 As a student, I want to view the rates and comments of the places to study as to choose the best one.
 ### Acceptance tests
 ```Gherkin 
-Scenario: See rating and comments of a talk
+Scenario: See rating and comments about a place
   Given A place to study
   When I am in the place to study's page
   Then the current rating and comments appears
@@ -113,9 +121,8 @@ As a user, I want to view how long I have been focused during a month period.
 ```Gherkin 
 Scenario: Look at my focus time during a month
   Given The Progress page
-  When I change the mode to monthly
-  And I click "Change"
-  Then I see my progress per month
+  When I change the month to the one i want
+  Then I see my progress in that month
 ```
 
 <img width="185" alt="story8" src="https://user-images.githubusercontent.com/92645980/224545618-73b82fb9-0fa9-48a7-a642-6d8ef07f2095.png">
@@ -124,10 +131,10 @@ Scenario: Look at my focus time during a month
 As a user, I want to view what rewards I have earned so far.
 ### Acceptance tests
 ```Gherkin 
-Scenario: See the points i got so far
+Scenario: See the hours i got so far
   Given My main page
-  When I click on "Rewards"
-  Then I see my points 
+  When I click on "Shop Icon"
+  Then I see the hours i have worked so far
 ```
 
 <img width="218" alt="story9" src="https://user-images.githubusercontent.com/92645980/224543783-fb2bb8ff-4ae4-4c56-81ab-6f4fb5e75d9a.png">
