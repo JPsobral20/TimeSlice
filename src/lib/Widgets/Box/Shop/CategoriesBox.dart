@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CategoriesBox extends StatefulWidget{
+  const CategoriesBox({super.key});
+
 
   @override
   CategoriesBoxState createState() => CategoriesBoxState();

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projeto/Screen/Shop/Items.dart';
 import 'package:projeto/Screen/Shop/Products.dart';
 import 'package:projeto/Widgets/Box/Shop/CategoriesBox.dart';
-
 import '../../Widgets/AppTitle.dart';
 
 class ShopScreen extends StatefulWidget{
@@ -45,60 +45,39 @@ class ShopScreenState extends State<ShopScreen>{
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Align(
+
+                        const Align(
                           alignment: Alignment.topRight,
-                          child: AppTitle(),
+                          child: AppTitle(size: 42),
                         ),
-                        SizedBox(height: 20.0),
-                        Text(
+                        const SizedBox(height: 20.0),
+                        const Text(
                             "Shop",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 40,
+                              fontSize: 38,
                               fontWeight: FontWeight.bold,
                             ),
                         ),
-                        SizedBox(height: 10.0),
+                        const SizedBox(height: 10.0),
                         CategoriesBox(),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Container(
-                              padding: EdgeInsets.all(20.0),
-                              height: 180,
-                              width: 160,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 2,
-                                ),
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              child: Image.asset(products[0].image),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(0.3),
-                            )
-                          ],
-                        ),
+                        
                         Padding(
-                          padding: EdgeInsets.symmetric(vertical: 5.0),
-                          child: Text(
-                            products[0].name,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
+                          padding: EdgeInsets.symmetric(horizontal: 7.0),
+                          child: GridView.builder(
+                            scrollDirection: Axis.vertical,
+                            shrinkWrap: true,
+                            itemCount: products.length,
+                            physics: NeverScrollableScrollPhysics(),
+                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 20.0,
+                              childAspectRatio: 0.8,
                             ),
+                            itemBuilder: (context, index) => Items(product: products[index]),
                           ),
                         ),
-                        Text(
-                          products[0].price.toString() + "h",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        )
+                        
                       ],
                     )
                   )

@@ -77,7 +77,7 @@ class LoginScreenState extends State<LoginScreen>{
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      AppTitle(),
+                      AppTitle(size: 50),
                       SizedBox(height: 40.0),
                       Text(
                         "Login Account",

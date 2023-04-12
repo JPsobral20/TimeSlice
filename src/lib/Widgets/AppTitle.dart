@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 
 
 class AppTitle extends StatelessWidget {
-  const AppTitle({super.key});
+  final double size;
+
+  const AppTitle({
+    super.key,
+    required this.size});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +17,7 @@ class AppTitle extends StatelessWidget {
             text: 'Time',
             style: TextStyle(
               color: Colors.black,
-              fontSize: 50,
+              fontSize: size,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -21,7 +25,7 @@ class AppTitle extends StatelessWidget {
             text: 'Slice',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 50,
+              fontSize: size,
               fontWeight: FontWeight.bold,
             ),
           ),
