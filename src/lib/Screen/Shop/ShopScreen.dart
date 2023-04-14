@@ -36,51 +36,54 @@ class ShopScreenState extends State<ShopScreen>{
                       ]
                     )
                   ),
-                  child: SingleChildScrollView(
-                    physics: AlwaysScrollableScrollPhysics(),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 25.0,
-                      vertical: 70.0,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-
-                        const Align(
-                          alignment: Alignment.topRight,
-                          child: AppTitle(size: 42),
+                  child: Column(
+                    children: [
+                      const Align(
+                        alignment: Alignment.topRight,
+                        child: AppTitle(size: 42),
+                      ),
+                      const SizedBox(height: 20.0),
+                      const Text(
+                        "Shop",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 38,
+                          fontWeight: FontWeight.bold,
                         ),
-                        const SizedBox(height: 20.0),
-                        const Text(
-                            "Shop",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 38,
-                              fontWeight: FontWeight.bold,
-                            ),
-                        ),
-                        const SizedBox(height: 10.0),
-                        CategoriesBox(),
-                        
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 7.0),
-                          child: GridView.builder(
-                            scrollDirection: Axis.vertical,
-                            shrinkWrap: true,
-                            itemCount: products.length,
-                            physics: NeverScrollableScrollPhysics(),
-                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 20.0,
-                              childAspectRatio: 0.8,
-                            ),
-                            itemBuilder: (context, index) => Items(product: products[index]),
+                      ),
+                      const SizedBox(height: 10.0),
+                      CategoriesBox(),
+                      SingleChildScrollView(
+                          physics: AlwaysScrollableScrollPhysics(),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 25.0,
+                            vertical: 70.0,
                           ),
-                        ),
-                        
-                      ],
-                    )
-                  )
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 7.0),
+                                child: GridView.builder(
+                                  scrollDirection: Axis.vertical,
+                                  shrinkWrap: true,
+                                  itemCount: products.length,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing: 20.0,
+                                    childAspectRatio: 0.8,
+                                  ),
+                                  itemBuilder: (context, index) => Items(product: products[index]),
+                                ),
+                              ),
+
+                            ],
+                          )
+                      )
+                    ]
+                  ),
                 )
               ]
             )
