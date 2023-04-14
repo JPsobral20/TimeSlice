@@ -38,30 +38,29 @@ class MenuScreenState extends State<MenuScreen> {
                         ]
                       )
                     ),
-                    child: SingleChildScrollView(
-                    physics: AlwaysScrollableScrollPhysics(),
+                    child: Container(
                       padding: EdgeInsets.symmetric(
                         horizontal: 25.0,
-                        vertical: 70.0,
+                        vertical: 50.0,
                       ),
                       child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          "Menu",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 40,
-                            fontWeight: FontWeight.bold
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "Menu",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 40,
+                              fontWeight: FontWeight.bold
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 50.0,),
-                        TimerButton(),
-                        PlacesToStudyButton(),
-                        ShopButton(),
-                        TrackerButton(),
-                        SchoolarshipButton(),
-                      ],
+                          SizedBox(height: 50.0,),
+                          TimerButton(),
+                          PlacesToStudyButton(),
+                          ShopButton(),
+                          TrackerButton(),
+                          SchoolarshipButton(),
+                        ],
                       ),
                     ),
                   )
