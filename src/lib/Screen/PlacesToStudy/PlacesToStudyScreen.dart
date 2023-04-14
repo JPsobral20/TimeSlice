@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:projeto/Screen/PlacesToStudy/PlacesToStudyItems.dart';
 
 import '../../Widgets/AppTitle.dart';
-import 'PlacesToStudyProducts.dart';
+import 'PlacesToStudyRooms.dart';
 
 
 class PlacesToStudyScreen extends StatefulWidget {
@@ -73,14 +73,14 @@ class PlacesToStudyScreenState extends State<PlacesToStudyScreen> {
                                   child: GridView.builder(
                                     scrollDirection: Axis.vertical,
                                     shrinkWrap: true,
-                                    itemCount: products.length,
+                                    itemCount: rooms.length,
                                     physics: NeverScrollableScrollPhysics(),
                                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 1,
                                       //crossAxisSpacing: 30.0,
                                       childAspectRatio: 1.5,
                                     ),
-                                    itemBuilder: (context, index) => PlacesToStudyItems(product: products[index]),
+                                    itemBuilder: (context, index) => PlacesToStudyItems(room: rooms[index]),
                                   ),
                                 ),
                               ],
