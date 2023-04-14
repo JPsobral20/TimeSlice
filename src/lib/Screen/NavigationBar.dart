@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto/Screen/MenuScreen.dart';
+import 'package:projeto/Screen/PlacesToStudy/PlacesToStudyScreen.dart';
 import 'package:projeto/Screen/Shop/ShopScreen.dart';
 import 'package:projeto/Screen/TimerScreen.dart';
 
@@ -18,19 +19,22 @@ class NavigatorBarState extends State<NavigatorBar> {
   Widget _pagechooser(int page){
     switch(page){
       case 0:
-      case 4:
         return TimerScreen();
-        break;
+
+      case 1:
+        return PlacesToStudyScreen();
+
       case 2:
         return ShopScreen();
-        break;
-      case 1:
+
       case 3:
         return MenuScreen();
-        break;
+
+      case 4:
+        return TimerScreen();
+
       default:
         return MenuScreen();
-        break;
     }
   }
 

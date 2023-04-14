@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:projeto/Screen/Shop/Items.dart';
-import 'package:projeto/Screen/Shop/Products.dart';
+import 'package:projeto/Screen/Shop/ShopItems.dart';
+import 'package:projeto/Screen/Shop/ShopProducts.dart';
 import 'package:projeto/Widgets/Box/Shop/CategoriesBox.dart';
 import '../../Widgets/AppTitle.dart';
 
@@ -38,12 +38,17 @@ class ShopScreenState extends State<ShopScreen>{
                   ),
                   child: Column(
                     children: [
-                      const Align(
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 20.0,
+                        )
+                      ),
+                      Align(
                         alignment: Alignment.topRight,
                         child: AppTitle(size: 42),
                       ),
-                      const SizedBox(height: 20.0),
-                      const Text(
+                      SizedBox(height: 20.0),
+                      Text(
                         "Shop",
                         style: TextStyle(
                           color: Colors.white,
@@ -51,39 +56,39 @@ class ShopScreenState extends State<ShopScreen>{
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(height: 10.0),
+                      SizedBox(height: 10.0),
                       CategoriesBox(),
-                      SingleChildScrollView(
-                          physics: AlwaysScrollableScrollPhysics(),
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 25.0,
-                            vertical: 70.0,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 7.0),
-                                child: GridView.builder(
-                                  scrollDirection: Axis.vertical,
-                                  shrinkWrap: true,
-                                  itemCount: products.length,
-                                  physics: NeverScrollableScrollPhysics(),
-                                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2,
-                                    crossAxisSpacing: 20.0,
-                                    childAspectRatio: 0.8,
+                      Expanded(
+                        child: SingleChildScrollView(
+                            //physics: AlwaysScrollableScrollPhysics(),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 25.0,
+                              vertical: 10.0,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 7.0),
+                                  child: GridView.builder(
+                                    scrollDirection: Axis.vertical,
+                                    shrinkWrap: true,
+                                    itemCount: products.length,
+                                    physics: NeverScrollableScrollPhysics(),
+                                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      crossAxisSpacing: 30.0,
+                                      childAspectRatio: 0.82,
+                                    ),
+                                    itemBuilder: (context, index) => ShopItems(product: products[index]),
                                   ),
-                                  itemBuilder: (context, index) => Items(product: products[index]),
                                 ),
-                              ),
-
-                            ],
-                          )
+                              ],
+                            )
+                        ),
                       )
-                    ]
-                  ),
+                    ],
+                  )
                 )
               ]
             )

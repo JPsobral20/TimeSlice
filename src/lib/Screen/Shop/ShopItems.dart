@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:projeto/Screen/Shop/Products.dart';
+import 'package:projeto/Screen/Shop/ShopProducts.dart';
 
-class Items extends StatelessWidget {
-  final Product product;
+class ShopItems extends StatelessWidget {
+  final ShopProduct product;
   //final Function press;
 
-  const Items({
+  const ShopItems({
     super.key,
     required this.product,
   });
