@@ -14,9 +14,9 @@ class NavigatorBarState extends State<NavigatorBar> {
   int pageIndex = 0;
   //final TimerScreen _timerScreen = TimerScreen();
   //final MenuScreen _menuScreen = new MenuScreen();
-  Widget _showpage = new TimerScreen();
+  Widget showpage = new TimerScreen();
 
-  Widget _pagechooser(int page){
+  Widget pagechooser(int page){
     switch(page){
       case 0:
         return TimerScreen();
@@ -57,13 +57,13 @@ class NavigatorBarState extends State<NavigatorBar> {
         ],
           onTap:(int tappedIndex){
             setState(() {
-              _showpage = _pagechooser(tappedIndex);
+              showpage = pagechooser(tappedIndex);
             });
           }
       ),
       body: Container(
         child: Center(
-          child: _showpage,
+          child: showpage,
         ),
       ),
     );

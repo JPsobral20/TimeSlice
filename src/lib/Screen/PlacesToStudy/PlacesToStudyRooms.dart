@@ -1,9 +1,9 @@
-class PlacesToStudyProduct{
+class PlacesToStudyRooms{
   final int id;
   final String name, description, image;
   //final Color color;
 
-  PlacesToStudyProduct({
+  PlacesToStudyRooms({
     required this.image,
     required this.name,
     required this.description,
@@ -12,57 +12,57 @@ class PlacesToStudyProduct{
   });
 }
 
-List<PlacesToStudyProduct> products = [
-  PlacesToStudyProduct(
+List<PlacesToStudyRooms> rooms = [
+  PlacesToStudyRooms(
     id:1,
-    name: "Café",
-    description: "Sala Fixe",
+    name: "Biblioteca",
+    description: "Biblioteca é Fixe",
     image: "assets/icons/coffee.png",
   ),
 
-  PlacesToStudyProduct(
+  PlacesToStudyRooms(
     id:2,
-    name: "Pão",
+    name: "Sala de estudo (B301)",
     description: "Sala Bué Fixe",
     image: "assets/icons/bread.png",
   ),
 
-  PlacesToStudyProduct(
+  PlacesToStudyRooms(
     id:3,
-    name: "Donut",
+    name: "Sala de estudo (B203)",
     description: "Sala super Fixe",
     image: "assets/icons/donut.png",
   ),
 
-  PlacesToStudyProduct(
+  PlacesToStudyRooms(
     id:4,
     name: "Sopa",
     description: "Sala memo Fixe",
     image: "assets/icons/soup.png",
   ),
 
-  PlacesToStudyProduct(
+  PlacesToStudyRooms(
     id:5,
     name: "Queque",
     description: "Sala Fixolas",
     image: "assets/icons/cupcake.png",
   ),
 
-  PlacesToStudyProduct(
+  PlacesToStudyRooms(
     id:6,
     name: "Chá",
     description: "Sala Fixinha",
     image: "assets/icons/tea.png",
   ),
 
-  PlacesToStudyProduct(
+  PlacesToStudyRooms(
     id:7,
     name: "Chupa",
     description: "Sala Fixona",
     image: "assets/icons/lolipop.png",
   ),
 
-  PlacesToStudyProduct(
+  PlacesToStudyRooms(
     id:8,
     name: "Laranja",
     description: "Sala peixe",

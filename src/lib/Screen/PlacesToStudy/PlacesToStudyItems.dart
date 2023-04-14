@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:projeto/Screen/PlacesToStudy/PlacesToStudyProducts.dart';
+import 'package:projeto/Screen/PlacesToStudy/PlacesToStudyRooms.dart';
 
 class PlacesToStudyItems extends StatelessWidget {
-  final PlacesToStudyProduct product;
+  final PlacesToStudyRooms room;
   //final Function press;
 
   const PlacesToStudyItems({
     super.key,
-    required this.product,
+    required this.room,
   });
 
   @override
@@ -27,13 +27,58 @@ class PlacesToStudyItems extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(product.name),
-              Text(product.description),
-            ],
-          )
-        ),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      width: 190,
+                      child: Text(
+                        room.name,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 26,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    SizedBox(
+                      width: 175,
+                      child: Text(
+                        room.description,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16.5,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Flexible(
+                fit: FlexFit.tight,
+                child: Padding(
+                    padding: EdgeInsets.only(top: 45, right: 30),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Image.asset(room.image),
+                      ],
+                  )
+                )
+              ),
+            ]
+          ),
+        )
       ],
     );
   }
