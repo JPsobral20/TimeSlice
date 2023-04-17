@@ -42,6 +42,7 @@ class NavigatorBarState extends State<NavigatorBar> {
   @override
   Widget build(BuildContext context){
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xffffc58d),
       bottomNavigationBar: CurvedNavigationBar(
         index: pageIndex,

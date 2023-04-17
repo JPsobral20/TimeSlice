@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:projeto/Widgets/Buttons/Timer/TimerButtonsBuilder.dart';
 
@@ -16,10 +17,18 @@ class TimerScreenState extends State<TimerScreen>{
   int TimeInSecs;
   Timer? timer;
   int TotalSecs;
+  final controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    controller.text = "0"; // Setting the initial value for the field.
+  }
 
   TimerScreenState(this.TimeInMins) : this.TimeInSecs = TimeInMins * 60, this.TotalSecs = TimeInMins * 60;
+
   factory TimerScreenState.withDefaultTime() {
-    return TimerScreenState(25);
+    return TimerScreenState(0);
   }
 
   startTimer(){
@@ -66,7 +75,7 @@ class TimerScreenState extends State<TimerScreen>{
     return false;
   }
 
-  Widget build_buttons() {
+  Widget buildButtons() {
     final isrunning = timer == null ? false : timer!.isActive;
 
     if (iscompleted()) return startButton();
@@ -77,51 +86,47 @@ class TimerScreenState extends State<TimerScreen>{
   @override
   Widget build(BuildContext context){
     return SafeArea(
-      child: Scaffold(
-        body: Container(
+      maintainBottomViewPadding: false,
+      child: Container(
           decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Color(0xffffc58d), Color(0xff51a8ff)],
-                  begin: FractionalOffset(0.7,1)
-              )
-          ),
-          width: double.infinity,
+              color: Color(0xff51a8ff),
+            ),
+          //width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(top: 20.0),
+                padding: EdgeInsets.only(top: 10.0, bottom: 20.0),
                 child: Text(
-                  "Promodoro Clock",
+                  "Pomodoro Clock",
                   style:TextStyle(
                       color: Colors.white,
                       fontSize: 40.0
                   ),
                 ),
               ),
-              Expanded(
-                child: CircularPercentIndicator(
-                    circularStrokeCap: CircularStrokeCap.round,
-                    percent: percent,
-                    animation: true,
-                    animateFromLastPercent: true,
-                    radius: 140.0,
-                    lineWidth: 22.0,
-                    progressColor: Colors.blueGrey,
-                    center: Text(
-                      "$TimeInMins".padLeft(2,"0") + ":" + "$Secs".padLeft(2,"0"),
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 80.0,
-                      ),
-                    )
-                ),
+              CircularPercentIndicator(
+                circularStrokeCap: CircularStrokeCap.round,
+                percent: percent,
+                animation: true,
+                animateFromLastPercent: true,
+                radius: 140.0,
+                lineWidth: 22.0,
+                progressColor: Colors.blueGrey,
+                center: Text(
+                  "$TimeInMins".padLeft(2,"0") + ":" + "$Secs".padLeft(2,"0"),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 80.0,
+                  ),
+                )
               ),
+
               SizedBox(height: 30.0,),
               Expanded(
                   child: Container(
-                    width: double.infinity,
+                    //width: double.infinity,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(topRight: Radius.circular(30.0), topLeft: Radius.circular(30.0)),
@@ -143,11 +148,32 @@ class TimerScreenState extends State<TimerScreen>{
                                         ),
                                       ),
                                       SizedBox(height: 10.0,),
-                                      Text(
-                                        "25",
+                                      TextFormField(
+                                        onTap: (){
+                                          setState(() {
+                                            TimeInMins = int.parse(controller.text);
+                                            TimerScreenState(int.parse(controller.text));
+                                          });
+                                        },
                                         style: TextStyle(
-                                          fontSize: 80.0,
+                                            fontSize: 80.0,
                                         ),
+                                        textAlign: TextAlign.center,
+                                        decoration: InputDecoration(
+                                          contentPadding: EdgeInsets.all(8.0),
+                                          border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(5.0),
+                                          ),
+                                        ),
+                                        controller: controller,
+                                        keyboardType: TextInputType.numberWithOptions(
+                                          decimal: false,
+                                          signed: true,
+                                        ),
+                                        inputFormatters: <TextInputFormatter>[
+                                          FilteringTextInputFormatter.allow(RegExp(r'\d')),
+                                          FilteringTextInputFormatter.digitsOnly,
+                                        ],
                                       ),
                                     ],
                                   ),
@@ -161,7 +187,7 @@ class TimerScreenState extends State<TimerScreen>{
                                           fontSize: 30.0,
                                         ),
                                       ),
-                                      SizedBox(height: 10.0,),
+                                      SizedBox(height: 15.0,),
                                       Text(
                                         "5",
                                         style: TextStyle(
@@ -175,8 +201,8 @@ class TimerScreenState extends State<TimerScreen>{
                             ),
                           ),
                           Padding(
-                              padding: EdgeInsets.symmetric(vertical: 28.0),
-                              child: build_buttons()
+                            padding: EdgeInsets.symmetric(vertical: 28.0),
+                            child: buildButtons(),
                           )
                         ],
                       ),
@@ -184,7 +210,6 @@ class TimerScreenState extends State<TimerScreen>{
                   )
               )
             ],
-          ),
         ),
       ),
     );
