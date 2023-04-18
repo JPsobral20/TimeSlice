@@ -48,7 +48,7 @@ class PlacesToStudyItems extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(height: 10),
                     SizedBox(
                       width: 175,
                       child: Text(
