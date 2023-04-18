@@ -12,7 +12,6 @@ class NavigatorBar extends StatefulWidget {
 class NavigatorBarState extends State<NavigatorBar> {
   int pageIndex = 0;
   //final TimerScreen _timerScreen = TimerScreen();
-  //final MenuScreen _menuScreen = new MenuScreen();
   Widget showpage = new TimerScreen();
 
   Widget pagechooser(int page){
