@@ -1,6 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto/Screen/MenuScreen.dart';
 import 'package:projeto/Screen/PlacesToStudy/PlacesToStudyScreen.dart';
 import 'package:projeto/Screen/Shop/ShopScreen.dart';
 import 'package:projeto/Screen/TimerScreen.dart';
@@ -28,13 +27,13 @@ class NavigatorBarState extends State<NavigatorBar> {
         return ShopScreen();
 
       case 3:
-        return MenuScreen();
+        return TimerScreen();
 
       case 4:
         return TimerScreen();
 
       default:
-        return MenuScreen();
+        return TimerScreen();
     }
   }
 
