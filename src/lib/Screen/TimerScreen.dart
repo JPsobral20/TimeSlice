@@ -22,7 +22,7 @@ class TimerScreenState extends State<TimerScreen>{
   @override
   void initState() {
     super.initState();
-    controller.text = "0"; // Setting the initial value for the field.
+    controller.text = "25"; // Setting the initial value for the field.
   }
 
   TimerScreenState(this.TimeInMins) : this.TimeInSecs = TimeInMins * 60, this.TotalSecs = TimeInMins * 60;
