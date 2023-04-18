@@ -36,7 +36,6 @@ class ShopScreenState extends State<ShopScreen>{
                       ]
                     )
                   ),
-
                   child: Column(
                     children: [
                       Padding(
