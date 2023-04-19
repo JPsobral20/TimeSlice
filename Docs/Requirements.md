@@ -27,7 +27,7 @@ Scenario: Customize the Pomodoro
   Then The time changes in the pomodoro
 ```
 
-<img width="189" alt="story2" src="https://user-images.githubusercontent.com/92645980/224540044-2d81d2f9-a2fd-45e9-9d13-943047efeb04.png">
+<img width="189" alt="story1" src="https://user-images.githubusercontent.com/113974128/233008131-a687c21c-c590-477e-bc9d-886ba335f615.png">
 
 ### Story 2
 As a distracted user, I want the timer to have a vibrating alert option, as well as a sound alert, so that I can be alerted when a pomodoro session is over.
@@ -41,7 +41,7 @@ Scenario: Pomodoro session is over
   Then The app gives a sound alert
 ```
 
-<img width="186" alt="story1" src="https://user-images.githubusercontent.com/92645980/224540035-486e7631-f5ea-4751-8e09-b394328e916f.png">
+<img width="189" alt="story2" src="https://user-images.githubusercontent.com/113974128/233008131-a687c21c-c590-477e-bc9d-886ba335f615.png">
 
 ### Story 3
 As someone with a phone addiction, I want the timer to have a distraction-free mode so that I can focus without being interrupted by notifications or tempted to check social media.
@@ -55,7 +55,7 @@ Scenario: Distraction-free mode
   Then I can't leave the app
 ```
 
-<img width="318" alt="story3" src="https://user-images.githubusercontent.com/92645980/224555457-cc8b76a1-b089-4b71-b276-b79e1ed98ae5.png">
+<img width="189" alt="story3" src="https://user-images.githubusercontent.com/113974128/233009476-877ad868-f161-4996-bfdd-a63e77b99a28.png">
 
 ### Story 4
 As a user, I want to be able to pause the timer during a pomodoro session so that I don't lose my progress.
@@ -67,7 +67,7 @@ Scenario: Pause pomodoro session
   Then The timer pauses
 ```
 
-<img width="214" alt="story4" src="https://user-images.githubusercontent.com/92645980/224538853-7df07514-0ad8-422f-a5b5-84aa69ee4838.png">
+<img width="189" alt="story4" src="https://user-images.githubusercontent.com/113974128/233010428-fc72c5b1-761b-482e-a836-7bbaa593bff0.png">
 
 ### Story 5
 As someone with multiple devices, I want to be able to login so that I can track my progress.
@@ -101,7 +101,7 @@ Scenario: Find a nice place
   Then I see the place's rating, comments about it and occupancy
 ```
 
-<img width="200" alt="story6" src="https://user-images.githubusercontent.com/92645980/224554183-8097f47f-d682-4f7c-bdfb-f062f82549cd.png">
+<img width="189" alt="story6" src="https://user-images.githubusercontent.com/92645980/224554183-8097f47f-d682-4f7c-bdfb-f062f82549cd.png">
 
 ### Story 7
 As a student, I want to view the rates and comments of the places to study as to choose the best one.
@@ -125,7 +125,7 @@ Scenario: Look at my focus time during a month
   Then I see my progress in that month
 ```
 
-<img width="185" alt="story8" src="https://user-images.githubusercontent.com/92645980/224545618-73b82fb9-0fa9-48a7-a642-6d8ef07f2095.png">
+<img width="189" alt="story8" src="https://user-images.githubusercontent.com/113974128/233011119-acc96169-d929-44c7-bab0-2694fa0d0bee.png">
 
 ### Story 9
 As a user, I want to view what rewards I have earned so far.
@@ -137,7 +137,7 @@ Scenario: See the hours i got so far
   Then I see the hours i have worked so far
 ```
 
-<img width="218" alt="story9" src="https://user-images.githubusercontent.com/92645980/224543783-fb2bb8ff-4ae4-4c56-81ab-6f4fb5e75d9a.png">
+<img width="189" alt="story9" src="https://user-images.githubusercontent.com/92645980/224543783-fb2bb8ff-4ae4-4c56-81ab-6f4fb5e75d9a.png">
 
 ### Story 10
 As a user, I want to view how much I have contributed to FEUP's student-in-need scholarship.
@@ -149,7 +149,8 @@ Scenario: See how much I have contributed to FEUP's student-in-need scholarship
   Then I see my contribution so far
 ```
 
-<img width="184" alt="story10" src="https://user-images.githubusercontent.com/92645980/224545582-dace2c7e-66a6-4e6c-b662-f593a175a3bf.png">
+<img width="189" alt="story10" src="https://user-images.githubusercontent.com/113974128/233011119-acc96169-d929-44c7-bab0-2694fa0d0bee.png">
+
 
 ### Story 11
 As a user, I want to be able to do a task list and check what I've done so far.
@@ -162,7 +163,7 @@ Scenario: Look at my task list and check the task
   Then I see that task checked and the task I've checked so far
 ```
 
-<img width="248" alt="story11" src="https://user-images.githubusercontent.com/92645980/224538905-e814f108-40f6-4726-afc7-5e88dca58f52.png">
+<img width="189" alt="story11" src="https://user-images.githubusercontent.com/113974128/233010428-fc72c5b1-761b-482e-a836-7bbaa593bff0.png">
 
 ## Domain model
 
