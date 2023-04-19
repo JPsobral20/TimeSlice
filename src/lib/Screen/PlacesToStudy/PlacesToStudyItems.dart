@@ -16,8 +16,8 @@ class PlacesToStudyItems extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-          padding: EdgeInsets.all(20.0),
-          height: 180,
+          padding: EdgeInsets.only(top: 20, right: 15, left: 15),
+          height: 197,
           decoration: BoxDecoration(
             border: Border.all(
               color: Colors.black,
@@ -27,7 +27,7 @@ class PlacesToStudyItems extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
           child: Row(
-            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
@@ -59,9 +59,24 @@ class PlacesToStudyItems extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Spacer(),
+                    TextButton(
+                      onPressed: () => print("See schedule"),
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.only(right: 0),
+                      ),
+                      child: Text(
+                        "See schedule",
+                        style: TextStyle(
+                            color: Colors.blueGrey,
+                            fontWeight: FontWeight.bold
+                        ),
+                      ),
+                   ),
                   ],
                 ),
               ),
+
               Flexible(
                 fit: FlexFit.tight,
                 child: Padding(

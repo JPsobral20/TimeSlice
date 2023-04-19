@@ -86,7 +86,7 @@ class TimerScreenState extends State<TimerScreen>{
   @override
   Widget build(BuildContext context){
     return SafeArea(
-      maintainBottomViewPadding: false,
+      //maintainBottomViewPadding: false,
       child: Container(
           decoration: BoxDecoration(
               color: Color(0xff51a8ff),
@@ -126,7 +126,7 @@ class TimerScreenState extends State<TimerScreen>{
               SizedBox(height: 30.0,),
               Expanded(
                   child: Container(
-                    //width: double.infinity,
+                    width: double.infinity,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(topRight: Radius.circular(30.0), topLeft: Radius.circular(30.0)),
@@ -149,12 +149,22 @@ class TimerScreenState extends State<TimerScreen>{
                                       ),
                                       SizedBox(height: 10.0,),
                                       TextFormField(
-                                        onTap: (){
+                                        /*
+                                        onTapOutside: (number){
                                           setState(() {
-                                            TimeInMins = int.parse(controller.text);
-                                            TimerScreenState(int.parse(controller.text));
+                                            this.TimeInMins = int.parse(number as String);
+                                            TimerScreenState(this.TimeInMins);
                                           });
                                         },
+
+                                         */
+                                        onFieldSubmitted: (number){
+                                          setState(() {
+                                            this.TimeInMins = int.parse(number);
+                                            TimerScreenState(this.TimeInMins);
+                                          });
+                                        },
+
                                         style: TextStyle(
                                             fontSize: 80.0,
                                         ),

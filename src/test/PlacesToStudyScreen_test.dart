@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:projeto/Screen/PlacesToStudy/PlacesToStudyItems.dart';
-import 'package:projeto/Screen/PlacesToStudy/PlacesToStudyRooms.dart';
 import 'package:projeto/Screen/PlacesToStudy/PlacesToStudyScreen.dart';
 import 'package:projeto/Widgets/AppTitle.dart';
 
