@@ -10,7 +10,7 @@ class CategoriesBox extends StatefulWidget{
 
 class CategoriesBoxState extends State<CategoriesBox>{
 
-  List<String> categories = ["All", "Drinks", "Snacks", "Meal"];
+  List<String> categories = ["All", "Drinks", "Snacks", "Meals"];
   int isSelected = 0;
 
   @override

@@ -17,7 +17,7 @@ class PlacesToStudyItems extends StatelessWidget {
       children: <Widget>[
         Container(
           padding: EdgeInsets.all(20.0),
-          height: 180,
+          height: 210,
           decoration: BoxDecoration(
             border: Border.all(
               color: Colors.black,
