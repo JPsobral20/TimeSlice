@@ -46,7 +46,10 @@ class PlacesToStudyScreenState extends State<PlacesToStudyScreen> {
                         ),
                         Align(
                           alignment: Alignment.topRight,
-                          child: AppTitle(size: 42),
+                          child: Padding(
+                            padding: EdgeInsets.only(right: 15),
+                            child: AppTitle(size: 42),
+                          ),
                         ),
                         SizedBox(height: 20.0),
                         Text(
