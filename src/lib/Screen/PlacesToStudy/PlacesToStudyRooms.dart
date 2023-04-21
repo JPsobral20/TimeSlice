@@ -1,71 +1,63 @@
 class PlacesToStudyRooms{
   final int id;
-  final String name, description, image;
-  //final Color color;
+  final String name, description, image, schedule;
 
   PlacesToStudyRooms({
+    required this.schedule,
     required this.image,
     required this.name,
     required this.description,
     required this.id,
-    //this.color  = Colors.white,
   });
 }
 
 List<PlacesToStudyRooms> rooms = [
   PlacesToStudyRooms(
-    id:1,
+    id: 1,
     name: "Biblioteca",
-    description: "Biblioteca é Fixe",
-    image: "assets/icons/coffee.png",
+    description: "FEUP's library is usally a nice queit place to study or read in a quiet place.",
+    image: "assets/icons/book.png",
+    schedule: "Segunda a Sexta das 8:30-19:30",
   ),
 
   PlacesToStudyRooms(
-    id:2,
-    name: "Sala de estudo (B301)",
-    description: "Sala Bué Fixe",
-    image: "assets/icons/bread.png",
+    id: 2,
+    name: "Sala de PC (B208)",
+    description: "This study room is a bit loud but has computers and it's good to study with friends",
+    image: "assets/icons/computer.png",
+    schedule: "Segunda das 14:00- 17:30",
   ),
 
   PlacesToStudyRooms(
-    id:3,
-    name: "Sala de estudo (B203)",
-    description: "Sala super Fixe",
-    image: "assets/icons/donut.png",
+    id: 3,
+    name: "Sala de PC (B213)",
+    description: "This study room is a bit loud but has computers and it's good to study with friends",
+    image: "assets/icons/computer.png",
+    schedule: "Terça das 15:00- 17:00",
   ),
 
   PlacesToStudyRooms(
-    id:4,
-    name: "Sopa",
-    description: "Sala memo Fixe",
-    image: "assets/icons/soup.png",
+    id: 4,
+    name: "Sala de estudo (B121)",
+    description: "This study room is a bit loud but it's a nice place to study with friends.",
+    image: "assets/icons/paper.png",
+    schedule: "Quarta das 9:00- 13:00",
   ),
 
   PlacesToStudyRooms(
-    id:5,
-    name: "Queque",
-    description: "Sala Fixolas",
-    image: "assets/icons/cupcake.png",
+    id: 5,
+    name: "Sala de estudo (B122)",
+    description: "This study room is a bit loud but it's a nice place to study with friends.",
+    image: "assets/icons/paper.png",
+    schedule: "Quinta das 8:30- 12:30",
   ),
 
   PlacesToStudyRooms(
-    id:6,
-    name: "Chá",
-    description: "Sala Fixinha",
-    image: "assets/icons/tea.png",
+    id: 6,
+    name: "Sala de estudo (B123)",
+    description: "This study room is a bit loud but it's a nice place to study with friends.",
+    image: "assets/icons/paper.png",
+    schedule: "Sexta das 10:00- 16:30",
   ),
 
-  PlacesToStudyRooms(
-    id:7,
-    name: "Chupa",
-    description: "Sala Fixona",
-    image: "assets/icons/lolipop.png",
-  ),
-
-  PlacesToStudyRooms(
-    id:8,
-    name: "Laranja",
-    description: "Sala peixe",
-    image: "assets/icons/orange.png",
-  ),
 ];

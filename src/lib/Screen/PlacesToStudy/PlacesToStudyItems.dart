@@ -16,8 +16,9 @@ class PlacesToStudyItems extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
+
           padding: EdgeInsets.only(top: 20, right: 15, left: 15),
-          height: 197,
+          height: 240,
           decoration: BoxDecoration(
             border: Border.all(
               color: Colors.black,
@@ -61,9 +62,25 @@ class PlacesToStudyItems extends StatelessWidget {
                     ),
                     Spacer(),
                     TextButton(
-                      onPressed: () => print("See schedule"),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (ctx) => AlertDialog(
+                            title:Text(room.name),
+                            content: Text(room.schedule),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(ctx).pop();
+                                },
+                                child: Text("back"),
+                                ),
+                            ],
+                          ),
+                        );
+                      },
                       style: TextButton.styleFrom(
-                        padding: EdgeInsets.only(right: 0),
+                        padding: EdgeInsets.only(left: 0),
                       ),
                       child: Text(
                         "See schedule",
@@ -72,7 +89,7 @@ class PlacesToStudyItems extends StatelessWidget {
                             fontWeight: FontWeight.bold
                         ),
                       ),
-                   ),
+                    ),
                   ],
                 ),
               ),
@@ -93,7 +110,8 @@ class PlacesToStudyItems extends StatelessWidget {
               ),
             ]
           ),
-        )
+        ),
+
       ],
     );
   }

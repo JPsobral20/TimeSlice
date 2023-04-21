@@ -1,6 +1,6 @@
 class ShopProduct{
   final int id, price;
-  final String name, image;
+  final String name, image, type;
   //final Color color;
 
   ShopProduct({
@@ -8,6 +8,7 @@ class ShopProduct{
     required this.name,
     required this.price,
     required this.id,
+    required this.type,
     //this.color  = Colors.white,
   });
 }
@@ -17,6 +18,7 @@ List<ShopProduct> products = [
     id:1,
     name: "Café",
     price: 20,
+    type: "Drinks",
     image: "assets/icons/coffee.png",
   ),
 
@@ -24,6 +26,7 @@ List<ShopProduct> products = [
     id:2,
     name: "Pão",
     price: 30,
+    type: "Snacks",
     image: "assets/icons/bread.png",
   ),
 
@@ -31,6 +34,7 @@ List<ShopProduct> products = [
     id:3,
     name: "Donut",
     price: 60,
+    type: "Snacks",
     image: "assets/icons/donut.png",
   ),
 
@@ -38,6 +42,7 @@ List<ShopProduct> products = [
     id:4,
     name: "Sopa",
     price: 120,
+    type: "Meals",
     image: "assets/icons/soup.png",
   ),
 
@@ -45,6 +50,7 @@ List<ShopProduct> products = [
     id:5,
     name: "Queque",
     price: 80,
+    type: "Snacks",
     image: "assets/icons/cupcake.png",
   ),
 
@@ -52,6 +58,7 @@ List<ShopProduct> products = [
     id:6,
     name: "Chá",
     price: 20,
+    type: "Drinks",
     image: "assets/icons/tea.png",
   ),
 
@@ -59,6 +66,7 @@ List<ShopProduct> products = [
     id:7,
     name: "Chupa",
     price: 30,
+    type: "Snacks",
     image: "assets/icons/lolipop.png",
   ),
 
@@ -66,6 +74,7 @@ List<ShopProduct> products = [
     id:8,
     name: "Laranja",
     price: 30,
+    type: "Snacks",
     image: "assets/icons/orange.png",
   ),
 ];

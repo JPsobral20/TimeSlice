@@ -17,12 +17,14 @@ class TimerScreenState extends State<TimerScreen>{
   int TimeInSecs;
   Timer? timer;
   int TotalSecs;
+  Color progressColor = Colors.blueGrey;
+  bool isFinish = false;
   final controller = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    controller.text = "25"; // Setting the initial value for the field.
+    controller.text = "0"; // Setting the initial value for the field.
   }
 
   TimerScreenState(this.TimeInMins) : this.TimeInSecs = TimeInMins * 60, this.TotalSecs = TimeInMins * 60;
@@ -32,6 +34,46 @@ class TimerScreenState extends State<TimerScreen>{
   }
 
   startTimer(){
+    setState(() {
+      this.isFinish = true;
+    });
+    timer = Timer.periodic(Duration(milliseconds: 20), (_){
+      setState((){
+        if (TimeInSecs > 0){
+          TimeInSecs--;
+          if (Secs == 0 ){
+            Secs = 59;
+            if (TimeInMins != 0){
+              TimeInMins--;
+            }
+            else{
+              percent = 1;
+            }
+          }
+          else{
+            Secs--;
+          }
+          percent += 1/(TotalSecs+1);
+        }
+        else{
+          percent = 1;
+          stopTimer();
+        }
+      });
+    });
+  }
+
+  /*
+  pauseTimer(){
+    setState(() {
+      this.TimeInMins = 10;
+      this.TimeInSecs = TimeInMins * 60;
+      this.TotalSecs = TimeInMins * 60;
+      this.Secs = 0;
+      this.percent = 0;
+      this.progressColor = Colors.red;
+      this.isFinish = false;
+    });
 
     timer = Timer.periodic(Duration(milliseconds: 20), (_){
       setState((){
@@ -59,6 +101,8 @@ class TimerScreenState extends State<TimerScreen>{
     });
   }
 
+   */
+
   stopTimer(){ setState(() { timer?.cancel(); }); }
 
   startButton() => TimerButtonsBuilder(onPressed: startTimer, backgroundColor: Colors.blue, text: "Start Studing",);
@@ -71,9 +115,17 @@ class TimerScreenState extends State<TimerScreen>{
 
 
   bool iscompleted(){
+    if (TimeInSecs == 0){
+      setState(() {
+        percent = 0;
+      });
+      return true;
+    }
     if (TimeInSecs == 0 || TotalSecs == TimeInMins*60) return true;
     return false;
   }
+
+
 
   Widget buildButtons() {
     final isrunning = timer == null ? false : timer!.isActive;
@@ -81,6 +133,11 @@ class TimerScreenState extends State<TimerScreen>{
     if (iscompleted()) return startButton();
 
     return isrunning ? pauseButton() : resumeButton();
+  }
+
+  bool readonly(){
+    if(timer == null) return false;
+    return timer!.isActive;
   }
 
   @override
@@ -113,7 +170,7 @@ class TimerScreenState extends State<TimerScreen>{
                 animateFromLastPercent: true,
                 radius: 140.0,
                 lineWidth: 22.0,
-                progressColor: Colors.blueGrey,
+                progressColor: progressColor,
                 center: Text(
                   "$TimeInMins".padLeft(2,"0") + ":" + "$Secs".padLeft(2,"0"),
                   style: TextStyle(
@@ -149,30 +206,30 @@ class TimerScreenState extends State<TimerScreen>{
                                       ),
                                       SizedBox(height: 10.0,),
                                       TextFormField(
-                                        /*
-                                        onTapOutside: (number){
-                                          setState(() {
-                                            this.TimeInMins = int.parse(number as String);
-                                            TimerScreenState(this.TimeInMins);
-                                          });
+                                        readOnly: readonly(),
+                                        onTapOutside: (number) {
+                                          FocusManager.instance.primaryFocus?.unfocus();
                                         },
-
-                                         */
                                         onFieldSubmitted: (number){
                                           setState(() {
                                             this.TimeInMins = int.parse(number);
-                                            TimerScreenState(this.TimeInMins);
+                                            if (TimeInMins > 120) this.TimeInMins = 120;
+                                            this.TimeInSecs = TimeInMins * 60;
+                                            this.TotalSecs = TimeInMins * 60;
+                                            this.Secs = 0;
+                                            this.percent = 0;
+                                            this.progressColor = Colors.blueGrey;
                                           });
                                         },
 
                                         style: TextStyle(
-                                            fontSize: 80.0,
+                                          fontSize: 80.0,
                                         ),
                                         textAlign: TextAlign.center,
                                         decoration: InputDecoration(
-                                          contentPadding: EdgeInsets.all(8.0),
+                                        contentPadding: EdgeInsets.all(8.0),
                                           border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(5.0),
+                                          borderRadius: BorderRadius.circular(5.0),
                                           ),
                                         ),
                                         controller: controller,
@@ -192,14 +249,14 @@ class TimerScreenState extends State<TimerScreen>{
                                   child: Column(
                                     children: <Widget>[
                                       Text(
-                                        "Pause Time",
+                                        "Break",
                                         style: TextStyle(
                                           fontSize: 30.0,
                                         ),
                                       ),
-                                      SizedBox(height: 15.0,),
+                                      SizedBox(height: 17.0,),
                                       Text(
-                                        "5",
+                                          (TotalSecs/300).toInt().toString(),
                                         style: TextStyle(
                                             fontSize: 80.0
                                         ),

@@ -80,8 +80,8 @@ class PlacesToStudyScreenState extends State<PlacesToStudyScreen> {
                                     physics: NeverScrollableScrollPhysics(),
                                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 1,
-                                      //crossAxisSpacing: 30.0,
-                                      childAspectRatio: 1.5,
+                                      crossAxisSpacing: 30.0,
+                                      childAspectRatio: 1.2,
                                     ),
                                     itemBuilder: (context, index) => PlacesToStudyItems(room: rooms[index]),
                                   ),
