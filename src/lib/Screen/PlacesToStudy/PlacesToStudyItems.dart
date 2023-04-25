@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto/Screen/PlacesToStudy/PlacesToStudyRooms.dart';
+import 'package:projeto/Screen/PlacesToStudy/Button/GoBackButton.dart';
 
 class PlacesToStudyItems extends StatelessWidget {
   final PlacesToStudyRooms room;
@@ -60,35 +61,7 @@ class PlacesToStudyItems extends StatelessWidget {
                       ),
                     ),
                     Spacer(),
-                    TextButton(
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (ctx) => AlertDialog(
-                            title:Text(room.name),
-                            content: Text(room.schedule),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(ctx).pop();
-                                },
-                                child: Text("Back"),
-                                ),
-                            ],
-                          ),
-                        );
-                      },
-                      style: TextButton.styleFrom(
-                        padding: EdgeInsets.only(left: 0),
-                      ),
-                      child: Text(
-                        "See schedule",
-                        style: TextStyle(
-                            color: Colors.blueGrey,
-                            fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ),
+                    GoBackButton(schedule: room.schedule, roomName: room.name),
                   ],
                 ),
               ),
