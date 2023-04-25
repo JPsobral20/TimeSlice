@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projeto/Screen/Shop/ShopItems.dart';
 import 'package:projeto/Screen/Shop/ShopProducts.dart';
-import 'package:projeto/Widgets/Box/Shop/CategoriesBox.dart';
+import 'package:projeto/Screen/Shop/Box/CategoriesBox.dart';
 import '../../Widgets/AppTitle.dart';
 
 class ShopScreen extends StatefulWidget{

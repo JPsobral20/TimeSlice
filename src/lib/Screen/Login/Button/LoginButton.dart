@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../Screen/NavigationBar.dart';
+import '../../NavigationBar.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({super.key});

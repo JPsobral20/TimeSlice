@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:projeto/Widgets/Buttons/Timer/TimerButtonsBuilder.dart';
+import 'package:projeto/Screen/Timer/Button/TimerButtonsBuilder.dart';
 
 class TimerScreen extends StatefulWidget{
   @override
@@ -24,7 +24,7 @@ class TimerScreenState extends State<TimerScreen>{
   @override
   void initState() {
     super.initState();
-    controller.text = "0"; // Setting the initial value for the field.
+    controller.text = "0";
   }
 
   TimerScreenState(this.TimeInMins) : this.TimeInSecs = TimeInMins * 60, this.TotalSecs = TimeInMins * 60;
@@ -63,45 +63,6 @@ class TimerScreenState extends State<TimerScreen>{
     });
   }
 
-  /*
-  pauseTimer(){
-    setState(() {
-      this.TimeInMins = 10;
-      this.TimeInSecs = TimeInMins * 60;
-      this.TotalSecs = TimeInMins * 60;
-      this.Secs = 0;
-      this.percent = 0;
-      this.progressColor = Colors.red;
-      this.isFinish = false;
-    });
-
-    timer = Timer.periodic(Duration(milliseconds: 20), (_){
-      setState((){
-        if (TimeInSecs > 0){
-          TimeInSecs--;
-          if (Secs == 0 ){
-            Secs = 59;
-            if (TimeInMins != 0){
-              TimeInMins--;
-            }
-            else{
-              percent = 1;
-            }
-          }
-          else{
-            Secs--;
-          }
-          percent += 1/(TotalSecs+1);
-        }
-        else{
-          percent = 1;
-          stopTimer();
-        }
-      });
-    });
-  }
-
-   */
 
   stopTimer(){ setState(() { timer?.cancel(); }); }
 
@@ -124,7 +85,6 @@ class TimerScreenState extends State<TimerScreen>{
     if (TimeInSecs == 0 || TotalSecs == TimeInMins*60) return true;
     return false;
   }
-
 
 
   Widget buildButtons() {

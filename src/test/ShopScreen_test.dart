@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto/Screen/Shop/ShopItems.dart';
 import 'package:projeto/Screen/Shop/ShopScreen.dart';
-import 'package:projeto/Widgets/Box/Shop/CategoriesBox.dart';
+import 'package:projeto/Screen/Shop/Box/CategoriesBox.dart';
 
 void main() {
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:projeto/Screen/TimerScreen.dart';
+import 'package:projeto/Screen/Timer/TimerScreen.dart';
 
 
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:projeto/Widgets/Buttons/Timer/TimerButtonsBuilder.dart';
+import 'package:projeto/Screen/Timer/Button/TimerButtonsBuilder.dart';
 
 void main() {
   testWidgets('TimerButtonsBuilder widget test', (WidgetTester tester) async {

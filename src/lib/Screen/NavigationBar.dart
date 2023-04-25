@@ -2,7 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:projeto/Screen/PlacesToStudy/PlacesToStudyScreen.dart';
 import 'package:projeto/Screen/Shop/ShopScreen.dart';
-import 'package:projeto/Screen/TimerScreen.dart';
+import 'package:projeto/Screen/Timer/TimerScreen.dart';
 
 class NavigatorBar extends StatefulWidget {
   @override

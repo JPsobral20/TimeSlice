@@ -3,7 +3,6 @@ import 'package:projeto/Screen/PlacesToStudy/PlacesToStudyRooms.dart';
 
 class PlacesToStudyItems extends StatelessWidget {
   final PlacesToStudyRooms room;
-  //final Function press;
 
   const PlacesToStudyItems({
     super.key,

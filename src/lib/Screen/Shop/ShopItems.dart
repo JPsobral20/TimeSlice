@@ -3,7 +3,6 @@ import 'package:projeto/Screen/Shop/ShopProducts.dart';
 
 class ShopItems extends StatelessWidget {
   final ShopProduct product;
-  //final Function press;
 
   const ShopItems({
     super.key,

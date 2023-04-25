@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:projeto/Widgets/Box/Login/LoginBoxesBuilder.dart';
-import 'package:projeto/Widgets/Buttons/Login/ForgotPasswordButton.dart';
+import 'package:projeto/Screen/Login/Box/LoginBoxesBuilder.dart';
+import 'package:projeto/Screen/Login/Button/ForgotPasswordButton.dart';
 import 'package:projeto/Widgets/AppTitle.dart';
-import 'package:projeto/Widgets/Buttons/Login/LoginButton.dart';
+import 'package:projeto/Screen/Login/Button/LoginButton.dart';
 
 class LoginScreen extends StatefulWidget {
   @override

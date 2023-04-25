@@ -1,7 +1,6 @@
 class ShopProduct{
   final int id, price;
   final String name, image, type;
-  //final Color color;
 
   ShopProduct({
     required this.image,
@@ -9,7 +8,6 @@ class ShopProduct{
     required this.price,
     required this.id,
     required this.type,
-    //this.color  = Colors.white,
   });
 }
 
