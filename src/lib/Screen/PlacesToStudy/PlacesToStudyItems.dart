@@ -73,7 +73,7 @@ class PlacesToStudyItems extends StatelessWidget {
                                 onPressed: () {
                                   Navigator.of(ctx).pop();
                                 },
-                                child: Text("back"),
+                                child: Text("Back"),
                                 ),
                             ],
                           ),
