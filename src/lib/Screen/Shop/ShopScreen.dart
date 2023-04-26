@@ -36,61 +36,62 @@ class ShopScreenState extends State<ShopScreen>{
                       ]
                     )
                   ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 20.0,
-                        )
-                      ),
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Padding(
-                          padding: EdgeInsets.only(right: 15),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 25.0,
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 20.0,
+                          )
+                        ),
+                        Align(
+                          alignment: Alignment.topRight,
                           child: AppTitle(size: 42),
                         ),
-                      ),
-                      SizedBox(height: 20.0),
-                      Text(
-                        "Shop",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 38,
-                          fontWeight: FontWeight.bold,
+                        SizedBox(height: 20.0),
+                        Text(
+                          "Shop",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 38,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 10.0),
-                      CategoriesBox(),
-                      Expanded(
-                        child: SingleChildScrollView(
-                            //physics: AlwaysScrollableScrollPhysics(),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 25.0,
-                              vertical: 10.0,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 7.0),
-                                  child: GridView.builder(
-                                    scrollDirection: Axis.vertical,
-                                    shrinkWrap: true,
-                                    itemCount: products.length,
-                                    physics: NeverScrollableScrollPhysics(),
-                                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 2,
-                                      crossAxisSpacing: 30.0,
-                                      childAspectRatio: 0.82,
+                        SizedBox(height: 10.0),
+                        CategoriesBox(),
+                        Expanded(
+                          child: SingleChildScrollView(
+                              //physics: AlwaysScrollableScrollPhysics(),
+                              padding: EdgeInsets.symmetric(
+                                vertical: 10.0,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 7.0),
+                                    child: GridView.builder(
+                                      scrollDirection: Axis.vertical,
+                                      shrinkWrap: true,
+                                      itemCount: products.length,
+                                      physics: NeverScrollableScrollPhysics(),
+                                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2,
+                                        crossAxisSpacing: 30.0,
+                                        childAspectRatio: 0.82,
+                                      ),
+                                      itemBuilder: (context, index) => ShopItems(product: products[index]),
                                     ),
-                                    itemBuilder: (context, index) => ShopItems(product: products[index]),
                                   ),
-                                ),
-                              ],
-                            )
-                        ),
-                      )
-                    ],
+                                ],
+                              )
+                          ),
+                        )
+                      ],
+                    ),
                   )
                 )
               ]

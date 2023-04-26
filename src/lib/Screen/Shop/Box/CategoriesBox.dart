@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class CategoriesBox extends StatefulWidget{
   const CategoriesBox({super.key});
 
-
   @override
   CategoriesBoxState createState() => CategoriesBoxState();
 }
@@ -36,7 +35,7 @@ class CategoriesBoxState extends State<CategoriesBox>{
         });
       },
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 27.0),
+        padding: EdgeInsets.symmetric(horizontal: 22.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[

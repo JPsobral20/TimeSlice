@@ -1,15 +1,12 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
-/*
-class RememberLoginBox extends StatelessWidget {
+class RememberLoginBox extends StatefulWidget {
 
   bool rememberMe;
 
-  const RememberLoginBox({
+  RememberLoginBox({
     super.key,
-    required this.rememberMe,
+    this.rememberMe = false,
   });
 
   @override
@@ -18,8 +15,6 @@ class RememberLoginBox extends StatelessWidget {
 }
 
 class RememberLoginBoxState extends State<RememberLoginBox>{
-
-  get rememberMe => rememberMe;
 
 
   @override
@@ -31,12 +26,12 @@ class RememberLoginBoxState extends State<RememberLoginBox>{
           Theme(
             data: ThemeData(unselectedWidgetColor: Colors.white),
             child: Checkbox(
-              value: rememberMe,
+              value: widget.rememberMe,
               checkColor: Colors.green,
               activeColor: Colors.white,
               onChanged: (value) {
                 setState(() {
-                  rememberMe = value!;
+                  widget.rememberMe = value!;
                 });
               },
             ),
@@ -54,4 +49,4 @@ class RememberLoginBoxState extends State<RememberLoginBox>{
   }
 }
 
- */
+

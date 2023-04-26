@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import '../../NavigationBar.dart';
 
 class LoginButton extends StatelessWidget {
-  const LoginButton({super.key});
+  final String text;
+  const LoginButton({
+    required this.text,
+    super.key
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,7 @@ class LoginButton extends StatelessWidget {
           ),
         ),
         child: Text(
-          "Login",
+          text,
           style: TextStyle(
             color: Colors.black,
             fontSize: 25.0,

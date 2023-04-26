@@ -1,48 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projeto/Screen/Login/Box/LoginBoxesBuilder.dart';
+import 'package:projeto/Screen/Login/Box/RememberLoginBox.dart';
 import 'package:projeto/Screen/Login/Button/ForgotPasswordButton.dart';
+import 'package:projeto/Screen/Login/Button/SignInButton.dart';
+import 'package:projeto/Screen/SignIn/SignInScreen.dart';
 import 'package:projeto/Widgets/AppTitle.dart';
 import 'package:projeto/Screen/Login/Button/LoginButton.dart';
 
-class LoginScreen extends StatefulWidget {
-  @override
-  LoginScreenState createState() => LoginScreenState();
-}
 
-class LoginScreenState extends State<LoginScreen>{
-
-  bool isRememberMe = false;
-
-  RememberLoginBox() => Container(
-    height: 20,
-    child: Row(
-      children: <Widget>[
-        Theme(
-          data: ThemeData(unselectedWidgetColor: Colors.white),
-          child: Checkbox(
-            value: isRememberMe,
-            checkColor: Colors.green,
-            activeColor: Colors.white,
-            onChanged: (value) {
-              setState(() {
-                isRememberMe = value!;
-              });
-            },
-          ),
-        ),
-        Text(
-          "Remember me",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        )
-      ],
-    ),
-  );
-
-
+class LoginScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
@@ -105,7 +72,25 @@ class LoginScreenState extends State<LoginScreen>{
                       ),
                       ForgotPasswordButton(),
                       RememberLoginBox(),
-                      LoginButton(),
+                      LoginButton(text: "Login"),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Don't have an account?",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                            ),
+                          ),
+                          SignInButton(
+                            onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()),);
+                            },
+                            text: "Sign Up",
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),

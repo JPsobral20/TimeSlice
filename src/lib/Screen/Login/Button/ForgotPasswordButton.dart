@@ -11,7 +11,7 @@ class ForgotPasswordButton extends StatelessWidget {
       child: TextButton(
         onPressed: () => print("Forgot Password pressed"),
         style: TextButton.styleFrom(
-          padding: EdgeInsets.only(right: 0),
+          padding: EdgeInsets.only(right: 2),
         ),
         child: Text(
           "Forgot Password?",

@@ -16,9 +16,8 @@ class PlacesToStudyItems extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-
           padding: EdgeInsets.only(top: 20, right: 15, left: 15),
-          height: 240,
+          height: 260,
           decoration: BoxDecoration(
             border: Border.all(
               color: Colors.black,

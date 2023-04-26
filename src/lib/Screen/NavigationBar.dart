@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto/Screen/PlacesToStudy/PlacesToStudyScreen.dart';
 import 'package:projeto/Screen/Shop/ShopScreen.dart';
 import 'package:projeto/Screen/Timer/TimerScreen.dart';
+import 'package:projeto/Screen/Settings/SettingsScreen.dart';
 
 class NavigatorBar extends StatefulWidget {
   @override
@@ -29,7 +30,7 @@ class NavigatorBarState extends State<NavigatorBar> {
         return TimerScreen();
 
       case 4:
-        return TimerScreen();
+        return SettingsScreen();
 
       default:
         return TimerScreen();

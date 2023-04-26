@@ -37,60 +37,61 @@ class PlacesToStudyScreenState extends State<PlacesToStudyScreen> {
                         ]
                       )
                     ),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                            vertical: 20.0,
-                          )
-                        ),
-                        Align(
-                          alignment: Alignment.topRight,
-                          child: Padding(
-                            padding: EdgeInsets.only(right: 15),
-                            child: AppTitle(size: 42),
-                          ),
-                        ),
-                        SizedBox(height: 20.0),
-                        Text(
-                          "Places to Study",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 38,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 10.0),
-                        Expanded(
-                          child: SingleChildScrollView(
-                            //physics: AlwaysScrollableScrollPhysics(),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 25.0,
+                      ),
+                      child: Column(
+                        children: [
+                          Padding(
                             padding: EdgeInsets.symmetric(
-                              horizontal: 25.0,
-                              vertical: 10.0,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 7.0),
-                                  child: GridView.builder(
-                                    scrollDirection: Axis.vertical,
-                                    shrinkWrap: true,
-                                    itemCount: rooms.length,
-                                    physics: NeverScrollableScrollPhysics(),
-                                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 1,
-                                      crossAxisSpacing: 30.0,
-                                      childAspectRatio: 1.2,
-                                    ),
-                                    itemBuilder: (context, index) => PlacesToStudyItems(room: rooms[index]),
-                                  ),
-                                ),
-                              ],
+                              vertical: 20.0,
                             )
                           ),
-                        )
-                      ]
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: AppTitle(size: 42),
+                          ),
+                          SizedBox(height: 20.0),
+                          Text(
+                            "Places to Study",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 38,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 10.0),
+                          Expanded(
+                            child: SingleChildScrollView(
+                              //physics: AlwaysScrollableScrollPhysics(),
+                              padding: EdgeInsets.symmetric(
+                                vertical: 10.0,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 7.0),
+                                    child: GridView.builder(
+                                      scrollDirection: Axis.vertical,
+                                      shrinkWrap: true,
+                                      itemCount: rooms.length,
+                                      physics: NeverScrollableScrollPhysics(),
+                                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 1,
+                                        crossAxisSpacing: 30.0,
+                                        childAspectRatio: 1.08,
+                                      ),
+                                      itemBuilder: (context, index) => PlacesToStudyItems(room: rooms[index]),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ),
+                          )
+                        ]
+                      ),
                     )
                   )
                 ]
