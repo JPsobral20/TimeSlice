@@ -40,6 +40,7 @@ dependencies:
   flutter_svg: ^0.22.0
   flutter_gherkin: ^2.0.0
   vibration: ^1.7.5
+  firebase_core: ^2.10.0
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +52,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  flutterfire_cli: ^0.2.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
