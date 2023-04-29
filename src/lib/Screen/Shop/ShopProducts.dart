@@ -15,7 +15,7 @@ List<ShopProduct> products = [
   ShopProduct(
     id:1,
     name: "Café",
-    price: 20,
+    price: 1200,
     type: "Drinks",
     image: "assets/icons/coffee.png",
   ),
@@ -23,7 +23,7 @@ List<ShopProduct> products = [
   ShopProduct(
     id:2,
     name: "Pão",
-    price: 30,
+    price: 1800,
     type: "Snacks",
     image: "assets/icons/bread.png",
   ),
@@ -31,7 +31,7 @@ List<ShopProduct> products = [
   ShopProduct(
     id:3,
     name: "Donut",
-    price: 60,
+    price: 3600,
     type: "Snacks",
     image: "assets/icons/donut.png",
   ),
@@ -39,7 +39,7 @@ List<ShopProduct> products = [
   ShopProduct(
     id:4,
     name: "Sopa",
-    price: 120,
+    price: 7200,
     type: "Meals",
     image: "assets/icons/soup.png",
   ),
@@ -47,7 +47,7 @@ List<ShopProduct> products = [
   ShopProduct(
     id:5,
     name: "Queque",
-    price: 80,
+    price: 4800,
     type: "Snacks",
     image: "assets/icons/cupcake.png",
   ),
@@ -55,7 +55,7 @@ List<ShopProduct> products = [
   ShopProduct(
     id:6,
     name: "Chá",
-    price: 20,
+    price: 1200,
     type: "Drinks",
     image: "assets/icons/tea.png",
   ),
@@ -63,7 +63,7 @@ List<ShopProduct> products = [
   ShopProduct(
     id:7,
     name: "Chupa",
-    price: 30,
+    price: 1800,
     type: "Snacks",
     image: "assets/icons/lolipop.png",
   ),
@@ -71,7 +71,7 @@ List<ShopProduct> products = [
   ShopProduct(
     id:8,
     name: "Laranja",
-    price: 30,
+    price: 1800,
     type: "Snacks",
     image: "assets/icons/orange.png",
   ),

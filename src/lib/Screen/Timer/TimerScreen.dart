@@ -17,7 +17,6 @@ class TimerScreenState extends State<TimerScreen>{
   int TimeInSecs;
   Timer? timer;
   int TotalSecs;
-  Color progressColor = Colors.blueGrey;
   bool isFinish = false;
   final controller = TextEditingController();
 
@@ -37,7 +36,7 @@ class TimerScreenState extends State<TimerScreen>{
     setState(() {
       this.isFinish = true;
     });
-    timer = Timer.periodic(Duration(milliseconds: 20), (_){
+    timer = Timer.periodic(Duration(seconds: 1), (_){
       setState((){
         if (TimeInSecs > 0){
           TimeInSecs--;
@@ -108,7 +107,7 @@ class TimerScreenState extends State<TimerScreen>{
           decoration: BoxDecoration(
               color: Color(0xff51a8ff),
             ),
-          //width: double.infinity,
+          width: double.infinity,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -130,7 +129,7 @@ class TimerScreenState extends State<TimerScreen>{
                 animateFromLastPercent: true,
                 radius: 140.0,
                 lineWidth: 22.0,
-                progressColor: progressColor,
+                progressColor: Colors.blueGrey,
                 center: Text(
                   "$TimeInMins".padLeft(2,"0") + ":" + "$Secs".padLeft(2,"0"),
                   style: TextStyle(
@@ -178,7 +177,6 @@ class TimerScreenState extends State<TimerScreen>{
                                             this.TotalSecs = TimeInMins * 60;
                                             this.Secs = 0;
                                             this.percent = 0;
-                                            this.progressColor = Colors.blueGrey;
                                           });
                                         },
 
