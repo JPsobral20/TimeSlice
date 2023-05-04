@@ -26,14 +26,9 @@ class PlacesToStudyScreenState extends State<PlacesToStudyScreen> {
                     width: double.infinity,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
                         colors: [
-                          Color(0xffffc58d),
-                          Color(0xccffc58d),
-                          Color(0x99ffc58d),
-                          Color(0x66ffc58d),
-                          Color(0x33ffc58d),
+                          Color(0xfff3e5f5),
+                          Color(0xfff3e5f5),
                         ]
                       )
                     ),
@@ -56,7 +51,7 @@ class PlacesToStudyScreenState extends State<PlacesToStudyScreen> {
                           Text(
                             "Places to Study",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 38,
                               fontWeight: FontWeight.bold,
                             ),

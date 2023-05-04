@@ -6,6 +6,7 @@ class LoginBoxesBuilder extends StatelessWidget{
   final TextInputType textType;
   final String hintText;
   final IconData icon;
+  final TextEditingController controller;
 
   const LoginBoxesBuilder({
     super.key,
@@ -14,6 +15,7 @@ class LoginBoxesBuilder extends StatelessWidget{
     required this.textType,
     required this.hintText,
     required this.icon,
+    required this.controller,
   });
 
   @override
@@ -45,6 +47,7 @@ class LoginBoxesBuilder extends StatelessWidget{
           ),
           height: 60,
           child: TextField(
+            controller: controller,
             obscureText: obscureText,
             keyboardType: textType,
             style: TextStyle(

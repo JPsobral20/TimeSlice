@@ -4,6 +4,7 @@ import 'package:projeto/Screen/PlacesToStudy/PlacesToStudyScreen.dart';
 import 'package:projeto/Screen/Shop/ShopScreen.dart';
 import 'package:projeto/Screen/Timer/TimerScreen.dart';
 import 'package:projeto/Screen/Settings/SettingsScreen.dart';
+import 'package:projeto/Screen/scholarship/ScholarshipScreen.dart';
 
 class NavigatorBar extends StatefulWidget {
   @override
@@ -12,27 +13,34 @@ class NavigatorBar extends StatefulWidget {
 
 class NavigatorBarState extends State<NavigatorBar> {
   int pageIndex = 0;
+  int index = 0;
   //final TimerScreen _timerScreen = TimerScreen();
   Widget showpage = new TimerScreen();
 
   Widget pagechooser(int page){
     switch(page){
       case 0:
+        index = 0;
         return TimerScreen();
 
       case 1:
+        index = 1;
         return PlacesToStudyScreen();
 
       case 2:
+        index = 2;
         return ShopScreen();
 
       case 3:
-        return TimerScreen();
+        index = 3;
+        return ScholarshipScreen();
 
       case 4:
+        index = 4;
         return SettingsScreen();
 
       default:
+        index = 0;
         return TimerScreen();
     }
   }
@@ -40,32 +48,41 @@ class NavigatorBarState extends State<NavigatorBar> {
 
   @override
   Widget build(BuildContext context){
+    Color backgroundColor = Color(0xfff3e5f5);
+
+    if (index == 0) {
+      backgroundColor = Colors.white;
+    }
+    else {
+      backgroundColor = Color(0xfff3e5f5);
+    }
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color(0xffffc58d),
+      backgroundColor: Color(0xfff3e5f5),
       bottomNavigationBar: CurvedNavigationBar(
         index: pageIndex,
-        backgroundColor: Color(0xffffc58d),
-        color: Color(0xff51a8ff),
+        backgroundColor: backgroundColor,
+        color: Color(0xff1565c0),
         animationDuration: Duration(milliseconds: 300),
         items: [
-          Icon(Icons.timer, color: Colors.black),
-          Icon(Icons.book_rounded, color: Colors.black),
-          Icon(Icons.shop, color: Colors.black),
-          Icon(Icons.track_changes, color: Colors.black),
-          Icon(Icons.settings, color: Colors.black),
+          Icon(Icons.timer, color: Colors.white),
+          Icon(Icons.book_rounded, color: Colors.white),
+          Icon(Icons.shop, color: Colors.white),
+          Icon(Icons.track_changes, color: Colors.white),
+          Icon(Icons.settings, color: Colors.white),
         ],
-          onTap:(int tappedIndex){
-            setState(() {
-              showpage = pagechooser(tappedIndex);
-            });
-          }
+        onTap:(int tappedIndex){
+          setState(() {
+            showpage = pagechooser(tappedIndex);
+          });
+        }
       ),
       body: Container(
         child: Center(
           child: showpage,
         ),
-      ),
+       ),
     );
   }
 }

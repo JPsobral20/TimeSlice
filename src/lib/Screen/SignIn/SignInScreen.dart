@@ -1,13 +1,21 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projeto/Screen/Login/Box/LoginBoxesBuilder.dart';
-import 'package:projeto/Screen/Login/Box/RememberLoginBox.dart';
 import 'package:projeto/Screen/Login/Button/SignInButton.dart';
+import 'package:projeto/Screen/NavigationBar.dart';
 import 'package:projeto/Widgets/AppTitle.dart';
 import 'package:projeto/Screen/Login/Button/LoginButton.dart';
 
 
-class SignInScreen extends StatelessWidget{
+class SignInScreen extends StatefulWidget {
+  @override
+  SignInScreenState createState() => SignInScreenState();
+}
+
+class SignInScreenState extends State<SignInScreen>{
+  final userController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context){
@@ -59,6 +67,7 @@ class SignInScreen extends StatelessWidget{
                           textType: TextInputType.emailAddress,
                           hintText: "Email",
                           icon: Icons.email,
+                          controller: userController,
                         ),
                         SizedBox(height: 20.0),
                         LoginBoxesBuilder(
@@ -67,12 +76,21 @@ class SignInScreen extends StatelessWidget{
                           textType: TextInputType.visiblePassword,
                           hintText: "Password",
                           icon: Icons.lock,
+                          controller: passwordController,
                         ),
                         Padding(
                           padding: EdgeInsets.only(top: 18),
-                          child: RememberLoginBox(),
                         ),
-                        LoginButton(text: "Sign Up"),
+                        LoginButton(
+                          text: "Sign Up",
+                          onPressed: () async {
+                            await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                                email: userController.text,
+                                password: passwordController.text).then((value) {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) => NavigatorBar()));
+                            });
+                          }),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -101,4 +119,38 @@ class SignInScreen extends StatelessWidget{
         )
     );
   }
+
+
+
+  /*
+  login() async{
+    try{
+      Future<UserCredential> userCredential =  FirebaseAuth.instance.createUserWithEmailAndPassword(email: user_controller.text, password: password_controller.text);
+      if (userCredential != null){
+        Navigator.push(context, MaterialPageRoute(builder: (context) => NavigatorBar()));
+      }
+    }on FirebaseAuthException catch(e){
+      if (e.code == 'user-not-found'){
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'User not found',
+              ),
+              backgroundColor: Colors.redAccent,
+            )
+          );
+      }
+      else if (e.code == 'user-not-found'){
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'User not found',
+              ),
+              backgroundColor: Colors.redAccent,
+            )
+        );
+    }
+  }
+   */
+
 }

@@ -47,7 +47,7 @@ class ShopItems extends StatelessWidget {
                         ),
                       );
                     },
-                    child: Text("Continuar"),
+                    child: Text("Sim"),
                   ),
                 ],
               ),

@@ -65,7 +65,7 @@ class TimerScreenState extends State<TimerScreen>{
 
   stopTimer(){ setState(() { timer?.cancel(); }); }
 
-  startButton() => TimerButtonsBuilder(onPressed: startTimer, backgroundColor: Colors.blue, text: "Start Studing",);
+  startButton() => TimerButtonsBuilder(onPressed: startTimer, backgroundColor: Colors.blue, text: "Start Studying",);
 
 
   pauseButton() => TimerButtonsBuilder(onPressed: stopTimer, backgroundColor: Colors.red, text: "Pause",);
@@ -105,7 +105,7 @@ class TimerScreenState extends State<TimerScreen>{
       //maintainBottomViewPadding: false,
       child: Container(
           decoration: BoxDecoration(
-              color: Color(0xff51a8ff),
+              color: Color(0xfff3e5f5),
             ),
           width: double.infinity,
           child: Column(
@@ -117,8 +117,9 @@ class TimerScreenState extends State<TimerScreen>{
                 child: Text(
                   "Pomodoro Clock",
                   style:TextStyle(
-                      color: Colors.white,
-                      fontSize: 40.0
+                      color: Colors.black,
+                      fontSize: 40.0,
+                      fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
@@ -133,7 +134,7 @@ class TimerScreenState extends State<TimerScreen>{
                 center: Text(
                   "$TimeInMins".padLeft(2,"0") + ":" + "$Secs".padLeft(2,"0"),
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 80.0,
                   ),
                 )

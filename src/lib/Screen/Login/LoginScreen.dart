@@ -1,15 +1,19 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projeto/Screen/Login/Box/LoginBoxesBuilder.dart';
-import 'package:projeto/Screen/Login/Box/RememberLoginBox.dart';
 import 'package:projeto/Screen/Login/Button/ForgotPasswordButton.dart';
 import 'package:projeto/Screen/Login/Button/SignInButton.dart';
+import 'package:projeto/Screen/NavigationBar.dart';
 import 'package:projeto/Screen/SignIn/SignInScreen.dart';
 import 'package:projeto/Widgets/AppTitle.dart';
 import 'package:projeto/Screen/Login/Button/LoginButton.dart';
 
 
 class LoginScreen extends StatelessWidget{
+
+  final user_controller = TextEditingController();
+  final password_controller = TextEditingController();
 
   @override
   Widget build(BuildContext context){
@@ -61,6 +65,7 @@ class LoginScreen extends StatelessWidget{
                           textType: TextInputType.emailAddress,
                           hintText: "Email",
                           icon: Icons.email,
+                          controller: user_controller,
                       ),
                       SizedBox(height: 20.0),
                       LoginBoxesBuilder(
@@ -69,10 +74,18 @@ class LoginScreen extends StatelessWidget{
                           textType: TextInputType.visiblePassword,
                           hintText: "Password",
                           icon: Icons.lock,
+                          controller: password_controller,
                       ),
                       ForgotPasswordButton(),
-                      RememberLoginBox(),
-                      LoginButton(text: "Login"),
+                      LoginButton(
+                        text: "Login",
+                        onPressed: () {
+                          FirebaseAuth.instance.signInWithEmailAndPassword(email: user_controller.text, password: password_controller.text).then((value) {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) => NavigatorBar()));
+                          });
+                        },
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

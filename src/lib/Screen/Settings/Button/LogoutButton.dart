@@ -1,0 +1,37 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:projeto/Screen/Login/LoginScreen.dart';
+
+class LogoutButton extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 25.0),
+      width: double.infinity,
+      child: ElevatedButton(
+          onPressed: () async {
+            await FirebaseAuth.instance.signOut().then((value) {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+            });
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xffffc58d),
+            elevation: 5,
+            padding: EdgeInsets.all(15.0),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0)
+            ),
+          ),
+          child: Text(
+            "LogOut",
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 25.0,
+                fontWeight: FontWeight.bold
+            ),
+          )
+      ),
+    );
+  }
+}
