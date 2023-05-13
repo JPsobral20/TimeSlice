@@ -18,4 +18,3 @@ class SnackBarMessage extends StatelessWidget {
   }
 }
 */
- */
