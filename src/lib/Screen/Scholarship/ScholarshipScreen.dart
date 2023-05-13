@@ -61,11 +61,11 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
                         percent: 0,
                         animation: true,
                         animateFromLastPercent: true,
-                        radius: 150.0,
-                        lineWidth: 22.0,
+                        radius: 155.0,
+                        lineWidth: 27.0,
                         progressColor: Colors.blueGrey,
                         center: Text(
-                          "0€",
+                          "4000€",
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 80.0,
