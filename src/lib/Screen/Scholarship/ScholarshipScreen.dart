@@ -65,7 +65,7 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
                         lineWidth: 27.0,
                         progressColor: Colors.blueGrey,
                         center: Text(
-                          "4000€",
+                          "0€",
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 80.0,
