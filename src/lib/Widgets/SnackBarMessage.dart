@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+/*
 class SnackBarMessage extends StatelessWidget {
   final String text;
 
@@ -17,3 +17,5 @@ class SnackBarMessage extends StatelessWidget {
     );
   }
 }
+*/
+ */
