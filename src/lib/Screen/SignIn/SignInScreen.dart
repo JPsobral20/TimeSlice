@@ -1,11 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projeto/Screen/Login/Box/LoginBoxesBuilder.dart';
 import 'package:projeto/Screen/Login/Button/SignInButton.dart';
 import 'package:projeto/Screen/NavigationBar.dart';
+import 'package:projeto/UserModel.dart';
 import 'package:projeto/Widgets/AppTitle.dart';
 import 'package:projeto/Screen/Login/Button/LoginButton.dart';
+import 'package:projeto/Widgets/SnackBarMessage.dart';
 
 
 class SignInScreen extends StatefulWidget {
@@ -14,7 +17,7 @@ class SignInScreen extends StatefulWidget {
 }
 
 class SignInScreenState extends State<SignInScreen>{
-  final userController = TextEditingController();
+  final mailController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
@@ -67,7 +70,7 @@ class SignInScreenState extends State<SignInScreen>{
                           textType: TextInputType.emailAddress,
                           hintText: "Email",
                           icon: Icons.email,
-                          controller: userController,
+                          controller: mailController,
                         ),
                         SizedBox(height: 20.0),
                         LoginBoxesBuilder(
@@ -84,12 +87,12 @@ class SignInScreenState extends State<SignInScreen>{
                         LoginButton(
                           text: "Sign Up",
                           onPressed: () async {
-                            await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                                email: userController.text,
-                                password: passwordController.text).then((value) {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => NavigatorBar()));
-                            });
+                            signIn();
+                            /*
+                            String uid = FirebaseAuth.instance.currentUser!.uid;
+                            createUser(uid: uid, email: mailController.text);
+                             */
+
                           }),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -122,35 +125,79 @@ class SignInScreenState extends State<SignInScreen>{
 
 
 
-  /*
-  login() async{
-    try{
-      Future<UserCredential> userCredential =  FirebaseAuth.instance.createUserWithEmailAndPassword(email: user_controller.text, password: password_controller.text);
-      if (userCredential != null){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => NavigatorBar()));
+  static Future createUser({required String uid, required String email}) async{
+    final docUser = FirebaseFirestore.instance.collection("Users").doc();
+    final user = UserModel(id: docUser.id, uid: uid, email: email, totalTime: 0, currTime: 0);
+    final json = user.toJson();
+    await docUser.set(json);
+  }
+
+
+  signIn() async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: mailController.text,
+        password: passwordController.text,
+      );
+      if (userCredential != null) {
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NavigatorBar()));
       }
-    }on FirebaseAuthException catch(e){
-      if (e.code == 'user-not-found'){
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                'User not found',
-              ),
-              backgroundColor: Colors.redAccent,
-            )
-          );
-      }
-      else if (e.code == 'user-not-found'){
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
         ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                'User not found',
-              ),
-              backgroundColor: Colors.redAccent,
-            )
+          SnackBar(
+            content: Text('password must have more than 5 characters'),
+            backgroundColor: Colors.redAccent,
+            behavior: SnackBarBehavior.floating,
+          )
         );
+      }
+      else if (e.code == 'wrong-password') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('wrong password'),
+            backgroundColor: Colors.redAccent,
+            behavior: SnackBarBehavior.floating,
+          )
+        );
+      }
+      else if (e.code == 'invalid-email'){
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('invalid email'),
+            backgroundColor: Colors.redAccent,
+            behavior: SnackBarBehavior.floating,
+          )
+        );
+      }
+      else if (e.code == 'email-already-in-use'){
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('email already exist'),
+            backgroundColor: Colors.redAccent,
+            behavior: SnackBarBehavior.floating,
+          )
+        );
+      }
+      else if (e.code == 'unknown'){
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('invalid credentials'),
+            backgroundColor: Colors.redAccent,
+            behavior: SnackBarBehavior.floating,
+          )
+        );
+      }
+      else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(e.code),
+            backgroundColor: Colors.redAccent,
+            behavior: SnackBarBehavior.floating,
+          )
+        );
+      }
     }
   }
-   */
 
 }

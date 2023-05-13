@@ -6,7 +6,7 @@ class AppTitle extends StatelessWidget {
 
   const AppTitle({
     super.key,
-    required this.size
+    required this.size,
   });
 
   @override

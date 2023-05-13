@@ -10,10 +10,18 @@ import 'package:projeto/Widgets/AppTitle.dart';
 import 'package:projeto/Screen/Login/Button/LoginButton.dart';
 
 
-class LoginScreen extends StatelessWidget{
 
-  final user_controller = TextEditingController();
-  final password_controller = TextEditingController();
+class LoginScreen extends StatefulWidget{
+  @override
+  LoginScreenState createState() => LoginScreenState();
+
+}
+
+
+class LoginScreenState extends State<LoginScreen>{
+
+  final mailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context){
@@ -65,7 +73,7 @@ class LoginScreen extends StatelessWidget{
                           textType: TextInputType.emailAddress,
                           hintText: "Email",
                           icon: Icons.email,
-                          controller: user_controller,
+                          controller: mailController,
                       ),
                       SizedBox(height: 20.0),
                       LoginBoxesBuilder(
@@ -74,16 +82,13 @@ class LoginScreen extends StatelessWidget{
                           textType: TextInputType.visiblePassword,
                           hintText: "Password",
                           icon: Icons.lock,
-                          controller: password_controller,
+                          controller: passwordController,
                       ),
                       ForgotPasswordButton(),
                       LoginButton(
                         text: "Login",
                         onPressed: () {
-                          FirebaseAuth.instance.signInWithEmailAndPassword(email: user_controller.text, password: password_controller.text).then((value) {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => NavigatorBar()));
-                          });
+                          login();
                         },
                       ),
                       Row(
@@ -98,7 +103,7 @@ class LoginScreen extends StatelessWidget{
                           ),
                           SignInButton(
                             onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()),);
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()));
                             },
                             text: "Sign Up",
                           ),
@@ -113,5 +118,65 @@ class LoginScreen extends StatelessWidget{
         ),
       )
     );
+  }
+
+  login() async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+        email: mailController.text,
+        password: passwordController.text,
+      );
+      if (userCredential != null) {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => NavigatorBar()));
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('User not found'),
+            backgroundColor: Colors.redAccent,
+            behavior: SnackBarBehavior.floating,
+          )
+        );
+      }
+      else if (e.code == 'wrong-password') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('wrong password'),
+            backgroundColor: Colors.redAccent,
+            behavior: SnackBarBehavior.floating,
+          )
+        );
+      }
+      else if (e.code == 'invalid-email'){
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('invalid email'),
+            backgroundColor: Colors.redAccent,
+            behavior: SnackBarBehavior.floating,
+          )
+        );
+      }
+      else if (e.code == 'unknown'){
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('invalid credentials'),
+            backgroundColor: Colors.redAccent,
+            behavior: SnackBarBehavior.floating,
+          )
+        );
+      }
+      else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(e.code),
+            backgroundColor: Colors.redAccent,
+            behavior: SnackBarBehavior.floating,
+          )
+        );
+      }
+    }
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -55,6 +56,7 @@ class TimerScreenState extends State<TimerScreen>{
           percent += 1/(TotalSecs+1);
         }
         else{
+
           percent = 1;
           stopTimer();
         }
@@ -215,7 +217,7 @@ class TimerScreenState extends State<TimerScreen>{
                                       ),
                                       SizedBox(height: 17.0,),
                                       Text(
-                                          (TotalSecs/300).toInt().toString(),
+                                        (TotalSecs/300).toInt().toString(),
                                         style: TextStyle(
                                             fontSize: 80.0
                                         ),
