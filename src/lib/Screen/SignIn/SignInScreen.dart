@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -5,10 +8,10 @@ import 'package:flutter/services.dart';
 import 'package:projeto/Screen/Login/Box/LoginBoxesBuilder.dart';
 import 'package:projeto/Screen/Login/Button/SignInButton.dart';
 import 'package:projeto/Screen/NavigationBar.dart';
+import 'package:projeto/Screen/SignIn/VerifyEmailScreen.dart';
 import 'package:projeto/UserModel.dart';
 import 'package:projeto/Widgets/AppTitle.dart';
 import 'package:projeto/Screen/Login/Button/LoginButton.dart';
-import 'package:projeto/Widgets/SnackBarMessage.dart';
 
 
 class SignInScreen extends StatefulWidget {
@@ -17,7 +20,7 @@ class SignInScreen extends StatefulWidget {
 }
 
 class SignInScreenState extends State<SignInScreen>{
-  final mailController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
@@ -70,7 +73,7 @@ class SignInScreenState extends State<SignInScreen>{
                           textType: TextInputType.emailAddress,
                           hintText: "Email",
                           icon: Icons.email,
-                          controller: mailController,
+                          controller: emailController,
                         ),
                         SizedBox(height: 20.0),
                         LoginBoxesBuilder(
@@ -81,9 +84,7 @@ class SignInScreenState extends State<SignInScreen>{
                           icon: Icons.lock,
                           controller: passwordController,
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 18),
-                        ),
+                        SizedBox(height: 18.0),
                         LoginButton(
                           text: "Sign Up",
                           onPressed: () async {
@@ -127,7 +128,7 @@ class SignInScreenState extends State<SignInScreen>{
 
   static Future createUser({required String uid, required String email}) async{
     final docUser = FirebaseFirestore.instance.collection("Users").doc();
-    final user = UserModel(id: docUser.id, uid: uid, email: email, totalTime: 0, currTime: 0);
+    final user = UserModel(id: docUser.id, uid: uid, email: email, totalTime: 0, currTime: 0, products: []);
     final json = user.toJson();
     await docUser.set(json);
   }
@@ -136,26 +137,17 @@ class SignInScreenState extends State<SignInScreen>{
   signIn() async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: mailController.text,
+        email: emailController.text,
         password: passwordController.text,
       );
       if (userCredential != null) {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NavigatorBar()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => VerifyEmailScreen()));
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('password must have more than 5 characters'),
-            backgroundColor: Colors.redAccent,
-            behavior: SnackBarBehavior.floating,
-          )
-        );
-      }
-      else if (e.code == 'wrong-password') {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('wrong password'),
             backgroundColor: Colors.redAccent,
             behavior: SnackBarBehavior.floating,
           )

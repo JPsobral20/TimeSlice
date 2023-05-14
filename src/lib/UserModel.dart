@@ -4,6 +4,7 @@ class UserModel{
   int? totalTime = 0;
   int? currTime = 0;
   String uid;
+  List<String>? products;
 
   UserModel({
     required this.id,
@@ -11,6 +12,7 @@ class UserModel{
     this.totalTime,
     this.currTime,
     required this.uid,
+    this.products,
   });
 
 
@@ -20,6 +22,7 @@ class UserModel{
     'totalTime' : totalTime,
     'currTime' : currTime,
     'uid': uid,
+    'products' : products,
   };
 
 
@@ -29,6 +32,7 @@ class UserModel{
     totalTime: json['totalTime'] as int,
     currTime: json['currTime'] as int,
     uid: json['uid'] as String,
+    products: json['products'] as List<String>,
   );
 
 }

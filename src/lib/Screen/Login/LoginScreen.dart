@@ -20,7 +20,7 @@ class LoginScreen extends StatefulWidget{
 
 class LoginScreenState extends State<LoginScreen>{
 
-  final mailController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
@@ -73,7 +73,7 @@ class LoginScreenState extends State<LoginScreen>{
                           textType: TextInputType.emailAddress,
                           hintText: "Email",
                           icon: Icons.email,
-                          controller: mailController,
+                          controller: emailController,
                       ),
                       SizedBox(height: 20.0),
                       LoginBoxesBuilder(
@@ -124,7 +124,7 @@ class LoginScreenState extends State<LoginScreen>{
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(
-        email: mailController.text,
+        email: emailController.text,
         password: passwordController.text,
       );
       if (userCredential != null) {
@@ -144,7 +144,7 @@ class LoginScreenState extends State<LoginScreen>{
       else if (e.code == 'wrong-password') {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('wrong password'),
+            content: Text('Wrong password'),
             backgroundColor: Colors.redAccent,
             behavior: SnackBarBehavior.floating,
           )
@@ -153,7 +153,7 @@ class LoginScreenState extends State<LoginScreen>{
       else if (e.code == 'invalid-email'){
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('invalid email'),
+            content: Text('Invalid email'),
             backgroundColor: Colors.redAccent,
             behavior: SnackBarBehavior.floating,
           )
@@ -162,7 +162,7 @@ class LoginScreenState extends State<LoginScreen>{
       else if (e.code == 'unknown'){
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('invalid credentials'),
+            content: Text('Invalid credentials'),
             backgroundColor: Colors.redAccent,
             behavior: SnackBarBehavior.floating,
           )

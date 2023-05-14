@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto/Screen/Login/ForgotPasswordScreen.dart';
 
 
 class ForgotPasswordButton extends StatelessWidget {
@@ -9,7 +10,7 @@ class ForgotPasswordButton extends StatelessWidget {
     return Container(
       alignment: Alignment.centerRight,
       child: TextButton(
-        onPressed: () => print("Forgot Password pressed"),
+        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordScreen())),
         style: TextButton.styleFrom(
           padding: EdgeInsets.only(right: 2),
         ),
