@@ -7,6 +7,8 @@ import 'package:projeto/Screen/Settings/SettingsScreen.dart';
 import 'package:projeto/Screen/scholarship/ScholarshipScreen.dart';
 
 class NavigatorBar extends StatefulWidget {
+  const NavigatorBar({super.key});
+
   @override
   NavigatorBarState createState() => NavigatorBarState();
 }
@@ -14,8 +16,7 @@ class NavigatorBar extends StatefulWidget {
 class NavigatorBarState extends State<NavigatorBar> {
   int pageIndex = 0;
   int index = 0;
-  //final TimerScreen _timerScreen = TimerScreen();
-  Widget showpage = new TimerScreen();
+  Widget showPage = new TimerScreen();
 
   Widget pagechooser(int page){
     switch(page){
@@ -74,13 +75,13 @@ class NavigatorBarState extends State<NavigatorBar> {
         ],
         onTap:(int tappedIndex){
           setState(() {
-            showpage = pagechooser(tappedIndex);
+            showPage = pagechooser(tappedIndex);
           });
         }
       ),
       body: Container(
         child: Center(
-          child: showpage,
+          child: showPage,
         ),
        ),
     );

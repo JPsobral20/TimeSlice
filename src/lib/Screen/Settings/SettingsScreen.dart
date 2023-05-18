@@ -7,6 +7,8 @@ import 'package:projeto/Screen/Settings/Button/StockButton.dart';
 import '../../Widgets/AppTitle.dart';
 
 class SettingsScreen extends StatefulWidget{
+  const SettingsScreen({super.key});
+
   @override
   SettingsScreenState createState() => SettingsScreenState();
 }
@@ -24,19 +26,7 @@ class SettingsScreenState extends State<SettingsScreen> {
               Container(
                 height: double.infinity,
                 width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0xffffc58d),
-                      Color(0xccffc58d),
-                      Color(0x99ffc58d),
-                        Color(0x66ffc58d),
-                        Color(0x33ffc58d),
-                      ]
-                   )
-                ),
+                color: Color(0xfff3e5f5),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: 25.0,
@@ -59,7 +49,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                       Text(
                         "Settings",
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 38,
                           fontWeight: FontWeight.bold,
                         ),

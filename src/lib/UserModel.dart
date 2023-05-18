@@ -1,39 +1,40 @@
 class UserModel{
-  String id;
+  String uid;
   String? email;
   int? totalTime = 0;
   int? currTime = 0;
-  String uid;
   List<String>? products;
+  bool? vibrate = true;
 
   UserModel({
-    required this.id,
+    required this.uid,
     this.email,
     this.totalTime,
     this.currTime,
-    required this.uid,
     this.products,
+    this.vibrate,
   });
 
 
   Map<String, dynamic> toJson() => {
-    'id': id,
+    'uid': uid,
     'email': email,
     'totalTime' : totalTime,
     'currTime' : currTime,
-    'uid': uid,
     'products' : products,
+    'vibrate' : vibrate,
   };
 
 
   static UserModel fromJson(Map<String, dynamic> json) => UserModel(
-    id: json['id'] as String,
+    uid: json['id'] as String,
     email: json['email'] as String,
     totalTime: json['totalTime'] as int,
     currTime: json['currTime'] as int,
-    uid: json['uid'] as String,
     products: json['products'] as List<String>,
+    vibrate: json['vibrate'] as bool,
   );
+
 
 }
 

@@ -1,13 +1,10 @@
 import 'dart:async';
-import 'dart:ffi';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projeto/Screen/Login/Box/LoginBoxesBuilder.dart';
 import 'package:projeto/Screen/Login/Button/SignInButton.dart';
-import 'package:projeto/Screen/NavigationBar.dart';
 import 'package:projeto/Screen/SignIn/VerifyEmailScreen.dart';
 import 'package:projeto/UserModel.dart';
 import 'package:projeto/Widgets/AppTitle.dart';
@@ -15,6 +12,8 @@ import 'package:projeto/Screen/Login/Button/LoginButton.dart';
 
 
 class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
+
   @override
   SignInScreenState createState() => SignInScreenState();
 }
@@ -88,11 +87,10 @@ class SignInScreenState extends State<SignInScreen>{
                         LoginButton(
                           text: "Sign Up",
                           onPressed: () async {
-                            signIn();
-                            /*
+                            await signIn();
+
                             String uid = FirebaseAuth.instance.currentUser!.uid;
-                            createUser(uid: uid, email: mailController.text);
-                             */
+                            await createUser(uid: uid, email: emailController.text);
 
                           }),
                         Row(
@@ -128,7 +126,7 @@ class SignInScreenState extends State<SignInScreen>{
 
   static Future createUser({required String uid, required String email}) async{
     final docUser = FirebaseFirestore.instance.collection("Users").doc();
-    final user = UserModel(id: docUser.id, uid: uid, email: email, totalTime: 0, currTime: 0, products: []);
+    final user = UserModel(uid: uid, email: email, totalTime: 0, currTime: 0, products: [], vibrate: true);
     final json = user.toJson();
     await docUser.set(json);
   }
@@ -141,7 +139,7 @@ class SignInScreenState extends State<SignInScreen>{
         password: passwordController.text,
       );
       if (userCredential != null) {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => VerifyEmailScreen()));
+        await Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => VerifyEmailScreen()));
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {

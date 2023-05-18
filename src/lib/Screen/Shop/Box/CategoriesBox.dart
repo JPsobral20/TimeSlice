@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/*
 class CategoriesBox extends StatefulWidget{
   const CategoriesBox({super.key});
 
@@ -61,3 +62,5 @@ class CategoriesBoxState extends State<CategoriesBox>{
 
 
 }
+
+ */

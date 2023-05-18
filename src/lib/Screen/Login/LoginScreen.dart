@@ -10,13 +10,13 @@ import 'package:projeto/Widgets/AppTitle.dart';
 import 'package:projeto/Screen/Login/Button/LoginButton.dart';
 
 
-
 class LoginScreen extends StatefulWidget{
+  const LoginScreen({super.key});
+
   @override
   LoginScreenState createState() => LoginScreenState();
 
 }
-
 
 class LoginScreenState extends State<LoginScreen>{
 

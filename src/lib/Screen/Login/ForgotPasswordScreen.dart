@@ -8,6 +8,8 @@ import 'package:projeto/Widgets/AppTitle.dart';
 
 
 class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({super.key});
+
   @override
   ForgotPasswordScreenState createState() => ForgotPasswordScreenState();
 }

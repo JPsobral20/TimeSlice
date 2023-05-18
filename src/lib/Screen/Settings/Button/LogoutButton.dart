@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto/Screen/Login/LoginScreen.dart';
 
 class LogoutButton extends StatelessWidget {
+  const LogoutButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +13,7 @@ class LogoutButton extends StatelessWidget {
       child: ElevatedButton(
           onPressed: () async {
             await FirebaseAuth.instance.signOut().then((value) {
+              Navigator.of(context).pop();
               Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
             });
           },
@@ -20,11 +22,11 @@ class LogoutButton extends StatelessWidget {
             elevation: 5,
             padding: EdgeInsets.all(15.0),
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0)
+                borderRadius: BorderRadius.circular(15.0),
             ),
           ),
           child: Text(
-            "LogOut",
+            "Logout",
             style: TextStyle(
                 color: Colors.black,
                 fontSize: 25.0,

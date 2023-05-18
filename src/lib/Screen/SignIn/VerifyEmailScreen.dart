@@ -8,6 +8,8 @@ import 'package:projeto/Widgets/AppTitle.dart';
 
 
 class VerifyEmailScreen extends StatefulWidget {
+  const VerifyEmailScreen({super.key});
+
   @override
   VerifyEmailScreenState createState() => VerifyEmailScreenState();
 }
@@ -23,7 +25,7 @@ class VerifyEmailScreenState extends State<VerifyEmailScreen> {
     user = auth.currentUser;
     user!.sendEmailVerification();
 
-    timer = Timer.periodic(Duration(seconds: 3), (timer) {
+    timer = Timer.periodic(Duration(seconds: 1), (timer) {
       checkEmailVerify();
     });
     super.initState();

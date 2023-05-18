@@ -1,25 +1,33 @@
 import 'dart:async';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:projeto/Screen/Timer/Button/TimerButtonsBuilder.dart';
+import 'package:vibration/vibration.dart';
+
 
 class TimerScreen extends StatefulWidget{
+  const TimerScreen({super.key});
+
   @override
   TimerScreenState createState() => TimerScreenState.withDefaultTime();
-
 }
 
 class TimerScreenState extends State<TimerScreen>{
+  String? id;
+  int min = 0;
+  int totalTime = 0;
+  int currTime = 0;
   double percent = 0.0;
   int Secs = 0;
   int TimeInMins;
   int TimeInSecs;
   Timer? timer;
   int TotalSecs;
-  bool isFinish = false;
   final controller = TextEditingController();
+
 
   @override
   void initState() {
@@ -33,12 +41,12 @@ class TimerScreenState extends State<TimerScreen>{
     return TimerScreenState(0);
   }
 
-  startTimer(){
-    setState(() {
-      this.isFinish = true;
+  startTimer() {
+    setState((){
+      min = TimeInMins;
     });
-    timer = Timer.periodic(Duration(seconds: 1), (_){
-      setState((){
+    timer = Timer.periodic(Duration(seconds: 1), (_) {
+      setState(() {
         if (TimeInSecs > 0){
           TimeInSecs--;
           if (Secs == 0 ){
@@ -55,12 +63,27 @@ class TimerScreenState extends State<TimerScreen>{
           }
           percent += 1/(TotalSecs+1);
         }
-        else{
-
+        else {
           percent = 1;
+          updateTime();
           stopTimer();
+          Vibration.vibrate(duration: 10);
         }
       });
+    });
+
+  }
+
+  Future updateTime() async{
+    String uid = FirebaseAuth.instance.currentUser!.uid;
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('Users').where('uid', isEqualTo: uid).get();
+    String id = snapshot.docs.first.id;
+    final DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('Users').doc(id).get();
+    setState((){
+      totalTime = userDoc.get('totalTime');
+      currTime = userDoc.get('currTime');
+      FirebaseFirestore.instance.collection('Users').doc(id).update({'totalTime': totalTime + min});
+      FirebaseFirestore.instance.collection('Users').doc(id).update({'currTime': currTime + min});
     });
   }
 
