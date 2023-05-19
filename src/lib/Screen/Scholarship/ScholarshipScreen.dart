@@ -128,7 +128,7 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
                                       "${getNewTotalTime(snapshot.data ?? 0)}€",
                                       style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 80.0,
+                                        fontSize: 70.0,
                                       ),
                                     ),
                                 ),

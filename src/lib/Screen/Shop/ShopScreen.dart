@@ -96,7 +96,7 @@ class ShopScreenState extends State<ShopScreen>{
                                           childAspectRatio: 0.82,
                                         ),
                                         itemBuilder: (context, index) =>
-                                            ShopItems1(products[index]),
+                                            ShopItems(products[index]),
                                       ),
                                     ),
                                   ],
@@ -145,7 +145,7 @@ class ShopScreenState extends State<ShopScreen>{
   }
 
 
-  Widget ShopItems1(ShopProduct product){
+  Widget ShopItems(ShopProduct product){
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[

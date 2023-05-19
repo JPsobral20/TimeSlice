@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:projeto/Screen/Timer/Button/TimerButtonsBuilder.dart';
-import 'package:vibration/vibration.dart';
 
 
 class TimerScreen extends StatefulWidget{
@@ -66,8 +65,8 @@ class TimerScreenState extends State<TimerScreen>{
         else {
           percent = 1;
           updateTime();
-          stopTimer();
           HapticFeedback.vibrate();
+          stopTimer();
         }
       });
     });
