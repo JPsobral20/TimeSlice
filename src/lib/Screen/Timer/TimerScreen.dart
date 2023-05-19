@@ -27,16 +27,24 @@ class TimerScreenState extends State<TimerScreen>{
   Timer? timer;
   int totalSecs;
   final controller = TextEditingController();
+  late Future<bool> futureVibrate;
 
-
+  Future<bool> setVibrate() async{
+    String uid = FirebaseAuth.instance.currentUser!.uid;
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('Users').where('uid', isEqualTo: uid).get();
+    String id = snapshot.docs.first.id;
+    final DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('Users').doc(id).get();
+    return userDoc.get('vibrate');
+  }
 
   @override
   void initState() {
     super.initState();
+    futureVibrate = setVibrate();
     controller.text = "0";
   }
 
-  TimerScreenState(this.timeInMins) : this.timeInSecs = timeInMins * 60, this.totalSecs = timeInMins * 60;
+  TimerScreenState(this.timeInMins) : timeInSecs = timeInMins * 60, totalSecs = timeInMins * 60;
 
   factory TimerScreenState.withDefaultTime() {
     return TimerScreenState(0);
@@ -67,10 +75,11 @@ class TimerScreenState extends State<TimerScreen>{
         else {
           percent = 1;
           updateTime();
-          Vibration.vibrate(duration: 5000);
+          //Vibration.vibrate(duration: 5000);
           stopTimer();
         }
       });
+      if (percent == 1 && futureVibrate == true) Vibration.vibrate(duration: 5000);
     });
 
   }
@@ -100,11 +109,8 @@ class TimerScreenState extends State<TimerScreen>{
   resumeButton() => TimerButtonsBuilder(onPressed: startTimer, backgroundColor: Colors.green, text: "Resume",);
 
 
-  bool iscompleted(){
+  bool isCompleted(){
     if (timeInSecs == 0){
-      setState(() {
-        percent = 0;
-      });
       return true;
     }
     if (timeInSecs == 0 || totalSecs == timeInMins*60) return true;
@@ -113,11 +119,11 @@ class TimerScreenState extends State<TimerScreen>{
 
 
   Widget buildButtons() {
-    final isrunning = timer == null ? false : timer!.isActive;
+    final isRunning = timer == null ? false : timer!.isActive;
 
-    if (iscompleted()) return startButton();
+    if (isCompleted()) return startButton();
 
-    return isrunning ? pauseButton() : resumeButton();
+    return isRunning ? pauseButton() : resumeButton();
   }
 
   bool readonly(){

@@ -37,7 +37,7 @@ class UserContributionTextState extends State<UserContributionText>{
         textAlign: TextAlign.center,
         style: TextStyle(
           color: Colors.black,
-          fontSize: 26.0,
+          fontSize: 22.0,
         ),
       );
     });

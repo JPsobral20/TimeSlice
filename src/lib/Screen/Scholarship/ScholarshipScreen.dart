@@ -148,7 +148,7 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 18,
+                                  fontSize: 22.0,
                                 ),
                               ),
                             )
@@ -178,7 +178,7 @@ class UserContribution extends StatelessWidget {
             "Já contribuíu com um total de",
             style: TextStyle(
               color: Colors.black,
-              fontSize: 18.0,
+              fontSize: 22.0,
             ),
           ),
         ),
