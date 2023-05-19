@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projeto/Screen/Shop/Box/TimeToSpendBox.dart';
-import 'package:projeto/Screen/Shop/ShopItems.dart';
 import 'package:projeto/Screen/Shop/ShopProducts.dart';
 import '../../Widgets/AppTitle.dart';
 
@@ -251,18 +250,5 @@ class ShopScreenState extends State<ShopScreen>{
       ],
     );
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

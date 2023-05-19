@@ -16,7 +16,6 @@ class ScholarshipScreen extends StatefulWidget {
 class ScholarshipScreenState extends State<ScholarshipScreen> {
 
   late Future<int> futureTotalTime;
-  int addTotalTime1 = 0;
 
 
 
@@ -122,11 +121,11 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
                                     percent: getPercent(snapshot.data ?? 0),
                                     animation: true,
                                     animateFromLastPercent: true,
-                                    radius: 155.0,
+                                    radius: 140.0,
                                     lineWidth: 27.0,
                                     progressColor: Colors.blueGrey,
                                     center: Text(
-                                      getNewTotalTime(snapshot.data ?? 0) + "€",
+                                      "${getNewTotalTime(snapshot.data ?? 0)}€",
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 80.0,
@@ -145,11 +144,11 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
                             Flexible(
                               flex: 1,
                               child: Text(
-                                "Já foram concluidas um total de " + getTotalScholarship(snapshot.data ?? 0) + " Scholarships",
+                                "Já foram concluidas um total de ${getTotalScholarship(snapshot.data ?? 0)} Scholarships",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 24,
+                                  fontSize: 18,
                                 ),
                               ),
                             )
@@ -179,7 +178,7 @@ class UserContribution extends StatelessWidget {
             "Já contribuíu com um total de",
             style: TextStyle(
               color: Colors.black,
-              fontSize: 27.0,
+              fontSize: 18.0,
             ),
           ),
         ),
