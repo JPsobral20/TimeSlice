@@ -27,12 +27,26 @@ class TimerScreenState extends State<TimerScreen>{
   Timer? timer;
   int totalSecs;
   final controller = TextEditingController();
+  late Future<bool> futureVibrate;
 
+  Future<bool> setVibrate() async{
+    String uid = FirebaseAuth.instance.currentUser!.uid;
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('Users').where('uid', isEqualTo: uid).get();
+    String id = snapshot.docs.first.id;
+    final DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('Users').doc(id).get();
+    return userDoc.get('vibrate');
+  }
+
+  bool isVibrate(bool futureVibrate){
+    if (futureVibrate) return true;
+    return false;
+  }
 
   @override
   void initState() {
     super.initState();
     controller.text = "0";
+    futureVibrate = setVibrate();
   }
 
   TimerScreenState(this.timeInMins) : this.timeInSecs = timeInMins * 60, this.totalSecs = timeInMins * 60;
@@ -41,7 +55,7 @@ class TimerScreenState extends State<TimerScreen>{
     return TimerScreenState(0);
   }
 
-  startTimer() {
+  startTimer(bool vibrate) {
     setState((){
       min = timeInMins;
     });
@@ -66,7 +80,7 @@ class TimerScreenState extends State<TimerScreen>{
         else {
           percent = 1;
           updateTime();
-          Vibration.vibrate(duration: 2000);
+          if(vibrate) Vibration.vibrate(duration: 5000);
           stopTimer();
         }
       });
@@ -90,16 +104,16 @@ class TimerScreenState extends State<TimerScreen>{
 
   stopTimer(){ setState(() { timer?.cancel(); }); }
 
-  startButton() => TimerButtonsBuilder(onPressed: startTimer, backgroundColor: Colors.blue, text: "Start Studying",);
+  startButton(bool vibrate) => TimerButtonsBuilder(onPressed: startTimer(vibrate), backgroundColor: Colors.blue, text: "Start Studying",);
 
 
   pauseButton() => TimerButtonsBuilder(onPressed: stopTimer, backgroundColor: Colors.red, text: "Pause",);
 
 
-  resumeButton() => TimerButtonsBuilder(onPressed: startTimer, backgroundColor: Colors.green, text: "Resume",);
+  resumeButton(bool vibrate) => TimerButtonsBuilder(onPressed: startTimer(vibrate), backgroundColor: Colors.green, text: "Resume",);
 
 
-  bool iscompleted(){
+  bool isCompleted(){
     if (timeInSecs == 0){
       setState(() {
         percent = 0;
@@ -111,12 +125,12 @@ class TimerScreenState extends State<TimerScreen>{
   }
 
 
-  Widget buildButtons() {
-    final isrunning = timer == null ? false : timer!.isActive;
+  Widget buildButtons(bool vibrate) {
+    final isRunning = timer == null ? false : timer!.isActive;
 
-    if (iscompleted()) return startButton();
+    if (isCompleted()) return startButton(vibrate);
 
-    return isrunning ? pauseButton() : resumeButton();
+    return isRunning ? pauseButton() : resumeButton(vibrate);
   }
 
   bool readonly(){
@@ -250,10 +264,12 @@ class TimerScreenState extends State<TimerScreen>{
                               ],
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 28.0),
-                            child: buildButtons(),
-                          )
+                          FutureBuilder(future: futureVibrate, initialData: null, builder: (context, snapshot) {
+                            return Padding(
+                              padding: EdgeInsets.symmetric(vertical: 28.0),
+                              child: buildButtons(snapshot.data ?? true),
+                            );
+                          }),
                         ],
                       ),
                     ),
