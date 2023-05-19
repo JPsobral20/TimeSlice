@@ -67,7 +67,7 @@ class TimerScreenState extends State<TimerScreen>{
           percent = 1;
           updateTime();
           stopTimer();
-          Vibration.vibrate(duration: 10);
+          HapticFeedback.vibrate();
         }
       });
     });

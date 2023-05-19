@@ -78,71 +78,71 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
                       ),
                       child: Column(
                           children: [
-                            Padding(
-                                padding: EdgeInsets.symmetric(
-                                  vertical: 20.0,
-                                )
-                            ),
-                            Align(
-                              alignment: Alignment.topRight,
-                              child: AppTitle(size: 42),
-                            ),
-                            SizedBox(height: 20.0),
-                            Text(
-                              "Scholarship",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 38,
-                                fontWeight: FontWeight.bold,
+                            Flexible(
+                              flex: 1,
+                              child: Align(
+                                alignment: Alignment.topRight,
+                                child: AppTitle(size: 42),
                               ),
                             ),
-                            SizedBox(height: 20.0),
-                            Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                "Preço da Scholarship: 5000€",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 27.0,
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 20.0),
-                            CircularPercentIndicator(
-                                circularStrokeCap: CircularStrokeCap.round,
-                                percent: getPercent(snapshot.data ?? 0),
-                                animation: true,
-                                animateFromLastPercent: true,
-                                radius: 155.0,
-                                lineWidth: 27.0,
-                                progressColor: Colors.blueGrey,
-                                center: Text(
-                                  getNewTotalTime(snapshot.data ?? 0) + "€",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 80.0,
+                            Flexible(
+                              flex: 1,
+                              child: Column(
+                                children: [
+                                  Text(
+                                    "Scholarship",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 38,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                            ),
-                            SizedBox(height: 50.0),
-                            Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                "Já contribuíu com um total de",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 27.0,
-                                ),
+                                  SizedBox(height: 20.0),
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "Preço da Scholarship: 5000€",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 27.0,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            UserContributionText(),
-                            SizedBox(height: 30),
-                            Text(
-                              "Já foram concluidas um total de " + getTotalScholarship(snapshot.data ?? 0) + " Scholarships",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 24,
+                            Flexible(
+                              flex:3,
+                              child: CircularPercentIndicator(
+                                  circularStrokeCap: CircularStrokeCap.round,
+                                  percent: getPercent(snapshot.data ?? 0),
+                                  animation: true,
+                                  animateFromLastPercent: true,
+                                  radius: 155.0,
+                                  lineWidth: 27.0,
+                                  progressColor: Colors.blueGrey,
+                                  center: Text(
+                                    getNewTotalTime(snapshot.data ?? 0) + "€",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 80.0,
+                                    ),
+                                  ),
+                              ),
+                            ),
+                            Flexible(
+                                flex: 1,
+                                child:UserContribution(),
+                            ),
+                            Flexible(
+                              flex: 1,
+                              child: Text(
+                                "Já foram concluidas um total de " + getTotalScholarship(snapshot.data ?? 0) + " Scholarships",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 24,
+                                ),
                               ),
                             )
                           ]
@@ -154,6 +154,29 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
           )
         )
       )
+    );
+  }
+}
+
+class UserContribution extends StatelessWidget {
+  const UserContribution({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Align(
+          alignment: Alignment.center,
+          child: Text(
+            "Já contribuíu com um total de",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 27.0,
+            ),
+          ),
+        ),
+        UserContributionText()
+      ],
     );
   }
 }
