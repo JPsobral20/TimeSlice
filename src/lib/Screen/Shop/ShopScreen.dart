@@ -40,7 +40,7 @@ class ShopScreenState extends State<ShopScreen>{
           child: GestureDetector(
             child: Stack(
               children: <Widget>[
-                FutureBuilder(future: futureCurrTime, initialData: null, builder: (ctx, snapshot) {
+                FutureBuilder(future: futureCurrTime, initialData: null, builder: (context, snapshot) {
                   return Container(
                     height: double.infinity,
                     width: double.infinity,
@@ -77,7 +77,6 @@ class ShopScreenState extends State<ShopScreen>{
                           SizedBox(height: 10.0),
                           Expanded(
                             child: SingleChildScrollView(
-                              //physics: AlwaysScrollableScrollPhysics(),
                                 padding: EdgeInsets.symmetric(
                                   vertical: 10.0,
                                 ),
@@ -98,8 +97,7 @@ class ShopScreenState extends State<ShopScreen>{
                                           childAspectRatio: 0.82,
                                         ),
                                         itemBuilder: (context, index) =>
-                                            ShopItems(product: products[index],
-                                                currTime: snapshot.data ?? 0),
+                                            ShopItems1(products[index]),
                                       ),
                                     ),
                                   ],
@@ -108,7 +106,7 @@ class ShopScreenState extends State<ShopScreen>{
                           )
                         ],
                       ),
-                    )
+                    ),
                   );
                 })
               ]
@@ -117,4 +115,154 @@ class ShopScreenState extends State<ShopScreen>{
         )
     );
   }
+
+
+
+
+
+
+  UpdateCurrTime(int price) async {
+    String uid = FirebaseAuth.instance.currentUser!.uid;
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('Users').where('uid', isEqualTo: uid).get();
+    String id = snapshot.docs.first.id;
+    final DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('Users').doc(id).get();
+    int currTime = userDoc.get('currTime');
+    setState((){
+      FirebaseFirestore.instance.collection('Users').doc(id).update({'currTime': currTime - price});
+    });
+    futureCurrTime = setCurrTime();
+  }
+
+  UpdateProducts(String product) async {
+    String uid = FirebaseAuth.instance.currentUser!.uid;
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('Users').where('uid', isEqualTo: uid).get();
+    String id = snapshot.docs.first.id;
+    final DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('Users').doc(id).get();
+    var userProducts = userDoc.get('products');
+    setState((){
+      userProducts.add(product);
+      FirebaseFirestore.instance.collection('Users').doc(id).update({'products': userProducts});
+    });
+  }
+
+
+  Widget ShopItems1(ShopProduct product){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        FutureBuilder(future: futureCurrTime, initialData: null, builder: (context, snapshot) {
+        return InkWell(
+        onTap: () async {
+          if ((snapshot.data ?? 0) >= product.price) {
+            showDialog(
+              context: context,
+              builder: (ctx) =>
+                  AlertDialog(
+                    title: Text(product.name),
+                    content: Text("Pretende comprar este produto?"),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(ctx).pop();
+                        },
+                        child: Text("Cancelar"),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(ctx).pop();
+                          showDialog(
+                            context: context,
+                            builder: (ctx) =>
+                                AlertDialog(
+                                  title: Text(product.name),
+                                  content: Text("Compra feita com sucesso!"),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      onPressed: () {
+                                        UpdateCurrTime(product.price);
+                                        UpdateProducts(product.name);
+                                        Navigator.of(ctx).pop();
+                                      },
+                                      child: Text("Back"),
+                                    ),
+                                  ],
+                                ),
+                          );
+                        },
+                        child: Text("Sim"),
+                      ),
+                    ],
+                  ),
+            );
+          }
+          else {
+            showDialog(
+              context: context,
+              builder: (ctx) =>
+                  AlertDialog(
+                    title: Text(product.name),
+                    content: Text(
+                        "Não tem dinheiro suficiente para comprar este produto!"),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(ctx).pop();
+                        },
+                        child: Text("Back"),
+                      ),
+                    ],
+                  ),
+            );
+          }
+        },
+        child: Container(
+          padding: EdgeInsets.all(20.0),
+          height: 120,
+          width: 160,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.black,
+              width: 2,
+            ),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Image.asset(product.image),
+        ),
+      );
+    }),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 5.0),
+          child: Text(
+            product.name,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ),
+        ),
+        Text(
+          product.price.toString(),
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+      ],
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

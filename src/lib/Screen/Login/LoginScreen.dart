@@ -168,6 +168,15 @@ class LoginScreenState extends State<LoginScreen>{
           )
         );
       }
+      else if (e.code == 'network-request-failed'){
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('no internet access'),
+              backgroundColor: Colors.redAccent,
+              behavior: SnackBarBehavior.floating,
+            )
+        );
+      }
       else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(

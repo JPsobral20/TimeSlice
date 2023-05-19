@@ -21,12 +21,12 @@ class ShopItems extends StatefulWidget{
 class ShopItemsState extends State<ShopItems>{
 
 
-  UpdateCurrTime(ShopProduct product) async {
+  UpdateCurrTime(int price) async {
     String uid = FirebaseAuth.instance.currentUser!.uid;
     final QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('Users').where('uid', isEqualTo: uid).get();
     String id = snapshot.docs.first.id;
     setState((){
-      FirebaseFirestore.instance.collection('Users').doc(id).update({'currTime': widget.currTime - product.price});
+      FirebaseFirestore.instance.collection('Users').doc(id).update({'currTime': widget.currTime - price});
     });
   }
 
@@ -70,21 +70,21 @@ class ShopItemsState extends State<ShopItems>{
                             showDialog(
                               context: context,
                               builder: (ctx) =>
-                                  AlertDialog(
-                                    title: Text(widget.product.name),
-                                    content: Text(
-                                        "Compra feita com sucesso!!!"),
-                                    actions: <Widget>[
-                                      TextButton(
-                                        onPressed: () {
-                                          UpdateCurrTime(widget.product);
-                                          UpdateProducts(widget.product.name);
-                                          Navigator.of(ctx).pop();
-                                        },
-                                        child: Text("Back"),
-                                      ),
-                                    ],
-                                  ),
+                                AlertDialog(
+                                  title: Text(widget.product.name),
+                                  content: Text(
+                                      "Compra feita com sucesso!"),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      onPressed: () {
+                                        UpdateCurrTime(widget.product.price);
+                                        UpdateProducts(widget.product.name);
+                                        Navigator.of(ctx).pop();
+                                      },
+                                      child: Text("Back"),
+                                    ),
+                                  ],
+                                ),
                             );
                           },
                           child: Text("Sim"),

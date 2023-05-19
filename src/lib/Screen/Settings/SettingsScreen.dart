@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:projeto/Screen/Settings/Box/SoundBox.dart';
 import 'package:projeto/Screen/Settings/Box/VibrateBox.dart';
 import 'package:projeto/Screen/Settings/Button/LogoutButton.dart';
 import 'package:projeto/Screen/Settings/Button/StockButton.dart';
@@ -58,8 +57,6 @@ class SettingsScreenState extends State<SettingsScreen> {
                       StockButton(),
                       SizedBox(height: 50),
                       VibrateBox(),
-                      SizedBox(height: 50),
-                      SoundBox(),
                       SizedBox(height: 50),
                       LogoutButton(),
                     ]

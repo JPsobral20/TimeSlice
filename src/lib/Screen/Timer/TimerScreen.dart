@@ -16,16 +16,16 @@ class TimerScreen extends StatefulWidget{
 }
 
 class TimerScreenState extends State<TimerScreen>{
-  String? id;
+  late String id;
   int min = 0;
   int totalTime = 0;
   int currTime = 0;
   double percent = 0.0;
-  int Secs = 0;
-  int TimeInMins;
-  int TimeInSecs;
+  int secs = 0;
+  int timeInMins;
+  int timeInSecs;
   Timer? timer;
-  int TotalSecs;
+  int totalSecs;
   final controller = TextEditingController();
 
 
@@ -35,7 +35,7 @@ class TimerScreenState extends State<TimerScreen>{
     controller.text = "0";
   }
 
-  TimerScreenState(this.TimeInMins) : this.TimeInSecs = TimeInMins * 60, this.TotalSecs = TimeInMins * 60;
+  TimerScreenState(this.timeInMins) : this.timeInSecs = timeInMins * 60, this.totalSecs = timeInMins * 60;
 
   factory TimerScreenState.withDefaultTime() {
     return TimerScreenState(0);
@@ -43,25 +43,25 @@ class TimerScreenState extends State<TimerScreen>{
 
   startTimer() {
     setState((){
-      min = TimeInMins;
+      min = timeInMins;
     });
     timer = Timer.periodic(Duration(seconds: 1), (_) {
       setState(() {
-        if (TimeInSecs > 0){
-          TimeInSecs--;
-          if (Secs == 0 ){
-            Secs = 59;
-            if (TimeInMins != 0){
-              TimeInMins--;
+        if (timeInSecs > 0){
+          timeInSecs--;
+          if (secs == 0 ){
+            secs = 59;
+            if (timeInMins != 0){
+              timeInMins--;
             }
             else{
               percent = 1;
             }
           }
           else{
-            Secs--;
+            secs--;
           }
-          percent += 1/(TotalSecs+1);
+          percent += 1/(totalSecs+1);
         }
         else {
           percent = 1;
@@ -100,13 +100,13 @@ class TimerScreenState extends State<TimerScreen>{
 
 
   bool iscompleted(){
-    if (TimeInSecs == 0){
+    if (timeInSecs == 0){
       setState(() {
         percent = 0;
       });
       return true;
     }
-    if (TimeInSecs == 0 || TotalSecs == TimeInMins*60) return true;
+    if (timeInSecs == 0 || totalSecs == timeInMins*60) return true;
     return false;
   }
 
@@ -157,7 +157,7 @@ class TimerScreenState extends State<TimerScreen>{
                 lineWidth: 22.0,
                 progressColor: Colors.blueGrey,
                 center: Text(
-                  "$TimeInMins".padLeft(2,"0") + ":" + "$Secs".padLeft(2,"0"),
+                  "${"$timeInMins".padLeft(2,"0")}:${"$secs".padLeft(2,"0")}",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 80.0,
@@ -197,15 +197,14 @@ class TimerScreenState extends State<TimerScreen>{
                                         },
                                         onFieldSubmitted: (number){
                                           setState(() {
-                                            this.TimeInMins = int.parse(number);
-                                            if (TimeInMins > 120) this.TimeInMins = 120;
-                                            this.TimeInSecs = TimeInMins * 60;
-                                            this.TotalSecs = TimeInMins * 60;
-                                            this.Secs = 0;
-                                            this.percent = 0;
+                                            timeInMins = int.parse(number);
+                                            if (timeInMins > 120) timeInMins = 120;
+                                            timeInSecs = timeInMins * 60;
+                                            totalSecs = timeInMins * 60;
+                                            secs = 0;
+                                            percent = 0;
                                           });
                                         },
-
                                         style: TextStyle(
                                           fontSize: 80.0,
                                         ),
@@ -240,7 +239,7 @@ class TimerScreenState extends State<TimerScreen>{
                                       ),
                                       SizedBox(height: 17.0,),
                                       Text(
-                                        (TotalSecs/300).toInt().toString(),
+                                        (totalSecs~/300).toString(),
                                         style: TextStyle(
                                             fontSize: 80.0
                                         ),

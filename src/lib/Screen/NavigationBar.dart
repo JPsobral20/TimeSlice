@@ -18,7 +18,7 @@ class NavigatorBarState extends State<NavigatorBar> {
   int index = 0;
   Widget showPage = new TimerScreen();
 
-  Widget pagechooser(int page){
+  Widget pageChooser(int page){
     switch(page){
       case 0:
         index = 0;
@@ -65,7 +65,7 @@ class NavigatorBarState extends State<NavigatorBar> {
         index: pageIndex,
         backgroundColor: backgroundColor,
         color: Color(0xff1565c0),
-        animationDuration: Duration(milliseconds: 300),
+        animationDuration: Duration(milliseconds: 250),
         items: [
           Icon(Icons.timer, color: Colors.white),
           Icon(Icons.book_rounded, color: Colors.white),
@@ -75,7 +75,7 @@ class NavigatorBarState extends State<NavigatorBar> {
         ],
         onTap:(int tappedIndex){
           setState(() {
-            showPage = pagechooser(tappedIndex);
+            showPage = pageChooser(tappedIndex);
           });
         }
       ),
