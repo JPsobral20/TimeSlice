@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -21,7 +20,7 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
 
 
 
-  Future<int> setTotalTime(bool totaltime) async{
+  Future<int> setTotalTime(bool totalTime) async{
     int addTotalTime = 0;
     final QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('Users').get();
     for (var element in snapshot.docs) {
@@ -80,9 +79,12 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
                           children: [
                             Flexible(
                               flex: 1,
-                              child: Align(
-                                alignment: Alignment.topRight,
-                                child: AppTitle(size: 42),
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 30.0, right: 10.0),
+                                child: Align(
+                                  alignment: Alignment.topRight,
+                                  child: AppTitle(size: 42),
+                                ),
                               ),
                             ),
                             Flexible(
@@ -113,26 +115,32 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
                             ),
                             Flexible(
                               flex:3,
-                              child: CircularPercentIndicator(
-                                  circularStrokeCap: CircularStrokeCap.round,
-                                  percent: getPercent(snapshot.data ?? 0),
-                                  animation: true,
-                                  animateFromLastPercent: true,
-                                  radius: 155.0,
-                                  lineWidth: 27.0,
-                                  progressColor: Colors.blueGrey,
-                                  center: Text(
-                                    getNewTotalTime(snapshot.data ?? 0) + "€",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 80.0,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                                child: CircularPercentIndicator(
+                                    circularStrokeCap: CircularStrokeCap.round,
+                                    percent: getPercent(snapshot.data ?? 0),
+                                    animation: true,
+                                    animateFromLastPercent: true,
+                                    radius: 155.0,
+                                    lineWidth: 27.0,
+                                    progressColor: Colors.blueGrey,
+                                    center: Text(
+                                      getNewTotalTime(snapshot.data ?? 0) + "€",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 80.0,
+                                      ),
                                     ),
-                                  ),
+                                ),
                               ),
                             ),
                             Flexible(
                                 flex: 1,
-                                child:UserContribution(),
+                                child:Padding(
+                                  padding: const EdgeInsets.only(top: 20.0),
+                                  child: UserContribution(),
+                                ),
                             ),
                             Flexible(
                               flex: 1,
@@ -175,7 +183,7 @@ class UserContribution extends StatelessWidget {
             ),
           ),
         ),
-        UserContributionText()
+        UserContributionText(),
       ],
     );
   }

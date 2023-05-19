@@ -189,7 +189,7 @@ class TimerScreenState extends State<TimerScreen>{
                                           fontSize: 30.0,
                                         ),
                                       ),
-                                      SizedBox(height: 10.0,),
+                                      SizedBox(height: 10.0),
                                       TextFormField(
                                         readOnly: readonly(),
                                         onTapOutside: (number) {
