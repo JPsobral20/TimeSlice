@@ -51,6 +51,6 @@ void main() {
 
     // Verify that the iscompleted method returns true.
     TimerScreenState state = tester.state(find.byType(TimerScreen));
-    expect(state.iscompleted(), isTrue);
+    expect(state.isCompleted(), isTrue);
   });
 }
