@@ -79,9 +79,8 @@ class TimerScreenState extends State<TimerScreen>{
           stopTimer();
         }
       });
-      if (percent == 1 && futureVibrate == true) Vibration.vibrate(duration: 5000);
     });
-
+    if (percent == 1 && futureVibrate == true) Vibration.vibrate(duration: 5000);
   }
 
   Future updateTime() async{
