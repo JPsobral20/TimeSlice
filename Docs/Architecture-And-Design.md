@@ -14,7 +14,8 @@ For the sake of our code maintenance and to be able to understand, we diveded ou
 
 ## Physical architecture
 In our appication we got 4 entities: the Student Smartphone, the TimeSlice server, the Google server and the FEUP server.
-![Physical architecture](https://user-images.githubusercontent.com/113974128/224361019-cc5cf5ac-6f42-4f71-a4e1-cdfbe88ca234.png)
+![Physical architecture](https://github.com/FEUP-LEIC-ES-2022-23/2LEIC12T3/assets/113974128/7499e37a-2efd-4c91-806a-f618f42bba65)
+
 <br>
 In respect of the technologies used be us, we have flutter/dart for the framework and style of our app (Frontend), for the backend of our app,  we also use flutter/dart, but regarding the database we make use of MySQL and Firebase.
 
