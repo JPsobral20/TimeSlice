@@ -21,4 +21,10 @@ Iterantion 2 begin:
 Iteration 2 end:
 ![Iteration 2 end](https://user-images.githubusercontent.com/113974128/232758249-9f123a73-5336-4b11-a832-0c04ea2dbe07.png)
 
+Iterantion 3 begin:
+![Iterantion 3 begin](https://github.com/FEUP-LEIC-ES-2022-23/2LEIC12T3/assets/113974128/1fe1e5ee-632a-4cd3-8840-ca92a0f19239)
+
+
+Iteration 3 end:
+![Iteration 3 end](https://github.com/FEUP-LEIC-ES-2022-23/2LEIC12T3/assets/113974128/02246959-990b-41ed-8837-69c9cab619b4)
 
