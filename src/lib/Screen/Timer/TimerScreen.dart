@@ -70,6 +70,7 @@ class TimerScreenState extends State<TimerScreen>{
           else{
             secs--;
           }
+
           percent += 1/(totalSecs+1);
         }
         else {
