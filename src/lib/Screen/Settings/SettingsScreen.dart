@@ -55,7 +55,7 @@ class SettingsScreenState extends State<SettingsScreen> {
                       ),
                       SizedBox(height: 75.0),
                       StockButton(),
-                      SizedBox(height: 50),
+                      SizedBox(height: 30),
                       VibrateBox(),
                       SizedBox(height: 50),
                       LogoutButton(),

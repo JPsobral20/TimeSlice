@@ -15,7 +15,7 @@ class TimeToSpendBox extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: 'Your time: ',
+            text: 'Your points: ',
             style: TextStyle(
               color: Color(0xffce93d8),
               fontSize: 20,

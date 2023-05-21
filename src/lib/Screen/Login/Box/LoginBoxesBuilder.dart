@@ -26,7 +26,7 @@ class LoginBoxesBuilder extends StatelessWidget{
         Text(
           textBox,
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
@@ -58,7 +58,7 @@ class LoginBoxesBuilder extends StatelessWidget{
               contentPadding: EdgeInsets.only(top: 14),
               prefixIcon: Icon(
                 icon,
-                color: Color(0xffffecd8)
+                color: Color(0xfff3e5f5),
               ),
               hintText: hintText,
               hintStyle: TextStyle(

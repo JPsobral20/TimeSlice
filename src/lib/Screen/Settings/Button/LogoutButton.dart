@@ -18,7 +18,7 @@ class LogoutButton extends StatelessWidget {
             });
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: Color(0xffffc58d),
+            backgroundColor: Color(0xd8307fe3),
             elevation: 5,
             padding: EdgeInsets.all(15.0),
             shape: RoundedRectangleBorder(
@@ -30,7 +30,7 @@ class LogoutButton extends StatelessWidget {
             style: TextStyle(
                 color: Colors.black,
                 fontSize: 25.0,
-                fontWeight: FontWeight.bold
+                fontWeight: FontWeight.bold,
             ),
           )
       ),

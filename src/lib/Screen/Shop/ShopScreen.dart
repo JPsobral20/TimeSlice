@@ -158,13 +158,13 @@ class ShopScreenState extends State<ShopScreen>{
               builder: (ctx) =>
                   AlertDialog(
                     title: Text(product.name),
-                    content: Text("Pretende comprar este produto?"),
+                    content: Text("Would you like to pursache this item?"),
                     actions: <Widget>[
                       TextButton(
                         onPressed: () {
                           Navigator.of(ctx).pop();
                         },
-                        child: Text("Cancelar"),
+                        child: Text("Cancel"),
                       ),
                       TextButton(
                         onPressed: () {
@@ -174,7 +174,7 @@ class ShopScreenState extends State<ShopScreen>{
                             builder: (ctx) =>
                                 AlertDialog(
                                   title: Text(product.name),
-                                  content: Text("Compra feita com sucesso!"),
+                                  content: Text("Successful pursache!"),
                                   actions: <Widget>[
                                     TextButton(
                                       onPressed: () {
@@ -188,7 +188,7 @@ class ShopScreenState extends State<ShopScreen>{
                                 ),
                           );
                         },
-                        child: Text("Sim"),
+                        child: Text("Yes"),
                       ),
                     ],
                   ),
@@ -201,7 +201,7 @@ class ShopScreenState extends State<ShopScreen>{
                   AlertDialog(
                     title: Text(product.name),
                     content: Text(
-                        "Não tem dinheiro suficiente para comprar este produto!"),
+                        "Not enough points to complete this pursache!"),
                     actions: <Widget>[
                       TextButton(
                         onPressed: () {

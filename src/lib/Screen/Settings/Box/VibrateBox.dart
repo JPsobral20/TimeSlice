@@ -54,7 +54,7 @@ class VibrateBoxState extends State<VibrateBox>{
           Spacer(),
           FutureBuilder(future: futureVibrate, initialData: null, builder: (ctx, snapshot) {
             return Switch(
-              activeColor: Color(0xff9124d0),
+              activeColor: Color(0xddd034f5),
               activeTrackColor: Color(0xffce93d8),
               inactiveThumbColor: Colors.blueGrey.shade600,
               inactiveTrackColor: Colors.grey.shade400,

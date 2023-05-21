@@ -34,19 +34,7 @@ class LoginScreenState extends State<LoginScreen>{
               Container(
                 height: double.infinity,
                 width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0xffffc58d),
-                      Color(0xccffc58d),
-                      Color(0x99ffc58d),
-                      Color(0x66ffc58d),
-                      Color(0x33ffc58d),
-                    ]
-                  )
-                ),
+                color: Color(0xfff3e5f5),
                 child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
@@ -61,9 +49,9 @@ class LoginScreenState extends State<LoginScreen>{
                       Text(
                         "Login Account",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 40.0,
-                            fontWeight: FontWeight.bold
+                            fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 40.0),
@@ -171,7 +159,7 @@ class LoginScreenState extends State<LoginScreen>{
       else if (e.code == 'network-request-failed'){
         ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('no internet access'),
+              content: Text('No internet access'),
               backgroundColor: Colors.redAccent,
               behavior: SnackBarBehavior.floating,
             )

@@ -33,19 +33,7 @@ class SignInScreenState extends State<SignInScreen>{
                 Container(
                   height: double.infinity,
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Color(0xffffc58d),
-                            Color(0xccffc58d),
-                            Color(0x99ffc58d),
-                            Color(0x66ffc58d),
-                            Color(0x33ffc58d),
-                          ]
-                      )
-                  ),
+                  color: Color(0xfff3e5f5),
                   child: SingleChildScrollView(
                     physics: AlwaysScrollableScrollPhysics(),
                     padding: EdgeInsets.symmetric(
@@ -60,7 +48,7 @@ class SignInScreenState extends State<SignInScreen>{
                         Text(
                           "Sign Up",
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 40.0,
                               fontWeight: FontWeight.bold
                           ),
@@ -145,7 +133,7 @@ class SignInScreenState extends State<SignInScreen>{
       if (e.code == 'weak-password') {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('password must have more than 5 characters'),
+            content: Text('Password must have more than 5 characters'),
             backgroundColor: Colors.redAccent,
             behavior: SnackBarBehavior.floating,
           )
@@ -154,7 +142,7 @@ class SignInScreenState extends State<SignInScreen>{
       else if (e.code == 'invalid-email'){
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('invalid email'),
+            content: Text('Invalid email'),
             backgroundColor: Colors.redAccent,
             behavior: SnackBarBehavior.floating,
           )
@@ -163,7 +151,7 @@ class SignInScreenState extends State<SignInScreen>{
       else if (e.code == 'email-already-in-use'){
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('email already exist'),
+            content: Text('Email already exist'),
             backgroundColor: Colors.redAccent,
             behavior: SnackBarBehavior.floating,
           )
@@ -172,10 +160,19 @@ class SignInScreenState extends State<SignInScreen>{
       else if (e.code == 'unknown'){
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('invalid credentials'),
+            content: Text('Invalid credentials'),
             backgroundColor: Colors.redAccent,
             behavior: SnackBarBehavior.floating,
           )
+        );
+      }
+      else if (e.code == 'network-request-failed'){
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('No internet access'),
+              backgroundColor: Colors.redAccent,
+              behavior: SnackBarBehavior.floating,
+            )
         );
       }
       else {
