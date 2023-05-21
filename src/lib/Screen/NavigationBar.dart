@@ -59,6 +59,7 @@ class NavigatorBarState extends State<NavigatorBar> {
     }
 
     return Scaffold(
+      key: Key("NavigationBar"),
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xfff3e5f5),
       bottomNavigationBar: CurvedNavigationBar(

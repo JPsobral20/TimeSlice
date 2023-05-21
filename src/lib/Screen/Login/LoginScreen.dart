@@ -56,6 +56,7 @@ class LoginScreenState extends State<LoginScreen>{
                       ),
                       SizedBox(height: 40.0),
                       LoginBoxesBuilder(
+                          key: Key("emailfield"),
                           textBox: "Enter email",
                           obscureText: false,
                           textType: TextInputType.emailAddress,
@@ -65,6 +66,7 @@ class LoginScreenState extends State<LoginScreen>{
                       ),
                       SizedBox(height: 20.0),
                       LoginBoxesBuilder(
+                          key: Key("passwordfield"),
                           textBox: "Enter Password",
                           obscureText: true,
                           textType: TextInputType.visiblePassword,
@@ -74,6 +76,7 @@ class LoginScreenState extends State<LoginScreen>{
                       ),
                       ForgotPasswordButton(),
                       LoginButton(
+                        key: Key("Loginbutton"),
                         text: "Login",
                         onPressed: () {
                           login();
