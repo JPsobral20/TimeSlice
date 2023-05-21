@@ -59,7 +59,7 @@ class ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         ),
                         SizedBox(height: 40.0),
                         LoginBoxesBuilder(
-                          textBox: "Enter your email,\n You will receive a password reset link",
+                          textBox: "Enter your email,\nYou will receive a password reset link",
                           obscureText: false,
                           textType: TextInputType.emailAddress,
                           hintText: "Email",

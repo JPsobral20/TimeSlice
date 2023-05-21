@@ -56,7 +56,7 @@ class LoginScreenState extends State<LoginScreen>{
                       ),
                       SizedBox(height: 40.0),
                       LoginBoxesBuilder(
-                          key: Key("emailfield"),
+                          key: Key("emailField"),
                           textBox: "Enter email",
                           obscureText: false,
                           textType: TextInputType.emailAddress,
@@ -66,7 +66,7 @@ class LoginScreenState extends State<LoginScreen>{
                       ),
                       SizedBox(height: 20.0),
                       LoginBoxesBuilder(
-                          key: Key("passwordfield"),
+                          key: Key("passwordField"),
                           textBox: "Enter Password",
                           obscureText: true,
                           textType: TextInputType.visiblePassword,
@@ -74,9 +74,11 @@ class LoginScreenState extends State<LoginScreen>{
                           icon: Icons.lock,
                           controller: passwordController,
                       ),
-                      ForgotPasswordButton(),
+                      ForgotPasswordButton(
+                        key: Key("ForgorPasswordButton")
+                      ),
                       LoginButton(
-                        key: Key("Loginbutton"),
+                        key: Key("LoginButton"),
                         text: "Login",
                         onPressed: () {
                           login();
@@ -94,7 +96,7 @@ class LoginScreenState extends State<LoginScreen>{
                           ),
                           SignInButton(
                             onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen(key: Key("SignInScreen"))));
                             },
                             text: "Sign Up",
                           ),
@@ -120,7 +122,7 @@ class LoginScreenState extends State<LoginScreen>{
       );
       if (userCredential != null) {
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => NavigatorBar()));
+            context, MaterialPageRoute(builder: (context) => NavigatorBar(key: Key("NavigationBar"))));
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

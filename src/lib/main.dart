@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FirebaseAuth.instance.currentUser == null ? LoginScreen() : NavigatorBar(),
+      home: FirebaseAuth.instance.currentUser == null ? LoginScreen(key: Key("LoginScreen")) : NavigatorBar(key: Key("NavigationBar")),
     );
   }
 }
