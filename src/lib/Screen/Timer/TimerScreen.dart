@@ -44,6 +44,13 @@ class TimerScreenState extends State<TimerScreen>{
     controller.text = "0";
   }
 
+  @override
+  void dispose(){
+    timer?.cancel();
+    super.dispose();
+  }
+
+
   TimerScreenState(this.timeInMins) : timeInSecs = timeInMins * 60, totalSecs = timeInMins * 60;
 
   factory TimerScreenState.withDefaultTime() {
