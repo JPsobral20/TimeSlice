@@ -78,7 +78,7 @@ Scenario: Login the app
   Given My login Screen
   When I write my email
   And I write my password
-  Then the main page appears
+  Then The timer page appears
 ```
 
 ```Gherkin 
