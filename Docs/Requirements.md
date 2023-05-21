@@ -83,7 +83,7 @@ Scenario: Login the app
 
 ```Gherkin 
 Scenario: Login the app error 
-  Given My login Screen
+  Given The login Screen
   When I write my email wrong
   And I write my password wrong
   Then An error mesagge appears
