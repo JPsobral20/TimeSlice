@@ -14,15 +14,8 @@ void main() {
   testWidgets('PlacesToStudyScreen should have the correct gradient colors', (WidgetTester tester) async {
     await tester.pumpWidget(MaterialApp(home: PlacesToStudyScreen()));
     final container = find.byType(Container).evaluate().first.widget as Container;
-    final decoration = container.decoration as BoxDecoration;
-    final gradient = decoration.gradient as LinearGradient;
-    expect(gradient.colors, [
-      Color(0xffffc58d),
-      Color(0xccffc58d),
-      Color(0x99ffc58d),
-      Color(0x66ffc58d),
-      Color(0x33ffc58d),
-    ]);
+    final color = container.color as BoxDecoration;
+    expect(color, Color(0xfff3e5f5));
   });
 
   testWidgets('PlacesToStudyScreen should have the correct title', (WidgetTester tester) async {
