@@ -78,12 +78,12 @@ Scenario: Login the app
   Given My login Screen
   When I write my email
   And I write my password
-  Then the main page appears
+  Then The timer page appears
 ```
 
 ```Gherkin 
 Scenario: Login the app error 
-  Given My login Screen
+  Given The login Screen
   When I write my email wrong
   And I write my password wrong
   Then An error mesagge appears
@@ -98,7 +98,7 @@ As a student, I want to have be informed of the best places to study and if thei
 Scenario: Find a nice place
   Given A list of places to study
   When I click on a place to study
-  Then I see the place's rating, comments about it and occupancy
+  Then I see the place's schedule
 ```
 
 <img width="189" alt="story6" src="https://user-images.githubusercontent.com/92645980/224554183-8097f47f-d682-4f7c-bdfb-f062f82549cd.png">
