@@ -37,19 +37,7 @@ class ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 Container(
                   height: double.infinity,
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Color(0xffffc58d),
-                            Color(0xccffc58d),
-                            Color(0x99ffc58d),
-                            Color(0x66ffc58d),
-                            Color(0x33ffc58d),
-                          ]
-                      )
-                  ),
+                  color: Color(0xfff3e5f5),
                   child: SingleChildScrollView(
                     physics: AlwaysScrollableScrollPhysics(),
                     padding: EdgeInsets.symmetric(
@@ -64,14 +52,14 @@ class ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         Text(
                           "Reset password",
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 40.0,
-                              fontWeight: FontWeight.bold
+                              fontWeight: FontWeight.bold,
                           ),
                         ),
                         SizedBox(height: 40.0),
                         LoginBoxesBuilder(
-                          textBox: "Enter email, you will receive password reset link",
+                          textBox: "Enter your email,\n You will receive a password reset link",
                           obscureText: false,
                           textType: TextInputType.emailAddress,
                           hintText: "Email",
@@ -81,7 +69,7 @@ class ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         SizedBox(height: 20.0),
                         SizedBox(height: 8.0),
                         LoginButton(
-                          text: "Send reset email",
+                          text: "Send email",
                           onPressed: () {
                             passwordReset();
                           }
@@ -108,7 +96,7 @@ class ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       await auth.sendPasswordResetEmail(email: emailController.text.trim());
       ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Password reset link sent to ${emailController.text.trim()} ! Please check your email!'),
+            content: Text('Password reset link sent to ${emailController.text.trim()}! Please check your email!'),
             backgroundColor: Colors.blue,
             behavior: SnackBarBehavior.floating,
           )
@@ -127,6 +115,15 @@ class ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text('Invalid email'),
+              backgroundColor: Colors.redAccent,
+              behavior: SnackBarBehavior.floating,
+            )
+        );
+      }
+      else if (e.code == 'network-request-failed'){
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('No internet access'),
               backgroundColor: Colors.redAccent,
               behavior: SnackBarBehavior.floating,
             )

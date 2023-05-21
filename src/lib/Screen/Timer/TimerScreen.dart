@@ -50,11 +50,11 @@ class TimerScreenState extends State<TimerScreen>{
     return TimerScreenState(0);
   }
 
-  startTimer() {
+  startTimer()  {
     setState((){
       min = timeInMins;
     });
-    timer = Timer.periodic(Duration(seconds: 1), (_) {
+    timer = Timer.periodic(Duration(seconds: 1), (_) async {
       setState(() {
         if (timeInSecs > 0){
           timeInSecs--;
@@ -70,17 +70,22 @@ class TimerScreenState extends State<TimerScreen>{
           else{
             secs--;
           }
+
           percent += 1/(totalSecs+1);
         }
         else {
           percent = 1;
           updateTime();
-          //Vibration.vibrate(duration: 5000);
           stopTimer();
         }
       });
+      if (percent == 1){
+        if (await futureVibrate == true){
+          Vibration.vibrate(duration: 5000);
+        }
+      }
     });
-    if (percent == 1 && futureVibrate == true) Vibration.vibrate(duration: 5000);
+
   }
 
   Future updateTime() async{
@@ -135,26 +140,26 @@ class TimerScreenState extends State<TimerScreen>{
     return SafeArea(
       //maintainBottomViewPadding: false,
       child: Container(
-          decoration: BoxDecoration(
-              color: Color(0xfff3e5f5),
-            ),
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: 10.0, bottom: 20.0),
-                child: Text(
-                  "Pomodoro Clock",
-                  style:TextStyle(
-                      color: Colors.black,
-                      fontSize: 40.0,
-                      fontWeight: FontWeight.w500,
-                  ),
+        decoration: BoxDecoration(
+          color: Color(0xfff3e5f5),
+        ),
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(top: 10.0, bottom: 20.0),
+              child: Text(
+                "Pomodoro Clock",
+                style:TextStyle(
+                  color: Color(0xff5e96d5),
+                  fontSize: 40.0,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
-              CircularPercentIndicator(
+            ),
+            CircularPercentIndicator(
                 circularStrokeCap: CircularStrokeCap.round,
                 percent: percent,
                 animation: true,
@@ -169,103 +174,107 @@ class TimerScreenState extends State<TimerScreen>{
                     fontSize: 80.0,
                   ),
                 )
-              ),
+            ),
 
-              SizedBox(height: 30.0,),
-              Expanded(
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(topRight: Radius.circular(30.0), topLeft: Radius.circular(30.0)),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 30.0, left: 20.0, right: 20.0),
-                      child: Column(
-                        children: <Widget>[
-                          Expanded(
-                            child: Row(
-                              children: <Widget>[
-                                Expanded(
-                                  child: Column(
-                                    children: <Widget>[
-                                      Text(
-                                        "Study Time",
-                                        style: TextStyle(
-                                          fontSize: 30.0,
-                                        ),
+            SizedBox(height: 30.0,),
+            Expanded(
+                child: Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(topRight: Radius.circular(30.0), topLeft: Radius.circular(30.0)),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 30.0, left: 20.0, right: 20.0),
+                    child: Column(
+                      children: <Widget>[
+                        Expanded(
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: Column(
+                                  children: <Widget>[
+                                    Text(
+                                      "Study Time",
+                                      style: TextStyle(
+                                        fontSize: 30.0,
                                       ),
-                                      SizedBox(height: 10.0),
-                                      TextFormField(
-                                        readOnly: readonly(),
-                                        onTapOutside: (number) {
-                                          FocusManager.instance.primaryFocus?.unfocus();
-                                        },
-                                        onFieldSubmitted: (number){
-                                          setState(() {
-                                            timeInMins = int.parse(number);
-                                            if (timeInMins > 120) timeInMins = 120;
-                                            timeInSecs = timeInMins * 60;
-                                            totalSecs = timeInMins * 60;
-                                            secs = 0;
-                                            percent = 0;
-                                          });
-                                        },
-                                        style: TextStyle(
-                                          fontSize: 80.0,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        decoration: InputDecoration(
+                                    ),
+                                    SizedBox(height: 10.0),
+                                    TextFormField(
+                                      readOnly: readonly(),
+                                      onTapOutside: (number) {
+                                        FocusManager.instance.primaryFocus?.unfocus();
+                                      },
+                                      onFieldSubmitted: (number){
+                                        setState(() {
+                                          if (number == "") number = "0";
+                                          timeInMins = int.parse(number);
+                                          if (timeInMins > 120) timeInMins = 120;
+                                          timeInSecs = timeInMins * 60;
+                                          totalSecs = timeInMins * 60;
+                                          secs = 0;
+                                          percent = 0;
+                                        });
+                                      },
+                                      style: TextStyle(
+                                        fontSize: 80.0,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                      decoration: InputDecoration(
                                         contentPadding: EdgeInsets.all(8.0),
-                                          border: OutlineInputBorder(
+                                        border: OutlineInputBorder(
                                           borderRadius: BorderRadius.circular(5.0),
-                                          ),
-                                        ),
-                                        controller: controller,
-                                        keyboardType: TextInputType.numberWithOptions(
-                                          decimal: false,
-                                          signed: true,
-                                        ),
-                                        inputFormatters: <TextInputFormatter>[
-                                          FilteringTextInputFormatter.allow(RegExp(r'\d')),
-                                          FilteringTextInputFormatter.digitsOnly,
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Column(
-                                    children: <Widget>[
-                                      Text(
-                                        "Break",
-                                        style: TextStyle(
-                                          fontSize: 30.0,
                                         ),
                                       ),
-                                      SizedBox(height: 17.0,),
-                                      Text(
-                                        (totalSecs~/300).toString(),
-                                        style: TextStyle(
-                                            fontSize: 80.0
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                      controller: controller,
+                                      keyboardType: TextInputType.numberWithOptions(
+                                        decimal: false,
+                                        signed: true,
+                                      ),
+                                      inputFormatters: <TextInputFormatter>[
+                                        FilteringTextInputFormatter.allow(RegExp(r'\d')),
+                                        FilteringTextInputFormatter.digitsOnly,
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                              Expanded(
+                                child: Column(
+                                  children: <Widget>[
+                                    Text(
+                                      "Break",
+                                      style: TextStyle(
+                                        fontSize: 30.0,
+                                      ),
+                                    ),
+                                    SizedBox(height: 17.0,),
+                                    Text(
+                                      (totalSecs~/300).toString(),
+                                      style: TextStyle(
+                                          fontSize: 80.0
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 28.0),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 28.0),
+                          child: Padding(
+                            padding: EdgeInsets.only(bottom: 15.0),
                             child: buildButtons(),
-                          )
-                        ],
-                      ),
+                          ),
+                        )
+                      ],
                     ),
-                  )
-              )
-            ],
+                  ),
+                )
+            )
+          ],
         ),
       ),
     );

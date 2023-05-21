@@ -36,7 +36,6 @@ class VibrateBoxState extends State<VibrateBox>{
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.black,
@@ -55,8 +54,8 @@ class VibrateBoxState extends State<VibrateBox>{
           Spacer(),
           FutureBuilder(future: futureVibrate, initialData: null, builder: (ctx, snapshot) {
             return Switch(
-              activeColor: Colors.amber,
-              activeTrackColor: Colors.cyan,
+              activeColor: Color(0xddd034f5),
+              activeTrackColor: Color(0xffce93d8),
               inactiveThumbColor: Colors.blueGrey.shade600,
               inactiveTrackColor: Colors.grey.shade400,
               splashRadius: 50.0,

@@ -62,14 +62,7 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
                 return Container(
                   height: double.infinity,
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [
-                            Color(0xfff3e5f5),
-                            Color(0xfff3e5f5),
-                          ]
-                      )
-                  ),
+                  color: Color(0xfff3e5f5),
                   child: Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: 25.0,
@@ -102,7 +95,7 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
                                   Align(
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "Preço da Scholarship: 5000€",
+                                      "Scholarship value: 5000€",
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 27.0,
@@ -144,7 +137,7 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
                             Flexible(
                               flex: 1,
                               child: Text(
-                                "Já foram concluidas um total de ${getTotalScholarship(snapshot.data ?? 0)} Scholarships",
+                                "We raised money for a total of ${getTotalScholarship(snapshot.data ?? 0)} Scholarships",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: Colors.black,
@@ -175,7 +168,7 @@ class UserContribution extends StatelessWidget {
         Align(
           alignment: Alignment.center,
           child: Text(
-            "Já contribuíu com um total de",
+            "You have contributed with",
             style: TextStyle(
               color: Colors.black,
               fontSize: 22.0,

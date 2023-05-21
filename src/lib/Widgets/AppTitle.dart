@@ -16,7 +16,7 @@ class AppTitle extends StatelessWidget {
           TextSpan(
             text: 'Time',
             style: TextStyle(
-              color: Color(0xffce93d8),
+              color: Color(0xff2270c5),
               fontSize: size,
               fontWeight: FontWeight.bold,
             ),
@@ -24,7 +24,7 @@ class AppTitle extends StatelessWidget {
           TextSpan(
             text: 'Slice',
             style: TextStyle(
-              color: Colors.white,
+              color: Color(0xb85e96d5),
               fontSize: size,
               fontWeight: FontWeight.bold,
             ),
