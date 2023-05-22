@@ -19,3 +19,5 @@ Helping FEUP’s students and faculty manage their time and achieve their goals 
 * FEUP wants to contribute with rewards at the bar. 
 * FEUP wants to contribute to a scholarship for a students in need.
 * Libraries occupancy system.
+
+# Elevator Pitch
