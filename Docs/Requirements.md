@@ -82,6 +82,13 @@ Scenario: Pause pomodoro session
   Then The timer pauses
 ```
 
+```Gherkin 
+Scenario: Continue pomodoro session
+  Given A user that has the timer stopped 
+  When I tap the "Resume" button
+  Then The timer continues
+```
+
 <img width="189" alt="story4" src="https://user-images.githubusercontent.com/113974128/233010428-fc72c5b1-761b-482e-a836-7bbaa593bff0.png">
 
 ### Story 5
@@ -110,7 +117,7 @@ Scenario: Login the app error
 As a student, I want to have be informed of the best places to study and if their occupancy.
 ### Acceptance tests
 ```Gherkin 
-Scenario: Find a nice place
+Scenario: Find a nice place to study
   Given A list of places to study
   When I click on a place to study
   Then I see the place's schedule
@@ -150,6 +157,13 @@ Scenario: See the hours i got so far
   Given My main page
   When I click on "Shop Icon"
   Then I see the hours i have worked so far
+```
+
+```Gherkin 
+Scenario: See the items in the shop
+  Given My main page
+  When I click on "Shop Icon"
+  Then I see the items available to buy
 ```
 
 <img width="189" alt="story9" src="https://user-images.githubusercontent.com/92645980/224543783-fb2bb8ff-4ae4-4c56-81ab-6f4fb5e75d9a.png">
