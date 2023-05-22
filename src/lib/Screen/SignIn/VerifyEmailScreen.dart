@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projeto/Screen/Login/Button/LoginButton.dart';
 import 'package:projeto/Screen/NavigationBar.dart';
 import 'package:projeto/Widgets/AppTitle.dart';
+import 'package:projeto/Screen/SignIn/SignInScreen.dart';
 
 
 class VerifyEmailScreen extends StatefulWidget {
@@ -48,19 +50,7 @@ class VerifyEmailScreenState extends State<VerifyEmailScreen> {
                 Container(
                   height: double.infinity,
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Color(0xffffc58d),
-                            Color(0xccffc58d),
-                            Color(0x99ffc58d),
-                            Color(0x66ffc58d),
-                            Color(0x33ffc58d),
-                          ]
-                      )
-                  ),
+                  color: Color(0xfff3e5f5),
                   child: SingleChildScrollView(
                     physics: AlwaysScrollableScrollPhysics(),
                     padding: EdgeInsets.symmetric(
@@ -75,7 +65,7 @@ class VerifyEmailScreenState extends State<VerifyEmailScreen> {
                         Text(
                           "Verify email",
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 40.0,
                               fontWeight: FontWeight.bold
                           ),
@@ -92,9 +82,19 @@ class VerifyEmailScreenState extends State<VerifyEmailScreen> {
                         SizedBox(height: 40.0),
                         LoginButton(
                             text: "Back",
-                            onPressed: () {
+                            onPressed: ()  async{
+                              String uid = FirebaseAuth.instance.currentUser!.uid;
+                              print("ok1\n");
+                              final QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('Users').where('uid', isEqualTo: uid).get();
+                              print("ok2\n");
+                              String id = snapshot.docs.first.id;
+                              print("ok3\n");
+                              await FirebaseFirestore.instance.collection('Users').doc(id).delete();
+                              print("ok4\n");
                               FirebaseAuth.instance.currentUser!.delete();
-                              Navigator.of(context).pop();
+                              print("ok5\n");
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInScreen(key: Key("SignInScreen"))));
+                              print("ok6\n");
                             }
                         ),
                       ],
