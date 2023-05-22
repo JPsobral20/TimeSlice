@@ -1,9 +1,7 @@
 # ElevatorPitch
 
-Do you ever get ditracted when you want to study?
+Are you constantly battling distractions and struggling to stay focused? We introduce you TimeSlice, the ultimate productivity companion!
 
-Yes? The TimeSlice is the app for you!
+TimeSlice revolutionizes your productivity, making it simple and highly effective. With our powerful app, you'll have access to a timer that keeps you focused, a diverse range of suggestions for ideal study locations inside your university, rewards according to your productivity, and you can help the university raise money for students in need.
 
-TimeSlice aims to make study simple and more effective! In the app, you have a timer, a selection of places to study, a shop that can use with your time and a scorlarship page where you can how may scorlarships we have raised.
-
-So, what are you waiting for? Sign up today!
+Take control of your time with TimeSlice — sign up today and unlock your full potential!
