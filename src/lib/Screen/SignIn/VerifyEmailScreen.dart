@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projeto/Screen/Login/Button/LoginButton.dart';
 import 'package:projeto/Screen/NavigationBar.dart';
+import 'package:projeto/Screen/SignIn/SignInScreen.dart';
 import 'package:projeto/Widgets/AppTitle.dart';
 import 'package:projeto/Screen/SignIn/SignInScreen.dart';
 
@@ -28,7 +29,9 @@ class VerifyEmailScreenState extends State<VerifyEmailScreen> {
     user!.sendEmailVerification();
 
     timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      checkEmailVerify();
+      if (user != null) {
+        checkEmailVerify();
+      }
     });
     super.initState();
   }
@@ -82,19 +85,11 @@ class VerifyEmailScreenState extends State<VerifyEmailScreen> {
                         SizedBox(height: 40.0),
                         LoginButton(
                             text: "Back",
-                            onPressed: ()  async{
-                              String uid = FirebaseAuth.instance.currentUser!.uid;
-                              print("ok1\n");
-                              final QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('Users').where('uid', isEqualTo: uid).get();
-                              print("ok2\n");
-                              String id = snapshot.docs.first.id;
-                              print("ok3\n");
-                              await FirebaseFirestore.instance.collection('Users').doc(id).delete();
-                              print("ok4\n");
+                            onPressed: () async {
                               FirebaseAuth.instance.currentUser!.delete();
-                              print("ok5\n");
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInScreen(key: Key("SignInScreen"))));
-                              print("ok6\n");
+                              await FirebaseAuth.instance.signOut().then((value) {
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInScreen()));
+                              });
                             }
                         ),
                       ],

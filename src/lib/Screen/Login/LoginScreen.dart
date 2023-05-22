@@ -117,8 +117,8 @@ class LoginScreenState extends State<LoginScreen>{
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
       );
       if (userCredential != null) {
         Navigator.pushReplacement(
