@@ -1,6 +1,7 @@
 # 2LEIC12T3
 
 - [Product Vision](Docs/Product-Vision.md)
+- [Elevator Pitch](Docs/ElevatorPitch.md)
 - [Requirements](Docs/Requirements.md)
 - [Architecture And Design](Docs/Architecture-And-Design.md)
 
