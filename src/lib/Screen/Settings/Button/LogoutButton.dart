@@ -13,8 +13,7 @@ class LogoutButton extends StatelessWidget {
       child: ElevatedButton(
           onPressed: () async {
             await FirebaseAuth.instance.signOut().then((value) {
-              Navigator.of(context).pop();
-              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
             });
           },
           style: ElevatedButton.styleFrom(

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projeto/Screen/Login/Button/LoginButton.dart';
 import 'package:projeto/Screen/NavigationBar.dart';
+import 'package:projeto/Screen/SignIn/SignInScreen.dart';
 import 'package:projeto/Widgets/AppTitle.dart';
 
 
@@ -26,7 +27,9 @@ class VerifyEmailScreenState extends State<VerifyEmailScreen> {
     user!.sendEmailVerification();
 
     timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      checkEmailVerify();
+      if (user != null) {
+        checkEmailVerify();
+      }
     });
     super.initState();
   }
@@ -48,19 +51,7 @@ class VerifyEmailScreenState extends State<VerifyEmailScreen> {
                 Container(
                   height: double.infinity,
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Color(0xffffc58d),
-                            Color(0xccffc58d),
-                            Color(0x99ffc58d),
-                            Color(0x66ffc58d),
-                            Color(0x33ffc58d),
-                          ]
-                      )
-                  ),
+                  color: Color(0xfff3e5f5),
                   child: SingleChildScrollView(
                     physics: AlwaysScrollableScrollPhysics(),
                     padding: EdgeInsets.symmetric(
@@ -75,7 +66,7 @@ class VerifyEmailScreenState extends State<VerifyEmailScreen> {
                         Text(
                           "Verify email",
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 40.0,
                               fontWeight: FontWeight.bold
                           ),
@@ -92,9 +83,11 @@ class VerifyEmailScreenState extends State<VerifyEmailScreen> {
                         SizedBox(height: 40.0),
                         LoginButton(
                             text: "Back",
-                            onPressed: () {
+                            onPressed: () async {
                               FirebaseAuth.instance.currentUser!.delete();
-                              Navigator.of(context).pop();
+                              await FirebaseAuth.instance.signOut().then((value) {
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInScreen()));
+                              });
                             }
                         ),
                       ],

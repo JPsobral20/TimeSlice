@@ -96,7 +96,7 @@ class LoginScreenState extends State<LoginScreen>{
                           ),
                           SignInButton(
                             onPressed: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen(key: Key("SignInScreen"))));
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInScreen(key: Key("SignInScreen"))));
                             },
                             text: "Sign Up",
                           ),
@@ -117,8 +117,8 @@ class LoginScreenState extends State<LoginScreen>{
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
       );
       if (userCredential != null) {
         Navigator.pushReplacement(

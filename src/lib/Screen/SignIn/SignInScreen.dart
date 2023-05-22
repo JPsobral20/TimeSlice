@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projeto/Screen/Login/Box/LoginBoxesBuilder.dart';
 import 'package:projeto/Screen/Login/Button/SignInButton.dart';
+import 'package:projeto/Screen/Login/LoginScreen.dart';
 import 'package:projeto/Screen/SignIn/VerifyEmailScreen.dart';
 import 'package:projeto/UserModel.dart';
 import 'package:projeto/Widgets/AppTitle.dart';
@@ -76,10 +77,10 @@ class SignInScreenState extends State<SignInScreen>{
                           text: "Sign Up",
                           onPressed: () async {
                             await signIn();
-
-                            String uid = FirebaseAuth.instance.currentUser!.uid;
-                            await createUser(uid: uid, email: emailController.text);
-
+                            if (FirebaseAuth.instance.currentUser != null) {
+                              String uid = FirebaseAuth.instance.currentUser!.uid;
+                              await createUser(uid: uid, email: emailController.text);
+                            }
                           }),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -93,7 +94,7 @@ class SignInScreenState extends State<SignInScreen>{
                             ),
                             SignInButton(
                               onPressed: () {
-                                Navigator.of(context).pop();
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                               },
                               text: "Log In",
                             ),
@@ -123,8 +124,8 @@ class SignInScreenState extends State<SignInScreen>{
   signIn() async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
       );
       if (userCredential != null) {
         await Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => VerifyEmailScreen()));
