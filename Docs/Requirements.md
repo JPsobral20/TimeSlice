@@ -126,18 +126,6 @@ Scenario: Find a nice place to study
 <img width="189" alt="story6" src="https://user-images.githubusercontent.com/92645980/224554183-8097f47f-d682-4f7c-bdfb-f062f82549cd.png">
 
 ### Story 7
-As a student, I want to view the rates and comments of the places to study as to choose the best one.
-### Acceptance tests
-```Gherkin 
-Scenario: See rating and comments about a place
-  Given A place to study
-  When I am in the place to study's page
-  Then the current rating and comments appears
-```
-
-<img width="311" alt="story7" src="https://user-images.githubusercontent.com/92645980/224556838-22ceedd4-2c2b-4c52-ab2b-dbeee762720a.png">
-
-### Story 8
 As a user, I want to view how long I have been focused during a month period.
 ### Acceptance tests
 ```Gherkin 
@@ -149,7 +137,7 @@ Scenario: Look at my focus time during a month
 
 <img width="189" alt="story8" src="https://user-images.githubusercontent.com/113974128/233011119-acc96169-d929-44c7-bab0-2694fa0d0bee.png">
 
-### Story 9
+### Story 8
 As a user, I want to view what rewards I have earned so far.
 ### Acceptance tests
 ```Gherkin 
@@ -168,7 +156,7 @@ Scenario: See the items in the shop
 
 <img width="189" alt="story9" src="https://user-images.githubusercontent.com/92645980/224543783-fb2bb8ff-4ae4-4c56-81ab-6f4fb5e75d9a.png">
 
-### Story 10
+### Story 9
 As a user, I want to view how much I have contributed to FEUP's student-in-need scholarship.
 ### Acceptance tests
 ```Gherkin 
@@ -181,7 +169,7 @@ Scenario: See how much I have contributed to FEUP's student-in-need scholarship
 <img width="189" alt="story10" src="https://user-images.githubusercontent.com/113974128/233011119-acc96169-d929-44c7-bab0-2694fa0d0bee.png">
 
 
-### Story 11
+### Story 10
 As a user, I want to be able to do a task list and check what I've done so far.
 ### Acceptance tests
 ```Gherkin 
