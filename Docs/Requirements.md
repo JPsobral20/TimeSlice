@@ -20,7 +20,7 @@ As a student, I want to be able to customize the duration of my pomodoro session
 ### Acceptance tests
 ```Gherkin
 Scenario: Customize the Pomodoro
-  Given The Timer menu
+  Given The Timer menu and a student
   When I tap the number on the screen
   And I insert a time in "Set Time"
   And I tap "Save"
@@ -33,12 +33,20 @@ Scenario: Customize the Pomodoro
 As a distracted user, I want the timer to have a vibrating alert option, as well as a sound alert, so that I can be alerted when a pomodoro session is over.
 ### Acceptance tests
 ```Gherkin
-Scenario: Pomodoro session is over
+Scenario: Pomodoro session is over and I get a sound alert
   Given The Timer menu
   When I select the option "Sound Alert"
   And The timer ends
   And I finish study
   Then The app gives a sound alert
+```
+```Gherkin
+Scenario: Pomodoro session is over and I get a vibrate alert
+  Given The Timer menu
+  When I select the option "Vibrating Alert"
+  And The timer ends
+  And I finish study
+  Then The app gives a vibrate alert
 ```
 
 <img width="189" alt="story2" src="https://user-images.githubusercontent.com/113974128/233008131-a687c21c-c590-477e-bc9d-886ba335f615.png">
@@ -47,10 +55,17 @@ Scenario: Pomodoro session is over
 As someone with a phone addiction, I want the timer to have a distraction-free mode so that I can focus without being interrupted by notifications or tempted to check social media.
 ### Acceptance tests
 ```Gherkin 
-Scenario: Distraction-free mode
+Scenario: Distraction-free mode (no notifications)
   Given A student, the timer settings menu and the timer menu
   When I select "Not receiving notifications during focus mode"
-  And I select "Not being able to leave app during focus mode"
+  And I start the timer
+  Then I can't get notifications from others apps
+```
+
+```Gherkin 
+Scenario: Distraction-free mode (can't leave the app)
+  Given A student, the timer settings menu and the timer menu
+  When I select "Not being able to leave app during focus mode"
   And I start the timer
   Then I can't leave the app
 ```
