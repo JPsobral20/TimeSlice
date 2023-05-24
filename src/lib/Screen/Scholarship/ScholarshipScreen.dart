@@ -52,108 +52,94 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.light,
-        child: GestureDetector(
-          child: Stack(
-            children: <Widget>[
-              FutureBuilder(future: futureTotalTime, initialData: null, builder: (ctx, snapshot) {
-                return Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  color: Color(0xfff3e5f5),
-                  child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 25.0,
-                      ),
-                      child: Column(
-                          children: [
-                            Flexible(
-                              flex: 1,
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 30.0, right: 10.0),
-                                child: Align(
-                                  alignment: Alignment.topRight,
-                                  child: AppTitle(size: 42),
+        body: AnnotatedRegion<SystemUiOverlayStyle>(
+            value: SystemUiOverlayStyle.light,
+            child: GestureDetector(
+                child: Stack(
+                    children: <Widget>[
+                      FutureBuilder(future: futureTotalTime, initialData: null, builder: (ctx, snapshot) {
+                        return Container(
+                            height: double.infinity,
+                            width: double.infinity,
+                            color: Color(0xfff3e5f5),
+                            child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 25.0,
                                 ),
-                              ),
-                            ),
-                            Flexible(
-                              flex: 1,
-                              child: Column(
-                                children: [
-                                  Text(
-                                    "Scholarship",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 38,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  SizedBox(height: 20.0),
-                                  Align(
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "Scholarship value: 5000€",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 27.0,
+                                child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(vertical:20.0),
                                       ),
+                                    Align(
+                                      alignment: Alignment.topRight,
+                                      child: AppTitle(size: 42),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Flexible(
-                              flex:3,
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 10.0),
-                                child: CircularPercentIndicator(
-                                    key: Key('CircularPercentIndicator'),
-                                    circularStrokeCap: CircularStrokeCap.round,
-                                    percent: getPercent(snapshot.data ?? 0),
-                                    animation: true,
-                                    animateFromLastPercent: true,
-                                    radius: 140.0,
-                                    lineWidth: 27.0,
-                                    progressColor: Colors.blueGrey,
-                                    center: Text(
-                                      "${getNewTotalTime(snapshot.data ?? 0)}€",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 70.0,
+                                    SizedBox(height: 20.0),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          "Scholarship",
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 38,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        SizedBox(height: 5.0),
+                                        Align(
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            "Scholarship value: 5000€",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 27.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                        padding: const EdgeInsets.symmetric(vertical: 20.0),
+                                        child: CircularPercentIndicator(
+                                          key: Key('CircularPercentIndicator'),
+                                          circularStrokeCap: CircularStrokeCap.round,
+                                          percent: getPercent(snapshot.data ?? 0),
+                                          animation: true,
+                                          animateFromLastPercent: true,
+                                          radius: 140.0,
+                                          lineWidth: 27.0,
+                                          progressColor: Colors.blueGrey,
+                                          center: Text(
+                                            "${getNewTotalTime(snapshot.data ?? 0)}€",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 70.0,
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                ),
-                              ),
-                            ),
-                            Flexible(
-                                flex: 1,
-                                child:Padding(
-                                  padding: const EdgeInsets.only(top: 20.0),
-                                  child: UserContribution(),
-                                ),
-                            ),
-                            Flexible(
-                              flex: 1,
-                              child: Text(
-                                "We raised money for a total of ${getTotalScholarship(snapshot.data ?? 0)} Scholarships",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 22.0,
-                                ),
-                              ),
-                            )
-                          ]
-                      )
-                  )
-                );
-              })
-            ]
-          )
+                                   Padding(
+                                     padding: const EdgeInsets.symmetric(vertical: 10.0),
+                                     child: UserContribution(),
+                                   ),
+                                   Text(
+                                     "We raised money for a total of ${getTotalScholarship(snapshot.data ?? 0)} Scholarships",
+                                     textAlign: TextAlign.center,
+                                     style: TextStyle(
+                                       color: Colors.black,
+                                       fontSize: 22.0,
+                                     ),
+                                   ),
+                                ]
+                             )
+                          )
+                        );
+                      })
+                    ]
+                )
+            )
         )
-      )
     );
   }
 }
