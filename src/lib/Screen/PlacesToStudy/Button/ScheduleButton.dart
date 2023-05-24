@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ShowDialog extends StatelessWidget {
+class ScheduleButton extends StatelessWidget {
   final String schedule, roomName;
 
-  const ShowDialog({
+  const ScheduleButton({
     super.key,
     required this.schedule,
     required this.roomName,
@@ -33,7 +33,7 @@ class ShowDialog extends StatelessWidget {
         padding: EdgeInsets.only(left: 0),
       ),
       child: Text(
-        "See schedule",
+        "See Schedule",
         style: TextStyle(
             color: Colors.blueGrey,
             fontWeight: FontWeight.bold

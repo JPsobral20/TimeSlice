@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto/Screen/PlacesToStudy/PlacesToStudyRooms.dart';
-import 'package:projeto/Screen/PlacesToStudy/Button/ShowDialog.dart';
+import 'package:projeto/Screen/PlacesToStudy/Button/ScheduleButton.dart';
 
 class PlacesToStudyItems extends StatelessWidget {
   final PlacesToStudyRooms room;
@@ -37,30 +37,36 @@ class PlacesToStudyItems extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SizedBox(
-                      width: 190,
-                      child: Text(
-                        room.name,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 26,
+                    Flexible(
+                      flex: 3,
+                      child: SizedBox(
+                        width: 190,
+                        child: Text(
+                          room.name,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 26,
+                          ),
                         ),
                       ),
                     ),
                     SizedBox(height: 10),
-                    SizedBox(
-                      width: 175,
-                      child: Text(
-                        room.description,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16.5,
+                    Flexible(
+                      flex: 4,
+                      child: SizedBox(
+                        width: 175,
+                        child: Text(
+                          room.description,
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16.5,
+                          ),
                         ),
                       ),
                     ),
                     Spacer(),
-                    ShowDialog(schedule: room.schedule, roomName: room.name),
+                    ScheduleButton(schedule: room.schedule, roomName: room.name),
                   ],
                 ),
               ),
@@ -68,7 +74,7 @@ class PlacesToStudyItems extends StatelessWidget {
               Flexible(
                 fit: FlexFit.tight,
                 child: Padding(
-                    padding: EdgeInsets.only(top: 45, right: 30),
+                    padding: EdgeInsets.only(top: 55, right: 30),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.end,

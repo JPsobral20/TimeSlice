@@ -14,7 +14,7 @@ class PlacesToStudyRooms{
 List<PlacesToStudyRooms> rooms = [
   PlacesToStudyRooms(
     id: 1,
-    name: "Biblioteca",
+    name: "Biblioteca\n",
     description: "FEUP's library is usally a nice queit place to study or read in a quiet place.",
     image: "assets/icons/book.png",
     schedule: "Monday-Friday 8:30-19:30",

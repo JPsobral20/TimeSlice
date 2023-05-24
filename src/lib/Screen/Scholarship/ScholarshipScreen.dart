@@ -18,7 +18,6 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
   late Future<int> futureTotalTime;
 
 
-
   Future<int> setTotalTime(bool totalTime) async{
     int addTotalTime = 0;
     final QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('Users').get();
