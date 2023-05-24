@@ -109,6 +109,7 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(vertical: 10.0),
                                 child: CircularPercentIndicator(
+                                    key: Key('CircularPercentIndicator'),
                                     circularStrokeCap: CircularStrokeCap.round,
                                     percent: getPercent(snapshot.data ?? 0),
                                     animation: true,
