@@ -121,7 +121,9 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
                                       ),
                                    Padding(
                                      padding: const EdgeInsets.symmetric(vertical: 10.0),
-                                     child: UserContribution(),
+                                     child: UserContribution(
+                                       key: Key('UserContribution'),
+                                     ),
                                    ),
                                    Text(
                                      "We raised money for a total of ${getTotalScholarship(snapshot.data ?? 0)} Scholarships",

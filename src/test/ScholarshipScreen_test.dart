@@ -12,5 +12,6 @@ void main() {
     );
 
     expect(find.byKey(Key('CircularPercentIndicator')), findsOneWidget);
+    expect(find.byKey(Key('UserContribution')), findsOneWidget);
   });
 }
