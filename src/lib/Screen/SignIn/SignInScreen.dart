@@ -56,6 +56,7 @@ class SignInScreenState extends State<SignInScreen>{
                         ),
                         SizedBox(height: 40.0),
                         LoginBoxesBuilder(
+                          key: Key('emailField'),
                           textBox: "Enter email",
                           obscureText: false,
                           textType: TextInputType.emailAddress,
@@ -65,6 +66,7 @@ class SignInScreenState extends State<SignInScreen>{
                         ),
                         SizedBox(height: 20.0),
                         LoginBoxesBuilder(
+                          key: Key('passwordField'),
                           textBox: "Enter Password",
                           obscureText: true,
                           textType: TextInputType.visiblePassword,
@@ -74,6 +76,7 @@ class SignInScreenState extends State<SignInScreen>{
                         ),
                         SizedBox(height: 18.0),
                         LoginButton(
+                          key: Key('LoginButton'),
                           text: "Sign Up",
                           onPressed: () async {
                             await signIn();
@@ -93,6 +96,7 @@ class SignInScreenState extends State<SignInScreen>{
                               ),
                             ),
                             SignInButton(
+                              key: Key('SignInButton'),
                               onPressed: () {
                                 Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
                               },

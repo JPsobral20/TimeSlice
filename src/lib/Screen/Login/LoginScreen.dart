@@ -95,6 +95,7 @@ class LoginScreenState extends State<LoginScreen>{
                             ),
                           ),
                           SignInButton(
+                            key: Key("SignInButton"),
                             onPressed: (){
                               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInScreen(key: Key("SignInScreen"))));
                             },
