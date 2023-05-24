@@ -33,7 +33,7 @@ class ScheduleButton extends StatelessWidget {
         padding: EdgeInsets.only(left: 0),
       ),
       child: Text(
-        "See schedule",
+        "See Schedule",
         style: TextStyle(
             color: Colors.blueGrey,
             fontWeight: FontWeight.bold
