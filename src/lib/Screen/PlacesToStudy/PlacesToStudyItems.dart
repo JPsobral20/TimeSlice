@@ -66,7 +66,7 @@ class PlacesToStudyItems extends StatelessWidget {
                       ),
                     ),
                     Spacer(),
-                    ScheduleButton(schedule: room.schedule, roomName: room.name)
+                    ScheduleButton(schedule: room.schedule, roomName: room.name),
                   ],
                 ),
               ),
