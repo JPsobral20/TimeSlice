@@ -20,7 +20,7 @@ class StockButtonState extends State<StockButton> {
     final DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('Users').doc(id).get();
     var userProducts = userDoc.get('products');
     String products = userProducts.join("\n");
-    if (products == "") return "Sem produtos";
+    if (products == "") return "No products";
     return products;
   }
 
@@ -50,7 +50,7 @@ class StockButtonState extends State<StockButton> {
               context: context,
               builder: (context) => AlertDialog(
                 title: Text("My Stock"),
-                content: Text(snapshot.data ?? "Sem Produtos"),
+                content: Text(snapshot.data ?? "No products"),
                 actions: <Widget>[
                   TextButton(
                     onPressed: () {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class GoBackButton extends StatelessWidget {
+class ShowDialog extends StatelessWidget {
   final String schedule, roomName;
 
-  const GoBackButton({
+  const ShowDialog({
     super.key,
     required this.schedule,
     required this.roomName,

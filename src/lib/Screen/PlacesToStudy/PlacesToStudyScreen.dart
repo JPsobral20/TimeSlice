@@ -53,7 +53,6 @@ class PlacesToStudyScreenState extends State<PlacesToStudyScreen> {
                           SizedBox(height: 10.0),
                           Expanded(
                             child: SingleChildScrollView(
-                              //physics: AlwaysScrollableScrollPhysics(),
                               padding: EdgeInsets.symmetric(
                                 vertical: 10.0,
                               ),
