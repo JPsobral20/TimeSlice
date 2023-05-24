@@ -145,7 +145,6 @@ class TimerScreenState extends State<TimerScreen>{
   @override
   Widget build(BuildContext context){
     return SafeArea(
-      //maintainBottomViewPadding: false,
       child: Container(
         decoration: BoxDecoration(
           color: Color(0xfff3e5f5),

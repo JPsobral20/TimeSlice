@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:projeto/Screen/Scholarship/Widgets/UserContributionText.dart';
+import 'package:projeto/Screen/Scholarship/Widgets/UserContribution.dart';
 import '../../Widgets/AppTitle.dart';
 
 
@@ -153,29 +153,6 @@ class ScholarshipScreenState extends State<ScholarshipScreen> {
           )
         )
       )
-    );
-  }
-}
-
-class UserContribution extends StatelessWidget {
-  const UserContribution({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Align(
-          alignment: Alignment.center,
-          child: Text(
-            "You have contributed with",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 22.0,
-            ),
-          ),
-        ),
-        UserContributionText(),
-      ],
     );
   }
 }
