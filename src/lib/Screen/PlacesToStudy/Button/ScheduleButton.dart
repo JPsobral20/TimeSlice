@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ShowDialog extends StatelessWidget {
+class ScheduleButton extends StatelessWidget {
   final String schedule, roomName;
 
-  const ShowDialog({
+  const ScheduleButton({
     super.key,
     required this.schedule,
     required this.roomName,

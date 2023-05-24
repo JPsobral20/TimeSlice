@@ -79,7 +79,7 @@ class SignInScreenState extends State<SignInScreen>{
                             await signIn();
                             if (FirebaseAuth.instance.currentUser != null) {
                               String uid = FirebaseAuth.instance.currentUser!.uid;
-                              await createUser(uid: uid, email: emailController.text);
+                              await createUser(uid: uid, email: emailController.text.trim());
                             }
                           }),
                         Row(
@@ -129,7 +129,7 @@ class SignInScreenState extends State<SignInScreen>{
       );
       if (userCredential != null) {
         String uid = FirebaseAuth.instance.currentUser!.uid;
-        await createUser(uid: uid, email: emailController.text);
+        await createUser(uid: uid, email: emailController.text.trim());
         await Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => VerifyEmailScreen()));
       }
     } on FirebaseAuthException catch (e) {
