@@ -250,7 +250,7 @@ class TimerScreenState extends State<TimerScreen>{
                                 child: Column(
                                   children: <Widget>[
                                     Text(
-                                      "Break",
+                                      "Break time",
                                       style: TextStyle(
                                         fontSize: 30.0,
                                       ),
