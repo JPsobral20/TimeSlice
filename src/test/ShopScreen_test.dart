@@ -12,20 +12,19 @@ void main() {
       expect(titleFinder, findsOneWidget);
     });
 
-    /*
-    testWidgets('test if categories box is displayed', (WidgetTester tester) async {
-      await tester.pumpWidget(MaterialApp(home: ShopScreen()));
-      final categoriesFinder = find.byType(CategoriesBox);
-      expect(categoriesFinder, findsOneWidget);
-    });
-     */
+    testWidgets('Test PlacesToStudyScreenState', (WidgetTester tester) async {
+      // Build the widget tree inside the test case.
+      await tester.pumpWidget(
+        MaterialApp(
+          home: ShopScreen(),
+        ),
+      );
 
-    testWidgets('test if shop items are displayed', (WidgetTester tester) async {
-      await tester.pumpWidget(MaterialApp(home: ShopScreen()));
-      //final shopItemsFinder = find.byType(ShopItems);
-      //expect(shopItemsFinder, findsWidgets);
+      expect(find.byKey(Key("AppTitle")), findsOneWidget);
     });
+
 
   });
 
 }
+

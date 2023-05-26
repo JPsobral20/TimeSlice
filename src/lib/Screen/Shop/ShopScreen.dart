@@ -57,7 +57,9 @@ class ShopScreenState extends State<ShopScreen>{
                           ),
                           Align(
                             alignment: Alignment.topRight,
-                            child: AppTitle(size: 42),
+                            child: AppTitle(
+                                key: Key("AppTitle"),
+                                size: 42),
                           ),
                           SizedBox(height: 20.0),
                           Align(
