@@ -115,4 +115,4 @@ The project involved requirements engineering, software architecture, implementa
 
 ---
 
-**TimeSlice** — Making study time count.
+**TimeSlice** - Making study time count.
