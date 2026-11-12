@@ -1,52 +1,118 @@
-# 2LEIC12T3
+# TimeSlice
+
+A Flutter-based productivity application designed to help FEUP students develop better study habits through focused work sessions, study location suggestions, a reward system, and collective contributions towards student scholarships.
+
+## Overview
+
+TimeSlice was developed as an academic project at the Faculty of Engineering of the University of Porto (FEUP). Its main goal is to encourage students to manage their study time more effectively while promoting a collaborative academic environment.
+
+The application combines a focus timer with gamification elements, allowing users to turn their productive study time into rewards and contribute to collective goals.
+
+## Features
+
+- **Focus Timer:** Pomodoro-inspired timer with customizable study sessions and controls to start, pause, resume, and stop sessions.
+- **Study Time Tracking:** Records focused study time and stores user progress.
+- **Study Locations:** Provides a list of suggested places to study at FEUP.
+- **Reward System:** Allows users to exchange accumulated study time for products available in the in-app shop.
+- **Scholarship Contributions:** Aggregates users' study time towards a collective scholarship goal.
+- **User Authentication:** Supports user accounts and personalized settings.
+- **Customizable Notifications:** Configurable vibration alerts during focus sessions.
+
+## Documentation
+
+The project includes documentation covering its vision, requirements, architecture, and overall presentation:
 
 - [Product Vision](Docs/Product-Vision.md)
 - [Elevator Pitch](Docs/ElevatorPitch.md)
 - [Requirements](Docs/Requirements.md)
-- [Architecture And Design](Docs/Architecture-And-Design.md)
+- [Architecture and Design](Docs/Architecture-And-Design.md)
 
-For access to APK click [here](src/APK) 
+## Technology Stack
 
-For access to Final APK click [here](src/APK_final_release) 
+- **Language:** Dart
+- **Framework:** Flutter
+- **Backend and Database:** Firebase
+  - Firebase Authentication
+  - Cloud Firestore
+- **Additional Packages:**
+  - `percent_indicator`
+  - `curved_navigation_bar`
+  - `flutter_svg`
+  - `vibration`
+  - `flutter_gherkin`
 
-Iterantion 1 begin:
-![Iterantion 1 begin](https://user-images.githubusercontent.com/113974128/228502254-6c8a3918-e9b7-4e21-8559-f3dc33e00b5c.png)
+## Project Structure
 
-Iteration 1 end:
-![Iteration 1 end](https://user-images.githubusercontent.com/113974128/228502404-e4392bad-739d-4ac7-a422-b7046f9a5ec6.png)
+```text
+TimeSlice/
+├── Docs/
+│   ├── Product-Vision.md
+│   ├── ElevatorPitch.md
+│   ├── Requirements.md
+│   └── Architecture-And-Design.md
+└── src/
+    ├── lib/
+    │   ├── Screen/
+    │   ├── Widgets/
+    │   ├── UserModel.dart
+    │   ├── firebase_options.dart
+    │   └── main.dart
+    ├── APK/
+    └── APK_final_release/
+```
 
-</br>
-<p>During this Iteration we didn't make every thing we propose ourselves to do, but we make good progress in the development of the app.</p>
-</br>
+## Getting Started
 
-Iterantion 2 begin:
-![Iterantion 2 begin](https://user-images.githubusercontent.com/113974128/232756880-fed7aa27-80a6-49cb-a297-9c512ccfc715.png)
+### Prerequisites
 
-Iteration 2 end:
-![Iteration 2 end](https://user-images.githubusercontent.com/113974128/232758249-9f123a73-5336-4b11-a832-0c04ea2dbe07.png)
+- Flutter SDK
+- Dart SDK
+- A Firebase project configured for the application
 
-</br>
-<p>During this Iteration we didn't make every thing we propose ourselves to do, but we make good progress in the development of the app.</p>
-</br>
+### Installation
 
-Iterantion 3 begin:
-![Iterantion 3 begin](https://github.com/FEUP-LEIC-ES-2022-23/2LEIC12T3/assets/113974128/1fe1e5ee-632a-4cd3-8840-ca92a0f19239)
+1. Clone the repository:
 
+   ```bash
+   git clone https://github.com/JPsobral20/TimeSlice.git
+   cd TimeSlice
+   ```
 
-Iteration 3 end:
-![Iteration 3 end](https://github.com/FEUP-LEIC-ES-2022-23/2LEIC12T3/assets/113974128/02246959-990b-41ed-8837-69c9cab619b4)
+2. Navigate to the application directory:
 
-</br>
-<p>During this Iteration we didn't make every thing we propose ourselves to do, but we make good progress in the development of the app.</p>
-</br>
+   ```bash
+   cd src
+   ```
 
-Iterantion 4 begin:
-![Iterantion 4 begin](https://github.com/FEUP-LEIC-ES-2022-23/2LEIC12T3/assets/113974128/31fceac7-27e4-49a2-b1ef-2e40ccb627a0)
+3. Install dependencies:
 
+   ```bash
+   flutter pub get
+   ```
 
-Iteration 4 end:
-![Iteration 4 end](https://github.com/FEUP-LEIC-ES-2022-23/2LEIC12T3/assets/113974128/85231b59-1236-4016-8a9c-852abdc46624)
+4. Configure Firebase for your own project, including the required platform-specific configuration files.
 
-</br>
-<p>During this Iteration we make every thing we propose ourselves to do and even though we didn't make all users stories, we are happy with the final state of our application.</p>
-</br>
+5. Run the application:
+
+   ```bash
+   flutter run
+   ```
+
+## Android Application
+
+Pre-built Android APKs are available in the repository:
+
+- [APK directory](src/APK/)
+- [Final APK directory](src/APK_final_release/)
+
+For the latest version, refer to the final release directory.
+
+## Academic Context
+
+Developed as part of the **Software Engineering** course at the Faculty of Engineering of the University of Porto (FEUP), during the 2022/2023 academic year.
+
+The project involved requirements engineering, software architecture, implementation, and testing.
+
+---
+
+**TimeSlice** — Making study time count.
